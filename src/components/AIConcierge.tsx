@@ -1,6 +1,6 @@
 'use client'
 import React, { useState } from 'react';
-import { GoogleGenAI } from '@google/genai';
+import { GoogleGenAI } from "@google/genai";
 import { Sparkles, X, MessageCircle, Send } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -21,6 +21,7 @@ const AIConcierge: React.FC = () => {
     setIsLoading(true);
 
     try {
+      // Create a new GoogleGenAI instance right before making an API call to ensure latest API key
       const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
       const response = await ai.models.generateContent({
         model: 'gemini-3-flash-preview',
@@ -30,6 +31,7 @@ const AIConcierge: React.FC = () => {
         },
       });
 
+      // Directly access .text property from response
       setMessages(prev => [...prev, { role: 'ai', text: response.text || "I apologize, our concierge is momentarily indisposed." }]);
     } catch (error) {
       console.error(error);
