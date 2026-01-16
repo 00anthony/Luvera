@@ -40,26 +40,26 @@ const ProductJourney: React.FC = () => {
       gsap.set(".benefit-item", { opacity: 0, x: -50 });
       gsap.set(".hand-reveal", { opacity: 0, y: 150 });
 
+      // Exit distance logic: Move further on mobile to clear the screen entirely
+      const exitDistance = isMobile ? 180 : 120;
+      const exitRotation = isMobile ? 45 : 25;
+
       // PHASE 1: GENESIS (The Reveal)
-      // All elements in this block are perfectly synced using start time 0
       timeline
         // Hero BG Text: First gains full opacity, then fades back to subtle
         .to(".hero-bg-text", { opacity: 1, scale: 1.05, duration: 1 }, 0)
         .to(".hero-bg-text", { opacity: 0.1, scale: 1, duration: 1 }, 1)
         
         // Vegetation: Move out with outward rotation and ease-out motion
-        .to(".vegetation-left", { xPercent: -120, rotate: -25, duration: 2, ease: "power2.out" }, 0)
-        .to(".vegetation-right", { xPercent: 120, rotate: 25, duration: 2, ease: "power2.out" }, 0)
+        // Increased xPercent for mobile and ensure perfect split via object positioning
+        .to(".vegetation-left", { xPercent: -exitDistance, rotate: -exitRotation, duration: 2, ease: "power2.out" }, 0)
+        .to(".vegetation-right", { xPercent: exitDistance, rotate: exitRotation, duration: 2, ease: "power2.out" }, 0)
         
         // Tub: Lid and Base move into view with synced ease-out motion
         .to(".tub-lid", { y: 0, duration: 2, ease: "power2.out" }, 0)
         .to(".tub-base", { y: 0, duration: 2, ease: "power2.out" }, 0);
 
       // --- SPREAD ADJUSTMENT GUIDE ---
-      // To adjust how far the modules fan out:
-      // - Increase the 'vw' values (Horizontal spread) to move cards further to the left/right.
-      // - Increase the 'vh' values (Vertical spread) to move cards further up/down.
-      
       const desktopOffsets = [
         { x: "-26vw", y: "-30vh" }, // Top Left
         { x: "26vw", y: "-30vh" },  // Top Right
@@ -94,7 +94,6 @@ const ProductJourney: React.FC = () => {
 
       // PHASE 3: BENEFITS
       timeline
-        // Fade out hero background text completely during the benefits phase
         .to(".hero-bg-text", { opacity: 0, duration: 0.8 }, ">")
         .to(".benefits-overlay", { 
           yPercent: 0, 
@@ -133,15 +132,27 @@ const ProductJourney: React.FC = () => {
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150vw] h-[150vw] bg-emerald-950/10 rounded-full blur-[200px]" />
         </div>
 
-        <div className="hero-bg-text absolute z-10 text-[25vw] font-serif font-black tracking-tighter text-zinc-500 select-none pointer-events-none">
+        {/* Hero BG Text: Moved top from 50% to 42% on mobile to fill empty space */}
+        <div className="hero-bg-text absolute z-10 top-[30%] md:top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[25vw] font-serif font-black tracking-tighter text-zinc-700 select-none pointer-events-none">
           NOURISH
         </div>
 
-        <div className="vegetation-left absolute z-30 left-0 w-1/2 h-full pointer-events-none origin-bottom-left">
-          <img src="/aloe-plant-blackbg-left.png" className="overflow-visible h-full w-full object-cover opacity-70 grayscale-[0.2]" alt="" />
+        {/* VEGETATION LEFT: object-right ensures it meets exactly at the container edge */}
+        <div className="vegetation-left absolute z-30 left-0 w-1/2 h-full pointer-events-none origin-bottom-left overflow-hidden">
+          <img 
+            src="/aloe-plant-blackbg-left.png" 
+            className="h-full w-full object-cover object-right opacity-70 grayscale-[0.2]" 
+            alt="" 
+          />
         </div>
-        <div className="vegetation-right absolute z-30 right-0 w-1/2 h-full pointer-events-none origin-bottom-right">
-          <img src="/aloe-plant-blackbg-left.png" className="h-full w-full object-cover opacity-70 grayscale-[0.2] scale-x-[-1]" alt="" />
+
+        {/* VEGETATION RIGHT: object-left ensures it meets exactly at the container edge */}
+        <div className="vegetation-right absolute z-30 right-0 w-1/2 h-full pointer-events-none origin-bottom-right overflow-hidden">
+          <img 
+            src="/aloe-plant-blackbg-right.png" 
+            className="h-full w-full object-cover object-left opacity-70 grayscale-[0.2] " 
+            alt="" 
+          />
         </div>
 
         <div className="absolute inset-0 z-20 flex items-center justify-center pointer-events-none">
@@ -174,7 +185,7 @@ const ProductJourney: React.FC = () => {
 
         <div className="tub-container relative z-45 w-70 md:w-120 flex flex-col items-center">
           <div className="tub-lid z-20 -mb-2">
-             <div className="w-55 md:w-87.5 h-11.25 md:h-17.5 bg-linear-to-b from-zinc-700 to-black rounded-t-[120px] shadow-2xl border-t border-white/20 relative">
+             <div className="w-55 md:w-87.5 h-11.25 md:h-17,5 bg-linear-to-b from-zinc-700 to-black rounded-t-[120px] shadow-2xl border-t border-white/20 relative">
                <div className="absolute inset-x-0 bottom-0 h-px bg-zinc-600/50" />
              </div>
           </div>
