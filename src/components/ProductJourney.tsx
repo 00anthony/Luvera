@@ -185,14 +185,14 @@ const ProductJourney: React.FC = () => {
               className={`ing-${i} ingredient-card absolute ${isMobile ? 'w-48 p-5' : 'w-80 p-8'} rounded-[48px] bg-zinc-900/95 backdrop-blur-3xl border border-white/10 flex flex-col items-center text-center shadow-2xl overflow-hidden`}
             >
               <div className="relative mb-6">
-                <div className="absolute inset-0 bg-emerald-500/20 blur-2xl rounded-full" />
+                <div className="absolute inset-0 bg-violet-500/20 blur-2xl rounded-full" />
                 <img 
                   src={ing.image} 
                   className="w-16 h-16 md:w-28 md:h-28 object-cover rounded-3xl relative z-10 border border-white/10 shadow-lg grayscale-[0.1]" 
                   alt={ing.name} 
                 />
               </div>
-              <h4 className="text-sm md:text-xl font-black uppercase tracking-widest text-emerald-400 mb-3 md:mb-4">{ing.name}</h4>
+              <h4 className="text-sm md:text-xl font-black uppercase tracking-widest text-violet-400 mb-3 md:mb-4">{ing.name}</h4>
               <p className="text-[10px] md:text-base leading-relaxed text-zinc-300 font-medium italic">{ing.desc}</p>
               <div className="absolute top-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-white/30 to-transparent" />
             </div>

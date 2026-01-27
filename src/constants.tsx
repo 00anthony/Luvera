@@ -6,35 +6,35 @@ export const INGREDIENTS = [
     id: 1, 
     name: "Aloe Vera", 
     desc: "Provides hydration, soothes irritation, and promotes healing.", 
-    image: "https://images.unsplash.com/photo-1596178060671-7a80dc8059ea?q=80&w=400", 
+    image: "/aloe-ingredients.png", 
     pos: { x: -160, y: -160 } 
   },
   { 
     id: 2, 
-    name: "Vitamin E", 
-    desc: "Acts as an antioxidant, protecting skin from free radicals.", 
-    image: "https://images.unsplash.com/photo-1626771380068-07e056961442?q=80&w=400", 
+    name: "Vitamin C", 
+    desc: "Helps promote a healthier, more even appearance.", 
+    image: "/vitamin-c-ingredients.png", 
     pos: { x: 160, y: -160 } 
   },
   { 
     id: 3, 
-    name: "Shea Butter", 
-    desc: "Offers rich emollients, deeply moisturizing the skin.", 
-    image: "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?q=80&w=400", 
+    name: "Chamomile Extract", 
+    desc: "Helps smooth skin and reduce the look of irritation.", 
+    image: "/chamomile-ingredients.jpg", 
     pos: { x: 220, y: 40 } 
   },
   { 
     id: 4, 
     name: "Squalane", 
-    desc: "Helps maintain moisture and improves skin texture.", 
-    image: "https://images.unsplash.com/photo-1556228578-0d85b1a4d571?q=80&w=400", 
+    desc: "Helps maintain moisture and improves skin texture without clogging pores.", 
+    image: "/olive-ingredients.png", 
     pos: { x: 0, y: 220 } 
   },
   { 
     id: 5, 
-    name: "Green Tea", 
-    desc: "Contains anti-inflammatory properties that calm the skin.", 
-    image: "https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?q=80&w=400", 
+    name: "Hyaluronic Acid", 
+    desc: "Helps attract and retain moisture throughout the day.", 
+    image: "/hyaluronic-acid-ingredients.jpg", 
     pos: { x: -220, y: 40 } 
   }
 ];
@@ -42,12 +42,12 @@ export const INGREDIENTS = [
 export const BENEFITS = [
   { 
     title: "Deep Hydration", 
-    desc: "Provides long-lasting moisture, keeping skin soft and smooth.", 
+    desc: "Lightweight, long-lasting moisture that protects the skin barrier.", 
     image: "https://images.unsplash.com/photo-1559839734-2b71f153673f?q=80&w=300" 
   },
   { 
     title: "Soothes Skin", 
-    desc: "Calms redness and irritation, perfect for sensitive skin.", 
+    desc: "Calms redness and irritation, perfect for sensitive skin & daily use.", 
     image: "https://images.unsplash.com/photo-1515377662630-6c7d95a4e6ca?q=80&w=300" 
   },
   { 
@@ -56,8 +56,8 @@ export const BENEFITS = [
     image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=300" 
   },
   { 
-    title: "Rich Antioxidants", 
-    desc: "Fights aging and repairs skin with essential vitamins.", 
+    title: "Peptide Rich", 
+    desc: "Fights aging and repairs skin with essential vitamins like Acetyl Hexapeptide-37.", 
     image: "https://images.unsplash.com/photo-1540439867361-2309777ca50e?q=80&w=300" 
   }
 ];
