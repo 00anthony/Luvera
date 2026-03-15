@@ -4,7 +4,7 @@ import Navbar from '../components/Navbar';
 import ProductJourney from '../components/ProductJourney';
 import Creators from '../components/Creators';
 import Footer from '../components/Footer';
-import DiscountPopup from '../components/DiscountPopup';
+//import DiscountPopup from '../components/DiscountPopup';
 import AIConcierge from '../components/AIConcierge';
 // Import missing TIKTOK_SHOP_URL
 import { TIKTOK_SHOP_URL } from '../constants';
@@ -52,7 +52,7 @@ const App: React.FC = () => {
       <Footer />
 
       {/* Overlays */}
-      <DiscountPopup />
+      {/* <DiscountPopup /> */}
       <AIConcierge />
     </div>
   );
