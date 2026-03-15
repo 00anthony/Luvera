@@ -123,7 +123,7 @@ const ProductJourney: React.FC = () => {
         }, "<")
         .to(".tub-container", {
           x: isMobile ? 0 : "22vw",
-          y: isMobile ? "-37vh" : "0vh",
+          y: isMobile ? "-38vh" : "0vh",
           scale: isMobile ? 0.45 : 0.65,
           duration: 2,
           ease: "power3.inOut"
