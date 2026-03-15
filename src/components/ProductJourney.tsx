@@ -15,10 +15,10 @@ const TUB_LID_URL = "/tub-lid.png"; // Replace with your lid-only image
 const TUB_BASE_URL = "/tub-base.png"; // Replace with your base-only image
 
 // Widths for the product parts
-const LID_WIDTH_DESKTOP = "350px";
-const LID_WIDTH_MOBILE = "220px";
-const BASE_WIDTH_DESKTOP = "346px";
-const BASE_WIDTH_MOBILE = "216px";
+const LID_WIDTH_DESKTOP = "700px";
+const LID_WIDTH_MOBILE = "350px";
+const BASE_WIDTH_DESKTOP = "700px";
+const BASE_WIDTH_MOBILE = "350px";
 
 /**
  * --- IMAGE SIZE CONTROLS ---
@@ -213,30 +213,37 @@ const ProductJourney: React.FC = () => {
           </div>
         )}
 
-        {/* Tub Container: Scale styles added to images for sizing control */}
-        <div className="tub-container relative z-45 w-80 md:w-120 flex flex-col items-center">
-          <div className="tub-lid z-20 -mb-2 overflow-visible flex justify-center">
-             <img 
-               src={TUB_LID_URL} 
-               alt="Product Lid"
-               style={{ 
-                 width: isMobile ? LID_WIDTH_MOBILE : LID_WIDTH_DESKTOP,
-                 transform: `scale(${LID_SCALE})`
-               }}
-               className="h-auto object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.8)] transition-transform"
-             />
-          </div>
-          <div className="tub-base z-10 relative flex justify-center">
-            <img 
-              src={TUB_BASE_URL} 
-              alt="Product Base"
-              style={{ 
-                width: isMobile ? BASE_WIDTH_MOBILE : BASE_WIDTH_DESKTOP,
-                transform: `scale(${BASE_SCALE})`
+        {/* Tub Container */}
+        <div className="tub-container relative z-45 w-150 flex flex-col items-center">
+
+          {/* LID */}
+          <div className="tub-lid z-20 overflow-visible flex justify-center">
+            <img
+              src={TUB_LID_URL}
+              alt="Product Lid"
+              style={{
+                width: isMobile ? LID_WIDTH_MOBILE : LID_WIDTH_DESKTOP,
+                maxWidth: "none",
+                transform: `scale(${LID_SCALE}) translateY(50%)`, // push DOWN toward base
+                transformOrigin: "center bottom",
               }}
-              className="h-auto object-contain drop-shadow-[0_40px_100px_rgba(0,0,0,1)] transition-transform"
+              className="h-auto object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.8)]"
             />
-            <div className="absolute inset-0 bg-linear-to-tr from-white/10 via-transparent to-transparent pointer-events-none mix-blend-overlay" />
+          </div>
+
+          {/* BASE */}
+          <div className="tub-base z-10 relative flex justify-center">
+            <img
+              src={TUB_BASE_URL}
+              alt="Product Base"
+              style={{
+                width: isMobile ? BASE_WIDTH_MOBILE : BASE_WIDTH_DESKTOP,
+                maxWidth: "none",
+                transform: `scale(${BASE_SCALE}) translateY(-51%)`, // push UP toward lid
+                transformOrigin: "center top",
+              }}
+              className="h-auto object-contain drop-shadow-[0_40px_100px_rgba(0,0,0,1)]"
+            />
           </div>
         </div>
 
