@@ -35,7 +35,11 @@ const Navbar: React.FC = () => {
 
         {/* Center: Logo */}
         <a href="/" className="absolute left-1/2 -translate-x-1/2 text-3xl font-serif tracking-tighter">
-          Luvera
+          <img 
+            src="/logo-white.webp"
+            alt="Luvera logo"
+            className="w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-110 group-hover:opacity-100 group-hover:grayscale-0 grayscale-[0.3]"
+          />
         </a>
 
         {/* Right Side: Icons */}
