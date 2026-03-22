@@ -205,8 +205,10 @@ const ProductJourney: React.FC = () => {
               className={`ing-${i} ingredient-card absolute rounded-4xl overflow-hidden flex flex-col`}
               style={{
                 width: isMobile ? '200px' : '300px',
-                background: '#111114',
-                border: '0.5px solid rgba(255,255,255,0.1)',
+                backdropFilter: 'blur(12px)',
+                  WebkitBackdropFilter: 'blur(12px)',
+                background: '',
+                border: '0px solid rgba(255,255,255,0.1)',
               }}
             >
               {/* Top: split image + header */}
@@ -237,7 +239,7 @@ const ProductJourney: React.FC = () => {
                       color: 'rgba(255,255,255,0.3)',
                     }}
                   >
-                    Key Ingredient
+                    Premium Ingredient
                   </p>
                   <h4
                     style={{
@@ -308,8 +310,18 @@ const ProductJourney: React.FC = () => {
           ))}
         </div>
 
-        <div className="benefits-overlay absolute inset-0 z-30 bg-black/50 backdrop-blur-md pointer-events-none">
+        <div className="benefits-overlay absolute inset-0 z-30 pointer-events-none">
+          {/* Dark overlay for the whole section */}
+          <div className="absolute inset-0 bg-black/50 backdrop-blur-md" />
           <div className="absolute inset-0 bg-linear-to-t from-black via-black/80 to-transparent" />
+
+          {/* Image — desktop only, right side, slightly transparent */}
+          <img
+            src="/benefits/benefits-bg.webp"
+            alt="benefits-background"
+            className="hidden md:block absolute top-0 right-0 h-full w-1/2 object-cover object-center"
+            style={{ filter: 'saturate(0.6) brightness(0.85)', opacity: 0.45 }}
+          />
         </div>
 
         {!isMobile && (
@@ -344,7 +356,7 @@ const ProductJourney: React.FC = () => {
 
             <button
               onClick={handleAddToCart}
-              className="w-full md:px-6 py-1 md:py-3 rounded-full bg-white text-black text-xs font-black uppercase tracking-widest hover:bg-violet-400 transition-all duration-300 flex items-center justify-center cursor-pointer"
+              className="w-full md:px-6 py-1 md:py-3 rounded-full bg-white text-black text-xs font-black uppercase tracking-widest hover:bg-violet-40 shadow-[0_20px_60px_rgba(139,92,246,0.3)] transition-all duration-300 flex items-center justify-center cursor-pointer"
             >
               {/* Cart icon — mobile only */}
               <ShoppingCart />
@@ -385,15 +397,71 @@ const ProductJourney: React.FC = () => {
           </div>
         </div>
 
-        <div className={`absolute z-50 ${isMobile ? 'bottom-[5%] left-0 right-0 px-8 space-y-4' : 'left-[8%] top-1/2 -translate-y-1/2 max-w-xl space-y-8'}`}>
+        <div className={`absolute z-50 ${isMobile ? 'bottom-[5%] left-0 right-0 px-6 space-y-3' : 'left-[8%] top-1/2 -translate-y-1/2 max-w-xl space-y-3.5'}`}>
           {BENEFITS.map((benefit, i) => (
-            <div key={i} className="benefit-item group relative overflow-hidden flex items-center space-x-6 p-6 rounded-[2.5rem] bg-zinc-900/40 border border-white/5 shadow-2xl transition-transform hover:scale-105">
-              <div className="w-14 h-14 md:w-20 md:h-20 rounded-3xl bg-black flex items-center justify-center shrink-0 overflow-hidden">
-                <img src={benefit.image} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" alt={benefit.title} />
+            <div
+              key={i}
+              className="benefit-item group relative flex items-stretch overflow-hidden rounded-[28px] bg-zinc-900/95 border border-white/9"
+              style={{ minHeight: isMobile ? '88px' : '110px' }}
+            >
+              {/* Image — absolutely positioned behind everything */}
+              <div className="absolute top-0 left-0 bottom-0 overflow-hidden" style={{ width: isMobile ? '110px' : '130px' }}>
+                <img
+                  src={benefit.image}
+                  alt={benefit.title}
+                  className="w-full h-full object-cover object-center block"
+                  
+                />
+                {/* Feather edge toward the text */}
+                <div
+                  className="absolute inset-0 pointer-events-none"
+                  style={{ background: 'linear-gradient(to right, transparent 60%, #111114 100%)' }}
+                />
               </div>
-              <div>
-                <h3 className="text-xl md:text-4xl font-serif text-white mb-1 leading-tight">{benefit.title}</h3>
-                <p className="text-[11px] md:text-sm text-zinc-400 leading-relaxed font-bold uppercase tracking-widest">{benefit.desc}</p>
+
+              {/* Index column — sits on top of image, transparent + blurred */}
+              <div
+                className="shrink-0 flex flex-col items-center justify-end pb-3 relative z-10 border-r border-white/[0.07]"
+                style={{
+                  width: isMobile ? '36px' : '42px',
+                  backdropFilter: 'blur(12px)',
+                  WebkitBackdropFilter: 'blur(12px)',
+                  background: 'rgba(17,17,20,0.25)',
+                }}
+              >
+                <span
+                  className="text-white/35"
+                  style={{
+                    fontFamily: "'Cormorant Garamond', serif",
+                    fontSize: '11px',
+                    fontWeight: 300,
+                    letterSpacing: '0.1em',
+                    writingMode: 'vertical-rl',
+                    transform: 'rotate(180deg)',
+                  }}
+                >
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+              </div>
+
+              {/* Text content */}
+              <div className="ml-20 flex-1 flex flex-col justify-center gap-2 px-4 py-5 relative z-10">
+                <p style={{ fontFamily: "'Tenor Sans', sans-serif", fontSize: '7.5px', letterSpacing: '0.24em', color: 'rgba(255,255,255,0.25)', textTransform: 'uppercase' }}>
+                  Luvera Certified
+                </p>
+                <h3 className="m-0" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: isMobile ? '20px' : '26px', fontWeight: 300, color: '#f0ece6', lineHeight: 1.05 }}>
+                  {benefit.title}
+                </h3>
+                <div style={{ height: '0.5px', background: 'linear-gradient(to right, rgba(255,255,255,0.12), transparent)' }} />
+                <p className="m-0" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: isMobile ? '11px' : '13.5px', fontStyle: 'italic', fontWeight: 300, color: 'rgba(240,236,230,0.5)', lineHeight: 1.6 }}>
+                  {benefit.desc}
+                </p>
+              </div>
+
+              {/* Ghost number */}
+              <div className="absolute right-4 bottom-0 pointer-events-none select-none leading-none z-10"
+                style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '88px', fontWeight: 300, color: 'rgba(255,255,255,0.03)' }}>
+                {String(i + 1).padStart(2, '0')}
               </div>
             </div>
           ))}
