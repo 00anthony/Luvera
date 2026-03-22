@@ -18,17 +18,7 @@ const App: React.FC = () => {
         {/* The Core Experience */}
         <ProductJourney />
         
-        {/* Trust & Community */}
-        <section className="bg-black py-24 border-t border-white/5 relative z-50">
-           <div className="max-w-7xl mx-auto px-6 text-center mb-16">
-              <h2 className="text-5xl md:text-7xl font-serif italic mb-6">Experience the Transformation.</h2>
-              <p className="text-zinc-400 max-w-2xl mx-auto text-lg leading-relaxed">
-                Luvera isn't just a moisturizer; it's a commitment to your skin's long-term health. 
-                Science-backed, nature-derived, and luxury-finished.
-              </p>
-           </div>
-           <Creators />
-        </section>
+        <Creators />
 
         {/* CTA Section */}
         <section className="h-screen bg-black flex flex-col items-center justify-center text-center px-6 relative overflow-hidden">
@@ -41,7 +31,7 @@ const App: React.FC = () => {
               {/* Used imported TIKTOK_SHOP_URL constant */}
               <a 
                 href={TIKTOK_SHOP_URL}
-                className="inline-block px-16 py-6 bg-white text-black font-bold uppercase tracking-widest hover:bg-purple-600 hover:text-white transition-all duration-500 transform hover:scale-110 shadow-[0_20px_60px_rgba(139,92,246,0.3)]"
+                className="inline-block px-16 py-6 bg-white text-black font-bold uppercase tracking-widest hover:bg-violet-400 hover:text-white transition-all duration-500 transform hover:scale-110 shadow-[0_20px_60px_rgba(139,92,246,0.3)]"
               >
                 Shop Now
               </a>
