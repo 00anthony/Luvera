@@ -7,8 +7,8 @@ import { ShoppingCart } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const TUB_LID_URL = "/tub-lid.png";
-const TUB_BASE_URL = "/tub-base.png";
+const TUB_LID_URL = "/tub-lid2.webp";
+const TUB_BASE_URL = "/tub-base2.webp";
 const LID_WIDTH_DESKTOP = "700px";
 const LID_WIDTH_MOBILE = "350px";
 const BASE_WIDTH_DESKTOP = "700px";
@@ -52,20 +52,20 @@ const ProductJourney: React.FC = () => {
 
   console.log('Status:', res.status);
   const data = await res.json();
-  console.log('Full response:', JSON.stringify(data, null, 2));
+    console.log('Full response:', JSON.stringify(data, null, 2));
 
-  if (data.errors) {
-    console.error('GraphQL errors:', data.errors);
-    return;
-  }
+    if (data.errors) {
+      console.error('GraphQL errors:', data.errors);
+      return;
+    }
 
-  if (!data.data?.cartCreate?.cart) {
-    console.error('No cart returned:', data);
-    return;
-  }
+    if (!data.data?.cartCreate?.cart) {
+      console.error('No cart returned:', data);
+      return;
+    }
 
-  window.location.href = data.data.cartCreate.cart.checkoutUrl;
-};
+    window.location.href = data.data.cartCreate.cart.checkoutUrl;
+  };
 
   
 
@@ -105,7 +105,7 @@ const ProductJourney: React.FC = () => {
         .to(".hero-bg-text", { opacity: 0.1, scale: 1, duration: 1 }, 1)
         .to(".vegetation-left", { xPercent: -exitDistance, rotate: -exitRotation, duration: 2, ease: "power2.out" }, 0)
         .to(".vegetation-right", { xPercent: exitDistance, rotate: exitRotation, duration: 2, ease: "power2.out" }, 0)
-        .to(".tub-lid", { y: isMobile ? -80 : 0, duration: 2, ease: "power2.out" }, 0)
+        .to(".tub-lid", { y: isMobile ? -83 : -7, duration: 2, ease: "power2.out" }, 0)
         .to(".tub-base", { y: isMobile ? -80 : 0, duration: 2, ease: "power2.out" }, 0)
         .to(".product-info", { opacity: 1, y: 0, duration: 0.8, ease: "power2.out"}, 1.5);
 
@@ -153,9 +153,9 @@ const ProductJourney: React.FC = () => {
         }, ">-0.1")
         .to(".benefits-overlay", { yPercent: 0, duration: 2, ease: "power3.inOut" }, "<")
         .to(".tub-container", {
-          x: isMobile ? 0 : "22vw",
-          y: isMobile ? "-34vh" : "0vh",
-          scale: isMobile ? 0.45 : 0.65,
+          x: isMobile ? 0 : "25vw",
+          y: isMobile ? "-34vh" : "14vh",
+          scale: isMobile ? 0.45 : 1.2,
           duration: 2,
           ease: "power3.inOut"
         }, "<")
@@ -317,7 +317,7 @@ const ProductJourney: React.FC = () => {
 
           {/* Image — desktop only, right side, slightly transparent */}
           <img
-            src="/benefits/benefits-bg.webp"
+            src="/benefits/benefits-bg-no-tub.png"
             alt="benefits-background"
             className="hidden md:block absolute top-0 right-0 h-full w-1/2 object-cover object-center"
             style={{ filter: 'saturate(0.6) brightness(0.85)', opacity: 0.45 }}
@@ -337,7 +337,7 @@ const ProductJourney: React.FC = () => {
           <div className={`
             product-info absolute pointer-events-auto z-20
             ${isMobile
-              ? 'left-3/4 top-1/4 -translate-y-1/2 -ml-16 mt-8 w-20 flex flex-col items-center text-center'
+              ? 'left-3/4 top-1/4 -translate-y-1/2 -ml-16 mt-24 w-20 flex flex-col items-center text-center'
               : 'left-5/6 top-1/2 -translate-y-1/2 -ml-8 w-55 flex flex-col items-start'
             }
           `}>
