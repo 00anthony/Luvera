@@ -58,11 +58,11 @@ import {
   ShopifyUpdateCartOperation,
 } from "./types";
 
-const domain = process.env.SHOPIFY_STORE_DOMAIN
-  ? ensureStartsWith(process.env.SHOPIFY_STORE_DOMAIN, "https://")
+const domain = process.env.NEXT_PUBLIC_SHOPIFY_STORE_DOMAIN
+  ? ensureStartsWith(process.env.NEXT_PUBLIC_SHOPIFY_STORE_DOMAIN, "https://")
   : "";
 const endpoint = domain ? `${domain}${SHOPIFY_GRAPHQL_API_ENDPOINT}` : "";
-const key = process.env.SHOPIFY_STOREFRONT_ACCESS_TOKEN!;
+const key = process.env.NEXT_PUBLIC_SHOPIFY_STOREFRONT_ACCESS_TOKEN!;
 
 type ExtractVariables<T> = T extends { variables: object }
   ? T["variables"]
@@ -79,7 +79,7 @@ export async function shopifyFetch<T>({
 }): Promise<{ status: number; body: T } | never> {
   try {
     if (!endpoint) {
-      throw new Error("SHOPIFY_STORE_DOMAIN environment variable is not set");
+      throw new Error("NEXT_PUBLIC_SHOPIFY_STORE_DOMAIN environment variable is not set");
     }
 
     const result = await fetch(endpoint, {
