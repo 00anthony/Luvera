@@ -17,17 +17,57 @@ const LID_SCALE = 1.0;
 const BASE_SCALE = 1.0;
 
 
+
 const ProductJourney: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const triggerRef = useRef<HTMLDivElement>(null);
-  const productInfoRef = useRef<HTMLDivElement>(null);
   const [isMobile, setIsMobile] = useState(false);
   const PRODUCT = {
     title: "Luvera Men's Daily Moisturizer",
     handle: "luvera-mens-daily-moisturizer",
     price: "$34.99",
-    variantId: "gid://shopify/ProductVariant/YOUR_VARIANT_ID", // keep for future cart use
+    variantId: "gid://shopify/ProductVariant/46411922964655",
   };
+
+  const handleAddToCart = async () => {
+  const res = await fetch(
+    `https://${process.env.NEXT_PUBLIC_SHOPIFY_STORE_DOMAIN}/api/2026-01/graphql.json`,
+    {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Shopify-Storefront-Access-Token': process.env.NEXT_PUBLIC_SHOPIFY_STOREFRONT_ACCESS_TOKEN!,
+      },
+      body: JSON.stringify({
+        query: `mutation {
+          cartCreate(input: {
+            lines: [{ quantity: 1, merchandiseId: "${PRODUCT.variantId}" }]
+          }) {
+            cart { checkoutUrl }
+          }
+        }`
+      }),
+    }
+  );
+
+  console.log('Status:', res.status);
+  const data = await res.json();
+  console.log('Full response:', JSON.stringify(data, null, 2));
+
+  if (data.errors) {
+    console.error('GraphQL errors:', data.errors);
+    return;
+  }
+
+  if (!data.data?.cartCreate?.cart) {
+    console.error('No cart returned:', data);
+    return;
+  }
+
+  window.location.href = data.data.cartCreate.cart.checkoutUrl;
+};
+
+  
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 1024);
@@ -70,19 +110,23 @@ const ProductJourney: React.FC = () => {
         .to(".product-info", { opacity: 1, y: 0, duration: 0.8, ease: "power2.out"}, 1.5);
 
       const desktopOffsets = [
-        { x: "-26vw", y: "-30vh" },
-        { x: "26vw", y: "-30vh" },
-        { x: "34vw", y: "8vh" },
-        { x: "0vw", y: "35vh" },
-        { x: "-34vw", y: "8vh" },
+        { x: "-26vw", y: "-30vh" }, //TL
+        { x: "26vw", y: "-30vh" }, //TR
+        { x: "-34vw", y: "8vh" }, //BL
+        
+        { x: "0vw", y: "35vh" }, //bottom
+        { x: "34vw", y: "8vh" }, //BR
+        
       ];
 
       const mobileOffsets = [
-        { x: "-28vw", y: "-25vh" },
-        { x: "28vw", y: "-25vh" },
-        { x: "30vw", y: "4vh" },
-        { x: "0vw", y: "25vh" },
-        { x: "-30vw", y: "4vh" },
+        { x: "-28vw", y: "-30vh" }, //Aloe (TL)
+        { x: "28vw", y: "-30vh" }, //Vit C (TR)
+        { x: "-30vw", y: "13vh" }, //HA (BL)
+        
+        { x: "0vw", y: "35vh" }, //squalene (bottom-most)
+        { x: "30vw", y: "13vh" }, //chamo (BR)
+        
       ];
 
       const activeOffsets = isMobile ? mobileOffsets : desktopOffsets;
@@ -100,16 +144,17 @@ const ProductJourney: React.FC = () => {
 
       timeline
         .to(".product-info", {
-        opacity: 0,
-        y: -20,
-        duration: 0.8,
-        ease: "power2.in",
-        pointerEvents: "none", // stops intercepting clicks when invisible
-      }, ">-0.1")
+          opacity: 0,
+          x: isMobile ? "-32vw" : "6vw",
+          y: isMobile ? "-30vh" : "0vh",
+          scale: isMobile ? 0.45 : 0.65,
+          duration: 1,
+          ease: "power2.in" // stops intercepting clicks when invisible
+        }, ">-0.1")
         .to(".benefits-overlay", { yPercent: 0, duration: 2, ease: "power3.inOut" }, "<")
         .to(".tub-container", {
           x: isMobile ? 0 : "22vw",
-          y: isMobile ? "-35vh" : "0vh",
+          y: isMobile ? "-34vh" : "0vh",
           scale: isMobile ? 0.45 : 0.65,
           duration: 2,
           ease: "power3.inOut"
@@ -140,7 +185,7 @@ const ProductJourney: React.FC = () => {
         </div>
 
         <div className="hero-bg-text absolute inset-0 z-10 flex items-center justify-center pointer-events-none">
-          <span className="text-[25vw] font-serif font-black tracking-tighter text-zinc-700 leading-none whitespace-nowrap">
+          <span className="text-[25vw] font-serif font-black tracking-tight md:tracking-tighter text-zinc-700 leading-none whitespace-nowrap">
             LUVERA
           </span>
         </div>
@@ -157,15 +202,108 @@ const ProductJourney: React.FC = () => {
           {INGREDIENTS.map((ing, i) => (
             <div
               key={ing.id}
-              className={`ing-${i} ingredient-card absolute ${isMobile ? 'w-48 p-5' : 'w-80 p-8'} rounded-[48px] bg-zinc-900/95 backdrop-blur-3xl border border-white/10 flex flex-col items-center text-center shadow-2xl overflow-hidden`}
+              className={`ing-${i} ingredient-card absolute rounded-4xl overflow-hidden flex flex-col`}
+              style={{
+                width: isMobile ? '200px' : '300px',
+                background: '#111114',
+                border: '0.5px solid rgba(255,255,255,0.1)',
+              }}
             >
-              <div className="relative mb-6">
-                <div className="absolute inset-0 bg-violet-500/20 blur-2xl rounded-full" />
-                <img src={ing.image} className="w-16 h-16 md:w-28 md:h-28 object-cover rounded-3xl relative z-10 border border-white/10 shadow-lg grayscale-[0.1]" alt={ing.name} />
+              {/* Top: split image + header */}
+              <div className="flex relative overflow-hidden" style={{ height: isMobile ? '110px' : '148px' }}>
+                {/* Image panel — left half, full bleed */}
+                <div className="relative overflow-hidden" style={{ width: '48%', flexShrink: 0 }}>
+                  <img
+                    src={ing.image}
+                    alt={ing.name}
+                    className="w-full h-full object-cover object-center block"
+                    style={{ filter: 'saturate(0.6) brightness(0.85)' }}
+                  />
+                  {/* Feather edge toward the text */}
+                  <div
+                    className="absolute inset-0 pointer-events-none"
+                    style={{ background: 'linear-gradient(to right, transparent 60%, #111114 100%)' }}
+                  />
+                </div>
+
+                {/* Text header — bottom-aligned */}
+                <div className="flex-1 flex flex-col justify-end relative z-10 px-3 pb-3 pt-4">
+                  <p
+                    className="uppercase mb-1.5"
+                    style={{
+                      fontFamily: "'Tenor Sans', sans-serif",
+                      fontSize: isMobile ? '6px' : '8px',
+                      letterSpacing: '0.22em',
+                      color: 'rgba(255,255,255,0.3)',
+                    }}
+                  >
+                    Key Ingredient
+                  </p>
+                  <h4
+                    style={{
+                      fontFamily: "'Cormorant Garamond', serif",
+                      fontSize: isMobile ? '17px' : '22px',
+                      fontWeight: 300,
+                      color: '#f0ece6',
+                      lineHeight: 1.1,
+                      letterSpacing: '0.01em',
+                    }}
+                  >
+                    {ing.name}
+                  </h4>
+                </div>
+
+                {/* Giant faded index number */}
+                <div
+                  className="absolute bottom-0 right-2 pointer-events-none select-none leading-none"
+                  style={{
+                    fontFamily: "'Cormorant Garamond', serif",
+                    fontSize: isMobile ? '64px' : '96px',
+                    fontWeight: 300,
+                    color: 'rgba(255,255,255,0.04)',
+                  }}
+                >
+                  {String(i + 1).padStart(2, '0')}
+                </div>
               </div>
-              <h4 className="text-sm md:text-xl font-black uppercase tracking-widest text-violet-400 mb-3 md:mb-4">{ing.name}</h4>
-              <p className="text-[10px] md:text-base leading-relaxed text-zinc-300 font-medium italic">{ing.desc}</p>
-              <div className="absolute top-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-white/30 to-transparent" />
+
+              {/* Divider */}
+              <div className="px-5 mb-3.5">
+                <div style={{ height: '0.5px', background: 'linear-gradient(to right, rgba(255,255,255,0.15), rgba(255,255,255,0.04))' }} />
+              </div>
+
+              {/* Body: desc + benefit pill */}
+              <div className="px-5 pb-5 flex flex-col gap-3.5">
+                <p
+                  className="m-0"
+                  style={{
+                    fontFamily: "'Cormorant Garamond', serif",
+                    fontSize: isMobile ? '12px' : '15px',
+                    fontStyle: 'italic',
+                    fontWeight: 300,
+                    color: 'rgba(240,236,230,0.65)',
+                    lineHeight: 1.65,
+                  }}
+                >
+                  {ing.desc}
+                </p>
+                <div
+                  className="self-start"
+                  style={{
+                    padding: '4px 12px',
+                    borderRadius: '100px',
+                    border: '0.5px solid rgba(255,255,255,0.12)',
+                    background: 'rgba(255,255,255,0.04)',
+                    fontFamily: "'Tenor Sans', sans-serif",
+                    fontSize: isMobile ? '7px' : '9px',
+                    letterSpacing: '0.18em',
+                    textTransform: 'uppercase',
+                    color: 'rgba(255,255,255,0.4)',
+                  }}
+                >
+                  {ing.benefit}
+                </div>
+              </div>
             </div>
           ))}
         </div>
@@ -187,7 +325,7 @@ const ProductJourney: React.FC = () => {
           <div className={`
             product-info absolute pointer-events-auto z-20
             ${isMobile
-              ? 'top-full left -translate-x-1/2 -mt-44 w-20 flex flex-col items-center text-center pt-6'
+              ? 'left-3/4 top-1/4 -translate-y-1/2 -ml-16 mt-8 w-20 flex flex-col items-center text-center'
               : 'left-5/6 top-1/2 -translate-y-1/2 -ml-8 w-55 flex flex-col items-start'
             }
           `}>
@@ -205,7 +343,7 @@ const ProductJourney: React.FC = () => {
             <div className="h-px bg-white/10 mb-1 md:mb-6 w-full" />
 
             <button
-              onClick={() => window.location.href = `/products/${PRODUCT.handle}`}
+              onClick={handleAddToCart}
               className="w-full md:px-6 py-1 md:py-3 rounded-full bg-white text-black text-xs font-black uppercase tracking-widest hover:bg-violet-400 transition-all duration-300 flex items-center justify-center cursor-pointer"
             >
               {/* Cart icon — mobile only */}

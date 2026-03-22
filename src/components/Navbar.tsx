@@ -16,7 +16,7 @@ const Navbar: React.FC = () => {
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-100 transition-all duration-700 ${
-      isScrolled ? 'bg-black/80 backdrop-blur-xl py-4 border-b border-white/10' : 'bg-transparent py-8'
+      isScrolled ? 'bg-black/80 backdrop-blur-xl py-4 border-b border-white/10' : 'border-b border-b-transparent bg-transparent py-8'
     }`}>
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
         {/* Left Side: Navigation Items */}
@@ -38,7 +38,7 @@ const Navbar: React.FC = () => {
           <img 
             src="/logo-white.webp"
             alt="Luvera logo"
-            className="w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-110 group-hover:opacity-100 group-hover:grayscale-0 grayscale-[0.3]"
+            className="max-h-18 md:w-full md:h-full object-cover transition-transform duration-[1.5s] group-hover:scale-110 "
           />
         </a>
 

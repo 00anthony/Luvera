@@ -5,6 +5,7 @@ export const INGREDIENTS = [
   { 
     id: 1, 
     name: "Aloe Vera", 
+    benefit: "Hydration & Soothing",
     desc: "Provides hydration, soothes irritation, and promotes healing.", 
     image: "/aloe-ingredients.png", 
     pos: { x: -160, y: -160 } 
@@ -12,31 +13,36 @@ export const INGREDIENTS = [
   { 
     id: 2, 
     name: "Vitamin C", 
+    benefit: "Brightening",
     desc: "Helps promote a healthier, more even appearance.", 
     image: "/vitamin-c-ingredients.png", 
     pos: { x: 160, y: -160 } 
   },
   { 
     id: 3, 
+    name: "Hyaluronic Acid", 
+    benefit: "Deep Hydration",
+    desc: "Helps attract and retain moisture throughout the day.", 
+    image: "/hyaluronic-acid-ingredients.jpg", 
+    pos: { x: -220, y: 40 } 
+  },
+  { 
+    id: 5, 
+    name: "Squalane", 
+    benefit: "Moisture Barrier",
+    desc: "Helps maintain moisture and improves skin texture without clogging pores.", 
+    image: "/olive-ingredients.png", 
+    pos: { x: 0, y: 220 } 
+  }, 
+  { 
+    id: 4, 
     name: "Chamomile Extract", 
+    benefit: "Calming",
     desc: "Helps smooth skin and reduce the look of irritation.", 
     image: "/chamomile-ingredients.jpg", 
     pos: { x: 220, y: 40 } 
   },
-  { 
-    id: 4, 
-    name: "Squalane", 
-    desc: "Helps maintain moisture and improves skin texture without clogging pores.", 
-    image: "/olive-ingredients.png", 
-    pos: { x: 0, y: 220 } 
-  },
-  { 
-    id: 5, 
-    name: "Hyaluronic Acid", 
-    desc: "Helps attract and retain moisture throughout the day.", 
-    image: "/hyaluronic-acid-ingredients.jpg", 
-    pos: { x: -220, y: 40 } 
-  }
+  
 ];
 
 export const BENEFITS = [
