@@ -7,7 +7,7 @@ export const INGREDIENTS = [
     name: "Aloe Vera", 
     benefit: "Hydration & Soothing",
     desc: "Provides hydration, soothes irritation, and promotes healing.", 
-    image: "/aloe-ingredients.png", 
+    image: "/ingredients/aloe-ingredients.png", 
     pos: { x: -160, y: -160 } 
   },
   { 
@@ -15,7 +15,7 @@ export const INGREDIENTS = [
     name: "Vitamin C", 
     benefit: "Brightening",
     desc: "Helps promote a healthier, more even appearance.", 
-    image: "/vitamin-c-ingredients.png", 
+    image: "/ingredients/vitamin-c-ingredients.png", 
     pos: { x: 160, y: -160 } 
   },
   { 
@@ -23,7 +23,7 @@ export const INGREDIENTS = [
     name: "Hyaluronic Acid", 
     benefit: "Deep Hydration",
     desc: "Helps attract and retain moisture throughout the day.", 
-    image: "/hyaluronic-acid-ingredients.jpg", 
+    image: "/ingredients/hyaluronic-acid-ingredients.jpg", 
     pos: { x: -220, y: 40 } 
   },
   { 
@@ -31,7 +31,7 @@ export const INGREDIENTS = [
     name: "Squalane", 
     benefit: "Moisture Barrier",
     desc: "Helps maintain moisture and improves skin texture without clogging pores.", 
-    image: "/olive-ingredients.png", 
+    image: "/ingredients/olive-ingredients.png", 
     pos: { x: 0, y: 220 } 
   }, 
   { 
@@ -39,7 +39,7 @@ export const INGREDIENTS = [
     name: "Chamomile Extract", 
     benefit: "Calming",
     desc: "Helps smooth skin and reduce the look of irritation.", 
-    image: "/chamomile-ingredients.jpg", 
+    image: "/ingredients/chamomile-ingredients.jpg", 
     pos: { x: 220, y: 40 } 
   },
   
@@ -49,22 +49,22 @@ export const BENEFITS = [
   { 
     title: "Deep Hydration", 
     desc: "Lightweight, long-lasting moisture that protects the skin barrier.", 
-    image: "https://images.unsplash.com/photo-1559839734-2b71f153673f?q=80&w=300" 
+    image: "/benefits/skin-barrier.jpg" 
   },
   { 
     title: "Soothes Skin", 
     desc: "Calms redness and irritation, perfect for sensitive skin & daily use.", 
-    image: "https://images.unsplash.com/photo-1515377662630-6c7d95a4e6ca?q=80&w=300" 
+    image: "/benefits/face-cream.jpg" 
   },
   { 
     title: "Skin Healing", 
     desc: "Enhances healing of minor cuts, burns, and blemishes.", 
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=300" 
+    image: "/benefits/skin-irritant.jpg" 
   },
   { 
     title: "Peptide Rich", 
     desc: "Fights aging and repairs skin with essential vitamins like Acetyl Hexapeptide-37.", 
-    image: "https://images.unsplash.com/photo-1540439867361-2309777ca50e?q=80&w=300" 
+    image: "/benefits/peptide-rich.jpg" 
   }
 ];
 
