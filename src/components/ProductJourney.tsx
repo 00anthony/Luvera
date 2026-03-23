@@ -113,7 +113,6 @@ const ProductJourney: React.FC = () => {
         { x: "-26vw", y: "-30vh" }, //TL
         { x: "26vw", y: "-30vh" }, //TR
         { x: "-34vw", y: "8vh" }, //BL
-        
         { x: "0vw", y: "35vh" }, //bottom
         { x: "34vw", y: "8vh" }, //BR
         
@@ -122,10 +121,9 @@ const ProductJourney: React.FC = () => {
       const mobileOffsets = [
         { x: "-28vw", y: "-30vh" }, //Aloe (TL)
         { x: "28vw", y: "-30vh" }, //Vit C (TR)
-        { x: "-30vw", y: "13vh" }, //HA (BL)
-        
+        { x: "-28vw", y: "12vh" }, //HA (BL)
         { x: "0vw", y: "35vh" }, //squalene (bottom-most)
-        { x: "30vw", y: "13vh" }, //chamo (BR)
+        { x: "28vw", y: "12vh" }, //chamo (BR)
         
       ];
 
@@ -337,8 +335,8 @@ const ProductJourney: React.FC = () => {
           <div className={`
             product-info absolute pointer-events-auto z-20 
             ${isMobile
-              ? 'left-3/4 top-1/4 -translate-y-1/2 -ml-16 mt-24 w-20 flex flex-col items-center text-center'
-              : 'left-5/6 top-1/2 -translate-y-1/2 -ml-8 w-55 flex flex-col items-start'
+              ? 'left-3/4 top-1/4 -translate-y-1/2 -ml-16 mt-26 w-20 flex flex-col items-center text-center'
+              : 'left-5/6 top-1/2 -translate-y-1/2 -ml-8 mt-3 w-55 flex flex-col items-start'
             }
           `}>
             {/* Full-container link — sits behind everything */}
