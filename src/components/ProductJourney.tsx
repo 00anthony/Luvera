@@ -95,7 +95,7 @@ const ProductJourney: React.FC = () => {
       gsap.set(".benefits-overlay", { yPercent: 100 });
       gsap.set(".benefit-item", { opacity: 0, x: -50 });
       gsap.set(".hand-reveal", { opacity: 0, y: 150 });
-      gsap.set(".product-info", { opacity: 0, Y:20 });
+      gsap.set(".product-info", { opacity: 0, y: 20 });
 
       const exitDistance = isMobile ? 180 : 120;
       const exitRotation = isMobile ? 45 : 25;
