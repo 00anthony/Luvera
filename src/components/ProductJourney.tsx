@@ -95,7 +95,7 @@ const ProductJourney: React.FC = () => {
       gsap.set(".benefits-overlay", { yPercent: 100 });
       gsap.set(".benefit-item", { opacity: 0, x: -50 });
       gsap.set(".hand-reveal", { opacity: 0, y: 150 });
-      gsap.set(".product-info", { opacity: 0, y: 20 });
+      gsap.set(".product-info", { opacity: 0, Y:20 });
 
       const exitDistance = isMobile ? 180 : 120;
       const exitRotation = isMobile ? 45 : 25;
@@ -121,9 +121,9 @@ const ProductJourney: React.FC = () => {
       const mobileOffsets = [
         { x: "-28vw", y: "-30vh" }, //Aloe (TL)
         { x: "28vw", y: "-30vh" }, //Vit C (TR)
-        { x: "-28vw", y: "12vh" }, //HA (BL)
+        { x: "-27vw", y: "12vh" }, //HA (BL)
         { x: "0vw", y: "35vh" }, //squalene (bottom-most)
-        { x: "28vw", y: "12vh" }, //chamo (BR)
+        { x: "27vw", y: "12vh" }, //chamo (BR)
         
       ];
 
@@ -333,7 +333,7 @@ const ProductJourney: React.FC = () => {
 
           {/* Product Info */}
           <div className={`
-            product-info absolute pointer-events-auto z-50 
+            product-info absolute pointer-events-auto z-50
             ${isMobile
               ? 'left-3/4 top-1/4 -translate-y-1/2 -ml-16 mt-26 w-20 flex flex-col items-center text-center'
               : 'left-5/6 top-1/2 -translate-y-1/2 -ml-8 mt-3 w-55 flex flex-col items-start'
