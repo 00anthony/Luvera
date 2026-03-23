@@ -329,11 +329,11 @@ const ProductJourney: React.FC = () => {
         )}
 
         {/* Tub + Product Info wrapper — keeps them coupled for desktop layout */}
-        <div className="relative z-45 flex flex-col items-center">
+        <div className="relative z-50 flex flex-col items-center">
 
           {/* Product Info */}
           <div className={`
-            product-info absolute pointer-events-auto z-20 
+            product-info absolute pointer-events-auto z-50 
             ${isMobile
               ? 'left-3/4 top-1/4 -translate-y-1/2 -ml-16 mt-26 w-20 flex flex-col items-center text-center'
               : 'left-5/6 top-1/2 -translate-y-1/2 -ml-8 mt-3 w-55 flex flex-col items-start'
@@ -400,7 +400,7 @@ const ProductJourney: React.FC = () => {
           </div>
         </div>
 
-        <div className={`absolute z-50 ${isMobile ? 'bottom-[5%] left-0 right-0 px-6 space-y-3' : 'left-[8%] top-1/2 -translate-y-1/2 max-w-xl space-y-3.5'}`}>
+        <div className={`absolute z-45 ${isMobile ? 'bottom-[5%] left-0 right-0 px-6 space-y-3' : 'left-[8%] top-1/2 -translate-y-1/2 max-w-xl space-y-3.5'}`}>
           {BENEFITS.map((benefit, i) => (
             <div
               key={i}
