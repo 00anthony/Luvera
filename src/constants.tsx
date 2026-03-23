@@ -23,7 +23,7 @@ export const INGREDIENTS = [
     name: "Hyaluronic Acid", 
     benefit: "Deep Hydration",
     desc: "Helps attract and retain moisture throughout the day.", 
-    image: "/ingredients/hyaluronic-acid-ingredients.jpg", 
+    image: "/ingredients/hyaluronic-acid2.jpg", 
     pos: { x: -220, y: 40 } 
   },
   { 
@@ -39,7 +39,7 @@ export const INGREDIENTS = [
     name: "Chamomile Extract", 
     benefit: "Calming",
     desc: "Helps smooth skin and reduce the look of irritation.", 
-    image: "/ingredients/chamomile-ingredients.jpg", 
+    image: "/ingredients/chamomile-ingredients2.jpg", 
     pos: { x: 220, y: 40 } 
   },
   
