@@ -145,9 +145,9 @@ const ProductJourney: React.FC = () => {
       timeline
         .to(".product-info", {
           opacity: 0,
-          x: isMobile ? "-32vw" : "6vw",
-          y: isMobile ? "-30vh" : "0vh",
-          scale: isMobile ? 0.45 : 0.65,
+          x: isMobile ? "-32vw" : "9vw",
+          y: isMobile ? "-29vh" : "15vh",
+          scale: isMobile ? 0.45 : 1.2,
           duration: 1,
           ease: "power2.in" // stops intercepting clicks when invisible
         }, ">-0.1")
@@ -335,33 +335,38 @@ const ProductJourney: React.FC = () => {
 
           {/* Product Info */}
           <div className={`
-            product-info absolute pointer-events-auto z-20
+            product-info absolute pointer-events-auto z-20 
             ${isMobile
               ? 'left-3/4 top-1/4 -translate-y-1/2 -ml-16 mt-24 w-20 flex flex-col items-center text-center'
               : 'left-5/6 top-1/2 -translate-y-1/2 -ml-8 w-55 flex flex-col items-start'
             }
           `}>
-            <a
-              href={`/products/${PRODUCT.handle}`}
-              className="text-white font-serif font-black text-lg md:text-3xl leading-tight md:mb-2 hover:text-violet-400 transition-colors duration-300"
-            >
+            {/* Full-container link — sits behind everything */}
+            {/* Full-container click target */}
+            <div
+              onClick={() => window.location.href = `/products/${PRODUCT.handle}`}
+              className="absolute inset-0 z-0 cursor-pointer"
+            />
+
+            {/* Content — z-10 so it renders above the link */}
+            <a 
+            href={`/products/${PRODUCT.handle}`}
+            className="text-white hover:text-violet-400 z-10 font-serif font-black text-lg md:text-3xl leading-tight md:mb-2 relative transition duration-200">
               {PRODUCT.title}
             </a>
 
-            <p className="text-violet-500 inline-flex text-sm font-bold uppercase tracking-widest md:mb-6">
+            <p className="text-violet-500 inline-flex text-sm font-bold uppercase tracking-widest md:mb-6 pointer-events-none relative z-10">
               {PRODUCT.price} <span className='text-zinc-400 line-through ml-2'> $49.99</span>
             </p>
 
-            <div className="h-px bg-white/10 mb-1 md:mb-6 w-full" />
+            <div className="h-px bg-white/10 mb-1 md:mb-6 w-full pointer-events-none relative z-10" />
 
+            {/* Button — z-20 so it sits above the link and captures its own clicks */}
             <button
               onClick={handleAddToCart}
-              className="w-full md:px-6 py-1 md:py-3 rounded-full bg-white text-black text-xs font-black uppercase tracking-widest hover:bg-violet-40 shadow-[0_20px_60px_rgba(139,92,246,0.3)] transition-all duration-300 flex items-center justify-center cursor-pointer"
+              className="relative z-20 w-full md:px-6 py-1 md:py-3 rounded-full bg-white text-black text-xs font-black uppercase tracking-widest hover:bg-violet-40 shadow-[0_20px_60px_rgba(139,92,246,0.3)] transition-all duration-300 flex items-center justify-center cursor-pointer"
             >
-              {/* Cart icon — mobile only */}
               <ShoppingCart />
-
-              {/* Text — desktop only */}
               <span className="hidden md:ml-2 md:inline text-nowrap">Add to Cart</span>
             </button>
           </div>
