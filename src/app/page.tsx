@@ -1,19 +1,16 @@
 
 import React from 'react';
-import Navbar from '../components/Navbar';
 import ProductJourney from '../components/ProductJourney';
 import Creators from '../components/Creators';
-import Footer from '../components/Footer';
 //import DiscountPopup from '../components/DiscountPopup';
 import AIConcierge from '../components/AIConcierge';
-// Import missing TIKTOK_SHOP_URL
 import { TIKTOK_SHOP_URL } from '../constants';
+import LoadingScreen from '@/components/Loadingscreen';
 
 const App: React.FC = () => {
   return (
     <div className="relative min-h-screen selection:bg-purple-500/30">
-      <Navbar />
-      
+      <LoadingScreen />
       <main>
         {/* The Core Experience */}
         <ProductJourney />
@@ -39,7 +36,6 @@ const App: React.FC = () => {
         </section>
       </main>
 
-      <Footer />
 
       {/* Overlays */}
       {/* <DiscountPopup /> */}
