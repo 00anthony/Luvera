@@ -6,6 +6,7 @@ import Creators from '../components/Creators';
 import AIConcierge from '../components/AIConcierge';
 import { TIKTOK_SHOP_URL } from '../constants';
 import LoadingScreen from '@/components/Loadingscreen';
+import FAQ from '@/components/Faq';
 
 const App: React.FC = () => {
   return (
@@ -16,6 +17,8 @@ const App: React.FC = () => {
         <ProductJourney />
         
         <Creators />
+
+        <FAQ />
 
         {/* 
         CTA Section 
