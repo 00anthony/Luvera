@@ -355,7 +355,7 @@ const Creators: React.FC = () => {
               whileInView="visible"
               viewport={{ once: true, margin: '-100px' }}
               className="flex gap-6 overflow-x-auto pb-6 snap-x snap-mandatory
-                         no-scrollbar -mx-6 px-6"
+                         hide-scrollbar -mx-6 px-6"
               // Suppress scrollbar cross-browser (no-scrollbar Tailwind plugin
               // handles Webkit; these cover Firefox + IE)
               style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' } as React.CSSProperties}
