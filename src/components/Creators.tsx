@@ -108,7 +108,7 @@ function VideoModal({
                       href={creator.instagramUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 bg-white text-black text-sm font-bold tracking-widest uppercase px-6 py-3 rounded-full hover:bg-emerald-400 transition-colors"
+                      className="flex items-center gap-2 bg-white text-black text-sm font-bold tracking-widest uppercase px-6 py-3 rounded-full hover:bg-purple-400 transition-colors"
                     >
                       Watch on Instagram
                       <ExternalLink className="w-4 h-4" />
@@ -125,11 +125,11 @@ function VideoModal({
               <img
                 src={creator.image}
                 alt={creator.name}
-                className="w-9 h-9 rounded-full border border-emerald-500/40 object-cover"
+                className="w-9 h-9 rounded-full border border-purple-500/40 object-cover"
               />
               <div>
                 <p className="text-white font-bold text-sm leading-none">{creator.name}</p>
-                <p className="text-emerald-500 text-[10px] uppercase tracking-[0.3em] font-black mt-0.5">
+                <p className="text-purple-400 text-[10px] uppercase tracking-[0.3em] font-black mt-0.5">
                   {creator.handle}
                 </p>
               </div>
@@ -213,18 +213,18 @@ function CreatorCard({
           <div className="relative shrink-0">
             <img
               src={creator.image}
-              className="w-10 h-10 rounded-full border-2 border-emerald-500/30 object-cover"
+              className="w-10 h-10 rounded-full border-2 border-purple-500/30 object-cover"
               alt=""
               loading="lazy"
             />
-            <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-emerald-500 rounded-full
+            <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-purple-500 rounded-full
                             border-2 border-black flex items-center justify-center">
               <div className="w-1.5 h-1.5 bg-white rounded-full" />
             </div>
           </div>
           <div>
             <h4 className="text-base font-bold text-white leading-none">{creator.name}</h4>
-            <span className="text-[9px] text-emerald-500 uppercase tracking-[0.3em] font-black mt-1 block">
+            <span className="text-[9px] text-purple-400 uppercase tracking-[0.3em] font-black mt-1 block">
               {creator.handle}
             </span>
           </div>
@@ -295,7 +295,7 @@ const Creators: React.FC = () => {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <span className="text-emerald-500 text-sm font-bold tracking-[0.4em] uppercase">
+              <span className="text-purple-500 text-sm font-bold tracking-[0.4em] uppercase">
                 Trusted Voices
               </span>
               <h2 className="text-5xl md:text-8xl font-serif italic mt-2 text-white tracking-tighter">
@@ -382,10 +382,10 @@ const Creators: React.FC = () => {
                             rounded-[2.5rem] bg-zinc-900/50 border-2 border-dashed
                             border-white/10 flex flex-col items-center justify-center
                             space-y-4 snap-center group cursor-pointer
-                            hover:border-emerald-500/50 transition-colors"
+                            hover:border-purple-500/30 transition-colors"
                 >
-                  <div className="w-16 h-16 rounded-full bg-emerald-500/10 flex items-center
-                                  justify-center text-emerald-500 group-hover:scale-110 transition-transform">
+                  <div className="w-16 h-16 rounded-full bg-purple-500/10 flex items-center
+                                  justify-center text-purple-500 group-hover:scale-110 transition-transform">
                     <ArrowRight className="w-8 h-8" />
                   </div>
                   <span className="text-white font-serif italic text-2xl">See More</span>
@@ -413,7 +413,7 @@ const Creators: React.FC = () => {
                     width:      i === activeIndex ? 24 : 6,
                     height:     6,
                     background: i === activeIndex
-                      ? '#10b981'                  // emerald-500
+                      ? '#a855f7'                  // emerald-500
                       : 'rgba(255,255,255,0.15)',
                   }}
                 />
