@@ -17,7 +17,8 @@ const App: React.FC = () => {
         
         <Creators />
 
-        {/* CTA Section */}
+        {/* 
+        CTA Section 
         <section className="h-screen bg-black flex flex-col items-center justify-center text-center px-6 relative overflow-hidden">
            <div className="absolute inset-0 z-0">
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-screen h-[100vw] bg-purple-900/10 rounded-full blur-[150px]" />
@@ -25,7 +26,7 @@ const App: React.FC = () => {
            <div className="relative z-10">
               <span className="text-purple-400 uppercase tracking-[0.5em] text-xs font-bold mb-4 block">Limited Collection</span>
               <h2 className="text-6xl md:text-9xl font-serif mb-12">Claim Your<br/><span className="italic">Glow.</span></h2>
-              {/* Used imported TIKTOK_SHOP_URL constant */}
+              {/* Used imported TIKTOK_SHOP_URL constant 
               <a 
                 href={TIKTOK_SHOP_URL}
                 className="inline-block px-16 py-6 bg-white text-black font-bold uppercase tracking-widest hover:bg-violet-400 hover:text-white transition-all duration-500 transform hover:scale-110 shadow-[0_20px_60px_rgba(139,92,246,0.3)]"
@@ -34,6 +35,8 @@ const App: React.FC = () => {
               </a>
            </div>
         </section>
+        */}
+
       </main>
 
 
