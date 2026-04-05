@@ -179,7 +179,7 @@ const ProductJourney: React.FC = () => {
       <div ref={triggerRef} className="h-screen w-full flex items-center justify-center overflow-hidden">
 
         <div className="absolute inset-0 z-0">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150vw] h-[150vw] bg-emerald-950/10 rounded-full blur-[200px]" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150vw] h-[150vw] bg-purple-950/10 rounded-full blur-[200px]" />
         </div>
 
         <div className="hero-bg-text absolute inset-0 z-10 flex items-center justify-center pointer-events-none">

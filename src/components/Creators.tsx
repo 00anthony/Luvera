@@ -413,7 +413,7 @@ const Creators: React.FC = () => {
                     width:      i === activeIndex ? 24 : 6,
                     height:     6,
                     background: i === activeIndex
-                      ? '#a855f7'                  // emerald-500
+                      ? '#a855f7'                  // purple-500
                       : 'rgba(255,255,255,0.15)',
                   }}
                 />
