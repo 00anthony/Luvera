@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronLeft, ChevronRight, Play, Shield, Truck, RotateCcw, Star } from 'lucide-react'
 import { VARIANTS, type VariantId } from '../constants'
+import { useCheckout } from '../hooks/Usecheckout'
 
 // ─── Placeholder media slides ─────────────────────────────────────────────────
 // Replace src values with your actual product images/videos.
@@ -25,6 +26,7 @@ export default function ProductHero() {
   const [activeMedia,   setActiveMedia]   = useState(0)
   const [activeVariant, setActiveVariant] = useState<VariantId>('trio')
   const [videoPlaying,  setVideoPlaying]  = useState(false)
+  const { loading, error, checkout }      = useCheckout()
 
   const current  = MEDIA[activeMedia]
   const variant  = VARIANTS.find(v => v.id === activeVariant)!
@@ -229,17 +231,22 @@ export default function ProductHero() {
               </div>
             </div>
 
-            {/* ── CTA button — links to Shopify checkout ───────────────── */}
+            {/* ── CTA button — creates Shopify cart then redirects ──────── */}
             <div className="space-y-3">
-              <a
-                href={variant.checkoutUrl}
-                className="flex items-center justify-center gap-3 w-full py-4 rounded-full
+              <button
+                onClick={() => checkout({ quantity: variant.quantity, discountCode: variant.discountCode })}
+                disabled={loading}
+                className="cursor-pointer flex items-center justify-center gap-3 w-full py-4 rounded-full
                            bg-white text-black font-black text-sm tracking-[0.15em] uppercase
-                           hover:bg-purple-400 transition-colors duration-300"
+                           hover:bg-purple-400 transition-colors duration-300
+                           disabled:opacity-60 disabled:cursor-wait"
               >
-                Buy Now — {variant.price}
-                <ChevronRight className="w-4 h-4" />
-              </a>
+                {loading ? 'Redirecting…' : `Buy Now — ${variant.price}`}
+                {!loading && <ChevronRight className="w-4 h-4" />}
+              </button>
+              {error && (
+                <p className="text-red-400 text-xs text-center">{error}</p>
+              )}
               <p className="text-center text-white/30 text-xs tracking-wider">
                 Secure checkout via Shopify · Free shipping · 90-day guarantee
               </p>
