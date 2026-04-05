@@ -10,7 +10,7 @@ const BENEFITS = [
     title: 'Deep hydration',
     body:  'Binds moisture to skin cells for all-day hydration without reapplying. No tight, dry feeling by midday.',
     accent: 'text-purple-500',
-    bg:     'bg-purple-500/8',
+    bg:     'bg-purple-800/8',
     border: 'border-purple-500/15',
   },
   {
@@ -26,7 +26,7 @@ const BENEFITS = [
     title: 'Barrier support',
     body:  'Reinforces your skin\'s natural barrier so environmental stress — wind, cold, pollution — does less damage.',
     accent: 'text-purple-500',
-    bg:     'bg-purple-500/8',
+    bg:     'bg-purple-800/8',
     border: 'border-purple-500/15',
   },
   {
@@ -42,7 +42,7 @@ const BENEFITS = [
     title: 'No grease',
     body:  'Lightweight formula won\'t clog pores or leave a film. Built for men who hate the feeling of moisturizer.',
     accent: 'text-purple-500',
-    bg:     'bg-purple-500/8',
+    bg:     'bg-purple-800/8',
     border: 'border-purple-500/15',
   },
   {

@@ -2,7 +2,6 @@
 'use client'
 
 import { useState } from 'react'
-import { VARIANT_GID } from '../constants'
 
 interface CheckoutOptions {
   quantity:     number
@@ -10,9 +9,9 @@ interface CheckoutOptions {
 }
 
 interface UseCheckoutReturn {
-  loading:    boolean
-  error:      string | null
-  checkout:   (opts: CheckoutOptions) => Promise<void>
+  loading:  boolean
+  error:    string | null
+  checkout: (opts: CheckoutOptions) => Promise<void>
 }
 
 export function useCheckout(): UseCheckoutReturn {
@@ -24,66 +23,24 @@ export function useCheckout(): UseCheckoutReturn {
     setError(null)
 
     try {
-      // Build the cartCreate mutation.
-      // discountCodes is an optional array — omit it entirely for the single variant
-      // so we don't accidentally invalidate carts with an empty-string code.
-      const mutation = `
-        mutation cartCreate($input: CartInput!) {
-          cartCreate(input: $input) {
-            cart {
-              checkoutUrl
-            }
-            userErrors {
-              field
-              message
-            }
-          }
-        }
-      `
+      // POST to our own Next.js route handler — Shopify token never touches the browser
+      const res = await fetch('/api/shopify/checkout', {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body:    JSON.stringify({ quantity, discountCode }),
+      })
 
-      const input: Record<string, unknown> = {
-        lines: [
-          {
-            quantity,
-            merchandiseId: VARIANT_GID,
-          },
-        ],
+      const data = await res.json() as { checkoutUrl?: string; error?: string }
+
+      if (!res.ok || data.error) {
+        throw new Error(data.error ?? `Request failed with status ${res.status}`)
       }
 
-      if (discountCode) {
-        input.discountCodes = [discountCode]
+      if (!data.checkoutUrl) {
+        throw new Error('No checkout URL returned.')
       }
 
-      const res = await fetch(
-        `https://${process.env.NEXT_PUBLIC_SHOPIFY_STORE_DOMAIN}/api/2026-01/graphql.json`,
-        {
-          method:  'POST',
-          headers: {
-            'Content-Type':                       'application/json',
-            'X-Shopify-Storefront-Access-Token':  process.env.NEXT_PUBLIC_SHOPIFY_STOREFRONT_ACCESS_TOKEN!,
-          },
-          body: JSON.stringify({ query: mutation, variables: { input } }),
-        }
-      )
-
-      const json = await res.json()
-
-      if (json.errors?.length) {
-        throw new Error(json.errors[0].message)
-      }
-
-      const userErrors = json.data?.cartCreate?.userErrors
-      if (userErrors?.length) {
-        throw new Error(userErrors[0].message)
-      }
-
-      const checkoutUrl = json.data?.cartCreate?.cart?.checkoutUrl
-      if (!checkoutUrl) {
-        throw new Error('No checkout URL returned from Shopify.')
-      }
-
-      // Redirect directly to Shopify's hosted checkout
-      window.location.href = checkoutUrl
+      window.location.href = data.checkoutUrl
 
     } catch (err) {
       const msg = err instanceof Error ? err.message : 'Something went wrong. Please try again.'
