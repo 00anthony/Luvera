@@ -318,7 +318,7 @@ const ProductJourney: React.FC = () => {
             src="/benefits/benefits-bg-no-tub.png"
             alt="benefits-background"
             className="hidden md:block absolute top-0 right-0 h-full w-1/2 object-cover object-center"
-            style={{ filter: 'saturate(0.6) brightness(0.85)', opacity: 0.45 }}
+            style={{ filter: 'saturate(0.6) brightness(0.85)', opacity: 1 }}
           />
         </div>
 
