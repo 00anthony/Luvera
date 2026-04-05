@@ -189,8 +189,8 @@ export default function SocialProof() {
 
         {/* Review scroll track */}
         <div className="relative">
-          <div className="overflow-hidden absolute  -left-7 md:-left-10 inset-y-0 w-10 bg-linear-to-r from-zinc-950 to-transparent z-10 pointer-events-none" />
-          <div className="overflow-hidden absolute -right-7 md:-right-10 inset-y-0 w-16 bg-linear-to-l from-zinc-950 to-transparent z-10 pointer-events-none" />
+          <div className="hidden md:inline absolute -left-10 inset-y-0 w-10 bg-linear-to-r from-zinc-950 to-transparent z-10 pointer-events-none" />
+          <div className="hidden md:inline absolute -right-10 inset-y-0 w-16 bg-linear-to-l from-zinc-950 to-transparent z-10 pointer-events-none" />
 
           <div
             ref={scrollRef}
