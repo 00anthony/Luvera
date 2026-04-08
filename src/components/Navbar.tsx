@@ -1,6 +1,7 @@
 'use client'
 import React, { useState, useEffect } from 'react';
 import { ShoppingBag, Search, User, Menu, X } from 'lucide-react';
+import Link from 'next/link';
 
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -21,9 +22,9 @@ const Navbar: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
         {/* Left Side: Navigation Items */}
         <div className="hidden md:flex space-x-10">
-          <a href="#" className="text-[10px] font-bold tracking-[0.3em] uppercase hover:text-purple-400 transition-colors">Shop</a>
-          <a href="#" className="text-[10px] font-bold tracking-[0.3em] uppercase hover:text-purple-400 transition-colors">Science</a>
-          <a href="#" className="text-[10px] font-bold tracking-[0.3em] uppercase hover:text-purple-400 transition-colors">Story</a>
+          <a href="/products/luvera-mens-daily-moisturizer" className="text-[10px] font-bold tracking-[0.3em] uppercase hover:text-purple-400 transition-colors">Shop</a>
+          <a href="/products/luvera-mens-daily-moisturizer#science" className="text-[10px] font-bold tracking-[0.3em] uppercase hover:text-purple-400 transition-colors">Science</a>
+          <a href="/products/luvera-mens-daily-moisturizer#story" className="text-[10px] font-bold tracking-[0.3em] uppercase hover:text-purple-400 transition-colors">Story</a>
         </div>
 
         {/* Mobile Menu Icon */}
@@ -43,6 +44,7 @@ const Navbar: React.FC = () => {
         </a>
 
         {/* Right Side: Icons */}
+        {/* 
         <div className="flex items-center space-x-6">
           <Search className="w-4 h-4 cursor-pointer hover:text-purple-400 transition-colors hidden sm:block" />
           <User className="w-4 h-4 cursor-pointer hover:text-purple-400 transition-colors hidden sm:block" />
@@ -51,6 +53,8 @@ const Navbar: React.FC = () => {
             <span className="absolute -top-1 -right-1 w-2 h-2 bg-purple-500 rounded-full" />
           </div>
         </div>
+        */}
+        
       </div>
 
       {/* Mobile Menu Overlay */}
@@ -59,10 +63,10 @@ const Navbar: React.FC = () => {
           <button onClick={() => setMobileMenuOpen(false)} className="absolute top-8 right-8">
             <X className="w-8 h-8" />
           </button>
-          <a href="#" className="text-3xl font-serif italic" onClick={() => setMobileMenuOpen(false)}>Shop</a>
-          <a href="#" className="text-3xl font-serif italic" onClick={() => setMobileMenuOpen(false)}>Science</a>
-          <a href="#" className="text-3xl font-serif italic" onClick={() => setMobileMenuOpen(false)}>Our Story</a>
-          <a href="#" className="px-12 py-4 bg-white text-black font-bold uppercase tracking-widest text-sm">Buy Now</a>
+          <a href="/products/luvera-mens-daily-moisturizer" className="text-3xl font-serif italic" onClick={() => setMobileMenuOpen(false)}>Shop</a>
+          <Link href="/products/luvera-mens-daily-moisturizer#science" className="text-3xl font-serif italic" onClick={() => setMobileMenuOpen(false)}>Science</Link>
+          <a href="/products/luvera-mens-daily-moisturizer#story" className="text-3xl font-serif italic" onClick={() => setMobileMenuOpen(false)}>Our Story</a>
+          <a href="/products/luvera-mens-daily-moisturizer" className="px-12 py-4 bg-white text-black font-bold uppercase tracking-widest text-sm">Buy Now</a>
         </div>
       )}
     </nav>

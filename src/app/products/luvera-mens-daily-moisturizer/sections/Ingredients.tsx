@@ -106,7 +106,7 @@ export default function Ingredients() {
   const [openIdx, setOpenIdx] = useState<number | null>(0)
 
   return (
-    <section className="py-24 bg-zinc-950">
+    <section id="science" className="py-24 bg-zinc-950">
       <div className="max-w-7xl mx-auto px-6">
 
         {/* Header */}
