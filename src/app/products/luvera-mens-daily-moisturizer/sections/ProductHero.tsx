@@ -9,7 +9,7 @@ import { useCheckout } from '../hooks/Usecheckout'
 // ─── Placeholder media slides ─────────────────────────────────────────────────
 // Replace src values with your actual product images/videos.
 const MEDIA = [
-  { type: 'image', src: '/images/product-hero-1.jpg',   alt: 'Luvera moisturizer front'      },
+  { type: 'image', src: '/product/Science-BackedHydration_700x700.webp',   alt: 'Luvera moisturizer front'      },
   { type: 'image', src: '/images/product-hero-2.jpg',   alt: 'Luvera moisturizer texture'    },
   { type: 'image', src: '/images/product-hero-3.jpg',   alt: 'Luvera moisturizer lifestyle'  },
   { type: 'video', src: '/videos/product-demo.mp4',     alt: 'See it in action'              },

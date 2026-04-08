@@ -187,7 +187,7 @@ export default function SocialProof() {
           ))}
         </motion.div>
 
-        {/* Review scroll track */}
+        {/* Review scroll track -- remove hidden after checking ingredients x overflow*/}
         <div className="relative">
           <div className="hidden md:inline absolute -left-10 inset-y-0 w-10 bg-linear-to-r from-zinc-950 to-transparent z-10 pointer-events-none" />
           <div className="hidden md:inline absolute -right-10 inset-y-0 w-16 bg-linear-to-l from-zinc-950 to-transparent z-10 pointer-events-none" />
