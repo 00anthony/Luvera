@@ -9,11 +9,11 @@ import { useCheckout } from '../hooks/Usecheckout'
 // ─── Placeholder media slides ─────────────────────────────────────────────────
 // Replace src values with your actual product images/videos.
 const MEDIA = [
-  { type: 'image', src: '/product/Science-BackedHydration_700x700.webp',   alt: 'Luvera moisturizer front'      },
-  { type: 'image', src: '/images/product-hero-2.jpg',   alt: 'Luvera moisturizer texture'    },
-  { type: 'image', src: '/images/product-hero-3.jpg',   alt: 'Luvera moisturizer lifestyle'  },
-  { type: 'video', src: '/videos/product-demo.mp4',     alt: 'See it in action'              },
-  { type: 'image', src: '/images/product-hero-4.jpg',   alt: 'Trio set contents'             },
+  { type: 'image', src: '/product/tub-and-package.webp',   alt: 'Luvera moisturizer front'      },
+  { type: 'image', src: '/product/ModernSkincare_MadeSimple.png',   alt: 'Luvera moisturizer texture'    },
+  { type: 'image', src: '/product/package.webp',   alt: 'Luvera moisturizer lifestyle'  },
+  { type: 'video', src: '/product/snow.mp4',     alt: 'See it in action'              },
+  { type: 'image', src: '/product/Science-BackedHydration_700x700.webp',   alt: 'Trio set contents'             },
 ] as const
 
 const TRUST_BADGES = [
@@ -62,7 +62,7 @@ export default function ProductHero() {
                         muted={!videoPlaying}
                         autoPlay={videoPlaying}
                         loop
-                        poster="/images/product-video-thumb.jpg"
+                        poster="/product/snow-thumb.png"
                       />
                       {!videoPlaying && (
                         <button
@@ -126,7 +126,7 @@ export default function ProductHero() {
                 >
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    src={m.type === 'video' ? '/images/product-video-thumb.jpg' : m.src}
+                    src={m.type === 'video' ? '/product/snow-thumb.png' : m.src}
                     alt={m.alt}
                     className="w-full h-full object-cover"
                   />
