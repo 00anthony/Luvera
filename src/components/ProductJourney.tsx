@@ -7,8 +7,8 @@ import { ShoppingCart } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const TUB_LID_URL = "/tub-lid2.webp";
-const TUB_BASE_URL = "/tub-base2.webp";
+const TUB_LID_URL = "/hero/tub-lid2.webp";
+const TUB_BASE_URL = "/hero/tub-base2.webp";
 const LID_WIDTH_DESKTOP = "700px";
 const LID_WIDTH_MOBILE = "350px";
 const BASE_WIDTH_DESKTOP = "700px";
@@ -157,11 +157,11 @@ const ProductJourney: React.FC = () => {
         </div>
 
         <div className="vegetation-left absolute z-30 left-0 w-1/2 h-full pointer-events-none origin-bottom-left overflow-hidden">
-          <img src="/aloe-plant-blackbg-left.png" className="h-full w-full object-cover object-right opacity-70 grayscale-[0.2]" alt="" />
+          <img src="/hero/aloe-plant-blackbg-left.png" className="h-full w-full object-cover object-right opacity-70 grayscale-[0.2]" alt="" />
         </div>
 
         <div className="vegetation-right absolute z-30 right-0 w-1/2 h-full pointer-events-none origin-bottom-right overflow-hidden">
-          <img src="/aloe-plant-blackbg-right.png" className="h-full w-full object-cover object-left opacity-70 grayscale-[0.2]" alt="" />
+          <img src="/hero/aloe-plant-blackbg-right.png" className="h-full w-full object-cover object-left opacity-70 grayscale-[0.2]" alt="" />
         </div>
 
         <div className="absolute inset-0 z-20 flex items-center justify-center pointer-events-none">
