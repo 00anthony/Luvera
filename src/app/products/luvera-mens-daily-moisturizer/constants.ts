@@ -26,7 +26,7 @@ export const VARIANTS = [
     id:          'single' as const,
     label:       'Single Tub',
     price:       '$34.99',
-    oldPrice:    null as string | null,
+    oldPrice:    '$49.99',
     badge:       null as string | null,
     checkoutUrl: CHECKOUT_URLS.single,
     perks:       [
@@ -44,9 +44,7 @@ export const VARIANTS = [
     checkoutUrl: CHECKOUT_URLS.trio,
     perks:       [
       '3× Luvera Daily Moisturizer',
-      '+ Free Cooling Face Roller',
-      "+ Men's Skin Reset Guide",
-      '+ Skin Ingredient Decoder',
+      '$35 off',
       'Free shipping',
       '90-day guarantee',
     ],

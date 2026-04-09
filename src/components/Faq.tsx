@@ -28,37 +28,6 @@ const FAQS: FAQItem[] = [
   },
   {
     id: 2,
-    question: "What free bonuses come with my order?",
-    answer: (
-      <ul className="space-y-4">
-        {[
-          {
-            title: 'Cooling Face Roller',
-            desc: 'Refresh and de-puff your skin while boosting moisturizer absorption.',
-          },
-          {
-            title: "Men's Skin Reset Guide",
-            desc: 'A simple framework for better skin through easy daily habits.',
-          },
-          {
-            title: 'Skin Ingredient Decoder',
-            desc: 'Understand what common skincare ingredients actually do so you can make smarter choices.',
-          },
-        ].map(({ title, desc }) => (
-          <li key={title} className="flex gap-3">
-            <span className="mt-1 w-1.5 h-1.5 rounded-full bg-purple-400 shrink-0" />
-            <span>
-              <span className="text-white font-medium">{title}</span>
-              {' — '}
-              {desc}
-            </span>
-          </li>
-        ))}
-      </ul>
-    ),
-  },
-  {
-    id: 3,
     question: 'How long does shipping take?',
     answer: (
       <>
@@ -87,7 +56,7 @@ const FAQS: FAQItem[] = [
     ),
   },
   {
-    id: 4,
+    id: 3,
     question: "What if it doesn't work for me?",
     answer: (
       <>
@@ -98,7 +67,7 @@ const FAQS: FAQItem[] = [
     ),
   },
   {
-    id: 5,
+    id: 4,
     question: 'Can I use it after shaving?',
     answer: (
       <>
@@ -109,7 +78,7 @@ const FAQS: FAQItem[] = [
     ),
   },
   {
-    id: 6,
+    id: 5,
     question: 'Is it suitable for sensitive skin?',
     answer: (
       <>

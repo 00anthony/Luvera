@@ -27,7 +27,7 @@ const REVIEWS = [
     handle: 'Verified buyer',
     rating: 5,
     date: 'February 2025',
-    text: "Started using it post-shave and my neck irritation basically disappeared. The face roller that came with it is genuinely useful too — I use it every morning now.",
+    text: "Started using it post-shave and my neck irritation basically disappeared.",
     tag: 'Sensitive skin',
   },
   {

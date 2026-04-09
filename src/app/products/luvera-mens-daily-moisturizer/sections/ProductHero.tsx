@@ -237,7 +237,7 @@ export default function ProductHero() {
                 href={variant.checkoutUrl}
                 className="flex items-center justify-center gap-3 w-full py-4 rounded-full
                            bg-white text-black font-black text-sm tracking-[0.15em] uppercase
-                           hover:bg-emerald-400 transition-colors duration-300"
+                           hover:bg-purple-400 transition-colors duration-300"
               >
                 Buy Now — {variant.price}
                 <ChevronRight className="w-4 h-4" />

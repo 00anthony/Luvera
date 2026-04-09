@@ -28,7 +28,7 @@ const STEPS = [
   {
     step:   '04',
     title:  'Roll (optional)',
-    body:   'Use the Cooling Face Roller along your jawline, cheeks, and under-eyes to de-puff and boost absorption.',
+    body:   'Use a Cooling Face Roller along your jawline, cheeks, and under-eyes to de-puff and boost absorption.',
     time:   '60 sec',
     tip:    'Store your roller in the fridge for extra effect.',
   },
