@@ -47,9 +47,9 @@ export default function BrandStory() {
 
             {/* Founder signature area */}
             <div className="flex items-center gap-4 pt-2">
-              <div className="w-12 h-12 rounded-full bg-zinc-800 border border-white/10 overflow-hidden">
+              <div className="w-12 h-12 rounded-full bg-zinc-800 overflow-hidden">
                 {/* Replace with actual founder image */}
-                <div className="w-full h-full bg-gradient-to-br from-zinc-700 to-zinc-900" />
+                <img src='/founders.webp' />
               </div>
               <div>
                 <p className="text-white font-bold text-sm">The Luvera Team</p>
