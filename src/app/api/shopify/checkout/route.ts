@@ -1,8 +1,4 @@
 // app/api/shopify/checkout/route.ts
-//
-// Server-side Route Handler. The Shopify Storefront token never reaches
-// the browser — it stays in Node's process.env at request time.
-// The client just POSTs { quantity, discountCode } and gets back { checkoutUrl }.
 
 import { NextRequest, NextResponse } from 'next/server'
 
@@ -31,13 +27,15 @@ export async function POST(req: NextRequest) {
 
     const domain = process.env.NEXT_PUBLIC_SHOPIFY_STORE_DOMAIN
     const token  = process.env.SHOPIFY_STOREFRONT_ACCESS_TOKEN
-      // Fall back to the NEXT_PUBLIC_ version if only that one is set
       ?? process.env.NEXT_PUBLIC_SHOPIFY_STOREFRONT_ACCESS_TOKEN
 
+    // ── DIAGNOSTIC: log env vars (redact token to last 4 chars) ──────────────
+    console.log('[checkout/route] domain env:', domain)
+    console.log('[checkout/route] token set:', token ? `...${token.slice(-4)}` : 'MISSING')
+
     if (!domain || !token) {
-      console.error('[checkout/route] Missing Shopify env vars', { domain: !!domain, token: !!token })
       return NextResponse.json(
-        { error: 'Store configuration missing. Please contact support.' },
+        { error: 'Store configuration missing.' },
         { status: 500 }
       )
     }
@@ -81,9 +79,24 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: userErrors[0].message }, { status: 400 })
     }
 
-    const checkoutUrl = json.data?.cartCreate?.cart?.checkoutUrl
-    if (!checkoutUrl) {
+    const rawUrl: string | undefined = json.data?.cartCreate?.cart?.checkoutUrl
+    if (!rawUrl) {
       return NextResponse.json({ error: 'No checkout URL returned.' }, { status: 502 })
+    }
+
+    // ── DIAGNOSTIC: log exactly what Shopify returned ─────────────────────────
+    console.log('[checkout/route] rawUrl from Shopify:', rawUrl)
+
+    // Rewrite hostname to raw myshopify.com domain
+    let checkoutUrl = rawUrl
+    try {
+      const parsed = new URL(rawUrl)
+      console.log('[checkout/route] parsed.hostname BEFORE rewrite:', parsed.hostname)
+      parsed.hostname = domain
+      checkoutUrl = parsed.toString()
+      console.log('[checkout/route] checkoutUrl AFTER rewrite:', checkoutUrl)
+    } catch (e) {
+      console.warn('[checkout/route] URL parse failed, using rawUrl. Error:', e)
     }
 
     return NextResponse.json({ checkoutUrl })

@@ -1,37 +1,52 @@
 // app/products/luvera-mens-daily-moisturizer/constants.ts
+//
+// Direct Shopify cart URLs — no API call, no redirect issues, works on all plans.
+//
+// URL format:
+//   https://STORE.myshopify.com/cart/VARIANT_NUMERIC_ID:QUANTITY?discount=CODE
+//
+// The numeric variant ID (46411922964655) is extracted from the GID:
+//   gid://shopify/ProductVariant/46411922964655
+//                                ^^^^^^^^^^^^^^^^ this part
+//
+// These URLs go directly to Shopify's checkout infrastructure,
+// bypassing the custom domain redirect entirely.
 
-// ─── Shopify product config ───────────────────────────────────────────────────
-// The single variant GID — same variant used for both single and trio orders.
-// Trio adds quantity: 3 and applies the TRIO_SET discount code via cartCreate.
-export const VARIANT_GID = 'gid://shopify/ProductVariant/46411922964655'
+const STORE    = 'luvera-9280.myshopify.com'
+const VARIANT  = '46411922964655'
 
-// Discount code created in Shopify Admin → Discounts → TRIO_SET
-// Set it as a fixed-amount discount (e.g. $34.98 off) that fires when qty >= 3.
-export const TRIO_DISCOUNT_CODE = 'TRIO_SET'
+export const CHECKOUT_URLS = {
+  single: `https://${STORE}/cart/${VARIANT}:1`,
+  trio:   `https://${STORE}/cart/${VARIANT}:3?discount=TRIO_SET`,
+} as const
 
-// ─── Product variants (UI data only — no hardcoded checkout URLs) ─────────────
+// ─── Product variants ─────────────────────────────────────────────────────────
 export const VARIANTS = [
   {
-    id:           'single' as const,
-    label:        'Single Tub',
-    price:        '$34.99',
-    oldPrice:     '49.99',
-    badge:        null as string | null,
-    quantity:     1,
-    discountCode: null as string | null,
-    perks:        ['1× Luvera Daily Moisturizer', 'Free shipping', '90-day guarantee'],
+    id:          'single' as const,
+    label:       'Single Tub',
+    price:       '$34.99',
+    oldPrice:    null as string | null,
+    badge:       null as string | null,
+    checkoutUrl: CHECKOUT_URLS.single,
+    perks:       [
+      '1× Luvera Daily Moisturizer',
+      'Free shipping',
+      '90-day guarantee',
+    ],
   },
   {
-    id:           'trio' as const,
-    label:        'The Trio Set',
-    price:        '$69.99',
-    oldPrice:     '$149.97',
-    badge:        'Best Value',
-    quantity:     3,
-    discountCode: TRIO_DISCOUNT_CODE,
-    perks:        [
+    id:          'trio' as const,
+    label:       'The Trio Set',
+    price:       '$69.99',
+    oldPrice:    '$104.97',
+    badge:       'Best Value',
+    checkoutUrl: CHECKOUT_URLS.trio,
+    perks:       [
       '3× Luvera Daily Moisturizer',
-      'Save $100',
+      '+ Free Cooling Face Roller',
+      "+ Men's Skin Reset Guide",
+      '+ Skin Ingredient Decoder',
       'Free shipping',
       '90-day guarantee',
     ],

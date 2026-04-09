@@ -231,22 +231,17 @@ export default function ProductHero() {
               </div>
             </div>
 
-            {/* ── CTA button — creates Shopify cart then redirects ──────── */}
+            {/* ── CTA — direct Shopify cart URL, no API needed ─────────── */}
             <div className="space-y-3">
-              <button
-                onClick={() => checkout({ quantity: variant.quantity, discountCode: variant.discountCode })}
-                disabled={loading}
-                className="cursor-pointer flex items-center justify-center gap-3 w-full py-4 rounded-full
+              <a
+                href={variant.checkoutUrl}
+                className="flex items-center justify-center gap-3 w-full py-4 rounded-full
                            bg-white text-black font-black text-sm tracking-[0.15em] uppercase
-                           hover:bg-purple-400 transition-colors duration-300
-                           disabled:opacity-60 disabled:cursor-wait"
+                           hover:bg-emerald-400 transition-colors duration-300"
               >
-                {loading ? 'Redirecting…' : `Buy Now — ${variant.price}`}
-                {!loading && <ChevronRight className="w-4 h-4" />}
-              </button>
-              {error && (
-                <p className="text-red-400 text-xs text-center">{error}</p>
-              )}
+                Buy Now — {variant.price}
+                <ChevronRight className="w-4 h-4" />
+              </a>
               <p className="text-center text-white/30 text-xs tracking-wider">
                 Secure checkout via Shopify · Free shipping · 90-day guarantee
               </p>

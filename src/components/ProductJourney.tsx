@@ -29,43 +29,11 @@ const ProductJourney: React.FC = () => {
     variantId: "gid://shopify/ProductVariant/46411922964655",
   };
 
-  const handleAddToCart = async () => {
-  const res = await fetch(
-    `https://${process.env.NEXT_PUBLIC_SHOPIFY_STORE_DOMAIN}/api/2026-01/graphql.json`,
-    {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'X-Shopify-Storefront-Access-Token': process.env.NEXT_PUBLIC_SHOPIFY_STOREFRONT_ACCESS_TOKEN!,
-      },
-      body: JSON.stringify({
-        query: `mutation {
-          cartCreate(input: {
-            lines: [{ quantity: 1, merchandiseId: "${PRODUCT.variantId}" }]
-          }) {
-            cart { checkoutUrl }
-          }
-        }`
-      }),
-    }
-  );
-
-  console.log('Status:', res.status);
-  const data = await res.json();
-    console.log('Full response:', JSON.stringify(data, null, 2));
-
-    if (data.errors) {
-      console.error('GraphQL errors:', data.errors);
-      return;
-    }
-
-    if (!data.data?.cartCreate?.cart) {
-      console.error('No cart returned:', data);
-      return;
-    }
-
-    window.location.href = data.data.cartCreate.cart.checkoutUrl;
-  };
+  const CHECKOUT_URL = 'https://luvera-9280.myshopify.com/cart/46411922964655:1'
+ 
+  const handleAddToCart = () => {
+    window.location.href = CHECKOUT_URL
+  }
 
   
 

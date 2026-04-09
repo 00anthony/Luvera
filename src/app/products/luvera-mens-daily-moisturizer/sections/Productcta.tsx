@@ -112,24 +112,19 @@ export default function ProductCTA() {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="space-y-4"
         >
-          <button
-            onClick={() => checkout({ quantity: variant.quantity, discountCode: variant.discountCode })}
-            disabled={loading}
+          <a
+            href={variant.checkoutUrl}
             className="flex items-center justify-center gap-3 w-full py-4 rounded-full
                        bg-white text-black font-black text-sm tracking-[0.15em] uppercase
-                       hover:bg-purple-400 transition-colors duration-300
-                       disabled:opacity-60 disabled:cursor-wait"
+                       hover:bg-emerald-400 transition-colors duration-300"
           >
-            {loading ? 'Redirecting…' : `Get Started — ${variant.price}`}
-            {!loading && <ChevronRight className="w-4 h-4" />}
-          </button>
-          {error && (
-            <p className="text-red-400 text-xs text-center">{error}</p>
-          )}
+            Get Started — {variant.price}
+            <ChevronRight className="w-4 h-4" />
+          </a>
           <p className="text-white/25 text-xs tracking-wider text-center">
             Secure checkout via Shopify
           </p>
-
+ 
           {/* Trust row */}
           <div className="flex items-center justify-center gap-6 pt-4">
             {[
