@@ -119,7 +119,11 @@ function VideoModal({
           </div>
 
           {/* Creator info strip below video */}
-          <div className="flex items-center justify-between mt-4 px-1">
+          <a 
+            href={creator.instagramUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-between mt-4 px-1">
             <div className="flex items-center gap-3">
               <img
                 src={creator.image}
@@ -144,7 +148,7 @@ function VideoModal({
                 <ExternalLink className="w-4 h-4" />
               </a>
             )}
-          </div>
+          </a>
 
           {/* Close button */}
           <button
