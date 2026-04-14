@@ -13,8 +13,7 @@ interface Creator {
   quote: string;
   image: string;
   videoThumb: string;
-  // Add one of these to your CREATORS constant per entry:
-  // instagramUrl?: string   — links to the reel on Instagram (fallback)
+  //instagramUrl?: string   — links to the reel on Instagram (fallback)
   // videoUrl?: string       — direct .mp4 hosted on your CDN (best performance)
   // embedUrl?: string       — Instagram oEmbed iframe src (middle ground)
   instagramUrl?: string;

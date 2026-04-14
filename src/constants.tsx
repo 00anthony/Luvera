@@ -71,35 +71,47 @@ export const BENEFITS = [
 export const CREATORS = [
   { 
     id: "1", 
-    name: "Dr. Sarah Chen", 
-    handle: "@dermatologyexpert", 
-    image: "https://images.unsplash.com/photo-1559839734-2b71f153673f?auto=format&fit=crop&q=80&w=200", 
-    videoThumb: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800", 
-    quote: "The hydration levels achieved with Luvera are clinically significant. It's rare to find such a balanced formula." 
+    name: "EMILY 👸🏽🎀🧁🧚🏼🩵✨✝️", 
+    handle: "@xoemilyadams", 
+    image: "/ugc/emily-pfp-insta.jpg", 
+    videoThumb: "/ugc/emily-ugc1-thumbnail.png", 
+    quote: "The BEST facial moisturizer on TikTok right now.", 
+    instagramUrl: "https://www.instagram.com/xoemilyadams/",
+    videoUrl: "/ugc/emily-ugc1.mov",
+    embedUrl: "",
   },
   { 
     id: "2", 
-    name: "Marcus Thorne", 
-    handle: "@skincaremarcus", 
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200", 
-    videoThumb: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800", 
-    quote: "Finally a moisturizer that doesn't feel heavy but actually delivers. My skin has never looked clearer." 
+    name: "Sean Jayme", 
+    handle: "@officialseanjayme", 
+    image: "/ugc/sean-pfp-insta.jpg", 
+    videoThumb: "/ugc/sean-ugc1-thumbnail.png", 
+    quote: "Finally a moisturizer that doesn't feel heavy but actually delivers. My skin has never looked clearer.", 
+    instagramUrl: "https://www.instagram.com/officialseanjayme/",
+    videoUrl: "/ugc/sean-ugc1.mov",
+    embedUrl: "",
   },
   { 
     id: "3", 
-    name: "Elena Rodriguez", 
-    handle: "@glowwithelena", 
-    image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=200", 
-    videoThumb: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&q=80&w=800", 
-    quote: "The texture is like silk. I use it every morning and it's transformed my makeup application." 
+    name: "Mayer Caballero", 
+    handle: "@mayer__elvis", 
+    image: "/ugc/mayer-pfp-insta.jpg", 
+    videoThumb: "/ugc/mayer-ugc1-thumbnail.png", 
+    quote: "The texture is like silk. I use it every morning and it's transformed my makeup application.",
+    instagramUrl: "https://www.instagram.com/mayer__elvis/",
+    videoUrl: "/ugc/mayer-ugc1.mov",
+    embedUrl: "", 
   },
   { 
     id: "4", 
-    name: "James Wilson", 
-    handle: "@aestheticianjames", 
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=200", 
-    videoThumb: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&q=80&w=800", 
-    quote: "I recommend Luvera to all my clients with barrier issues. It's a game changer for recovery." 
+    name: "Tory Haywood", 
+    handle: "@torylhaywood", 
+    image: "/ugc/tory-pfp-insta.jpg", 
+    videoThumb: "/ugc/tory-ugc1-thumbnail.png", 
+    quote: "I recommend Luvera to all my clients with barrier issues. It's a game changer for recovery.",
+    instagramUrl: "https://www.instagram.com/torylhaywood/",
+    videoUrl: "/ugc/tory-ugc1.mov",
+    embedUrl: "", 
   }
 ];
 
