@@ -9,11 +9,18 @@ import { useCheckout } from '../hooks/Usecheckout'
 // ─── Placeholder media slides ─────────────────────────────────────────────────
 // Replace src values with your actual product images/videos.
 const MEDIA = [
-  { type: 'image', src: '/product/tub-and-package.webp',   alt: 'Luvera moisturizer front'      },
-  { type: 'image', src: '/product/ModernSkincare_MadeSimple.png',   alt: 'Luvera moisturizer texture'    },
+  { type: 'image', src: '/product/tub.PNG',   alt: 'Luvera moisturizer front'      },
+  { type: 'image', src: '/product/open-tub.PNG',   alt: 'Luvera moisturizer texture'    },
+  { type: 'image', src: '/product/benefits.PNG',   alt: 'Trio set contents'             },
+  { type: 'image', src: '/product/how-to-apply.PNG',   alt: 'Trio set contents'             },
+  { type: 'image', src: '/product/fda.PNG',   alt: 'Trio set contents'             },
+
+  { type: 'image', src: '/product/tub-and-package.webp',   alt: 'Trio set contents'             },
   { type: 'image', src: '/product/package.webp',   alt: 'Luvera moisturizer lifestyle'  },
+
   { type: 'video', src: '/product/snow.mp4',     alt: 'See it in action'              },
-  { type: 'image', src: '/product/Science-BackedHydration_700x700.webp',   alt: 'Trio set contents'             },
+  
+  
 ] as const
 
 const TRUST_BADGES = [
@@ -55,14 +62,11 @@ export default function ProductHero() {
                 >
                   {current.type === 'video' ? (
                     <>
+                    
                       <video
-                        src={current.src}
+                        src="/product/snow.mp4"
+                        controls
                         className="w-full h-full object-cover"
-                        playsInline
-                        muted={!videoPlaying}
-                        autoPlay={videoPlaying}
-                        loop
-                        poster="/product/snow-thumb.png"
                       />
                       {!videoPlaying && (
                         <button
