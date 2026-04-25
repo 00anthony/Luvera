@@ -33,7 +33,7 @@ function MobileMenu({ onClose }: { onClose: () => void }) {
   const overlay = (
     <div
       className="fixed inset-0 bg-black flex flex-col items-center justify-center"
-      style={{ zIndex: 9998 }}
+      style={{ zIndex: 998 }}
     >
       {/* Close button */}
       <button
@@ -101,7 +101,7 @@ const Navbar: React.FC = () => {
             ? 'bg-black/80 backdrop-blur-xl py-4 border-b border-white/10'
             : 'bg-transparent py-8 border-b border-transparent'
         }`}
-        style={{ zIndex: 9997 }}
+        style={{ zIndex: 997 }}
       >
         <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
 
