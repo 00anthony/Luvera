@@ -9,23 +9,19 @@ import { useCheckout } from '../hooks/Usecheckout'
 // ─── Placeholder media slides ─────────────────────────────────────────────────
 // Replace src values with your actual product images/videos.
 const MEDIA = [
-  { type: 'image', src: '/product/tub.PNG',   alt: 'Luvera moisturizer front'      },
-  { type: 'image', src: '/product/open-tub.PNG',   alt: 'Luvera moisturizer texture'    },
-  { type: 'image', src: '/product/benefits.PNG',   alt: 'Trio set contents'             },
-  { type: 'image', src: '/product/how-to-apply.PNG',   alt: 'Trio set contents'             },
-  { type: 'image', src: '/product/fda.PNG',   alt: 'Trio set contents'             },
-
-  { type: 'image', src: '/product/tub-and-package.webp',   alt: 'Trio set contents'             },
-  { type: 'image', src: '/product/package.webp',   alt: 'Luvera moisturizer lifestyle'  },
-
-  { type: 'video', src: '/product/snow.mp4',     alt: 'See it in action'              },
-  
-  
+  { type: 'image', src: '/product/tub.PNG',             alt: 'Luvera moisturizer front'     },
+  { type: 'image', src: '/product/open-tub.PNG',        alt: 'Luvera moisturizer texture'   },
+  { type: 'image', src: '/product/benefits.PNG',        alt: 'Trio set contents'            },
+  { type: 'image', src: '/product/how-to-apply.PNG',    alt: 'Trio set contents'            },
+  { type: 'image', src: '/product/fda.PNG',             alt: 'Trio set contents'            },
+  { type: 'image', src: '/product/tub-and-package.webp',alt: 'Trio set contents'            },
+  { type: 'image', src: '/product/package.webp',        alt: 'Luvera moisturizer lifestyle' },
+  { type: 'video', src: '/product/snow.mp4',            alt: 'See it in action'             },
 ] as const
 
 const TRUST_BADGES = [
-  { icon: Truck,      label: 'Free shipping'       },
-  { icon: RotateCcw,  label: '90-day guarantee'    },
+  { icon: Truck,      label: 'Free shipping'        },
+  { icon: RotateCcw,  label: '90-day guarantee'     },
   { icon: Shield,     label: 'Dermatologist tested' },
 ]
 
@@ -35,8 +31,8 @@ export default function ProductHero() {
   const [videoPlaying,  setVideoPlaying]  = useState(false)
   const { loading, error, checkout }      = useCheckout()
 
-  const current  = MEDIA[activeMedia]
-  const variant  = VARIANTS.find(v => v.id === activeVariant)!
+  const current = MEDIA[activeMedia]
+  const variant = VARIANTS.find(v => v.id === activeVariant)!
 
   const prev = () => setActiveMedia(i => (i - 1 + MEDIA.length) % MEDIA.length)
   const next = () => setActiveMedia(i => (i + 1) % MEDIA.length)
@@ -50,7 +46,7 @@ export default function ProductHero() {
           <div className="lg:sticky lg:top-24 space-y-4">
 
             {/* Main media frame */}
-            <div className="relative w-full aspect-square rounded-[2rem] overflow-hidden bg-zinc-900 border border-white/5">
+            <div className="relative w-full aspect-square rounded-4xl overflow-hidden bg-zinc-900 border border-white/5">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={activeMedia}
@@ -62,7 +58,6 @@ export default function ProductHero() {
                 >
                   {current.type === 'video' ? (
                     <>
-                    
                       <video
                         src="/product/snow.mp4"
                         controls
@@ -116,31 +111,54 @@ export default function ProductHero() {
               </div>
             </div>
 
-            {/* Thumbnail strip */}
-            <div className="flex gap-3">
-              {MEDIA.map((m, i) => (
-                <button
-                  key={i}
-                  onClick={() => { setActiveMedia(i); setVideoPlaying(false) }}
-                  className={`relative w-16 h-16 rounded-xl overflow-hidden border-2 transition-all duration-200 shrink-0 ${
-                    i === activeMedia
-                      ? 'border-purple-500 opacity-100'
-                      : 'border-white/10 opacity-50 hover:opacity-80'
-                  }`}
-                >
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={m.type === 'video' ? '/product/snow-thumb.png' : m.src}
-                    alt={m.alt}
-                    className="w-full h-full object-cover"
-                  />
-                  {m.type === 'video' && (
-                    <div className="absolute inset-0 flex items-center justify-center bg-black/30">
-                      <Play className="w-3 h-3 fill-white text-white" />
-                    </div>
-                  )}
-                </button>
-              ))}
+            {/* ── Thumbnail carousel ───────────────────────────────────── */}
+            {/*
+              Each thumb is sized to fill exactly 1/5 of the container on mobile
+              and 1/8 on desktop, with the gap (10px) factored in via calc().
+              Overflow scrolls horizontally; the fade edges hint at more content.
+            */}
+            <div className="relative">
+              {/* Left-edge fade */}
+              <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-5
+                              bg-linear-to-r from-black to-transparent z-10" />
+              {/* Right-edge fade */}
+              <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-5
+                              bg-linear-to-l from-black to-transparent z-10" />
+
+              <div
+                className="flex gap-2.5 overflow-x-auto scroll-smooth snap-x snap-mandatory
+                           [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+              >
+                {MEDIA.map((m, i) => (
+                  <button
+                    key={i}
+                    onClick={() => { setActiveMedia(i); setVideoPlaying(false) }}
+                    className={`
+                      relative shrink-0 snap-start aspect-square rounded-xl overflow-hidden
+                      border-2 transition-all duration-200
+                      
+                      w-[calc((100%-4*0.625rem)/5)]
+                      
+                      md:w-[calc((100%-7*0.625rem)/8)]
+                      ${i === activeMedia
+                        ? 'border-purple-500 opacity-100'
+                        : 'border-white/10 opacity-50 hover:opacity-80'}
+                    `}
+                  >
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={m.type === 'video' ? '/product/snow-thumb.png' : m.src}
+                      alt={m.alt}
+                      className="w-full h-full object-cover"
+                    />
+                    {m.type === 'video' && (
+                      <div className="absolute inset-0 flex items-center justify-center bg-black/30">
+                        <Play className="w-3 h-3 fill-white text-white" />
+                      </div>
+                    )}
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
 
@@ -186,7 +204,7 @@ export default function ProductHero() {
                     className={`relative w-full text-left rounded-2xl border-2 p-5 transition-all duration-200 ${
                       activeVariant === v.id
                         ? 'border-purple-500 bg-purple-500/5'
-                        : 'border-white/8 bg-white/[0.02] hover:border-white/20'
+                        : 'border-white/8 bg-white/2 hover:border-white/20'
                     }`}
                   >
                     {v.badge && (
@@ -199,7 +217,6 @@ export default function ProductHero() {
                     <div className="flex items-start justify-between gap-4">
                       <div>
                         <div className="flex items-center gap-2 mb-3">
-                          {/* Radio dot */}
                           <span className={`w-4 h-4 rounded-full border-2 flex items-center justify-center shrink-0
                                            transition-colors duration-200 ${
                                              activeVariant === v.id
@@ -235,7 +252,7 @@ export default function ProductHero() {
               </div>
             </div>
 
-            {/* ── CTA — direct Shopify cart URL, no API needed ─────────── */}
+            {/* ── CTA ──────────────────────────────────────────────────── */}
             <div className="space-y-3">
               <a
                 href={variant.checkoutUrl}
@@ -255,7 +272,7 @@ export default function ProductHero() {
             <div className="grid grid-cols-3 gap-3 pt-2">
               {TRUST_BADGES.map(({ icon: Icon, label }) => (
                 <div key={label}
-                  className="flex flex-col items-center gap-2 rounded-xl bg-white/[0.03]
+                  className="flex flex-col items-center gap-2 rounded-xl bg-white/3
                              border border-white/5 py-4 px-2 text-center">
                   <Icon className="w-4 h-4 text-purple-500" />
                   <span className="text-white/40 text-[10px] uppercase tracking-[0.2em] font-bold leading-tight">
