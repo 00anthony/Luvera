@@ -70,9 +70,9 @@ function IngredientRow({ item, isOpen, onToggle }: {
           className="shrink-0 w-7 h-7 rounded-full border flex items-center justify-center
                      transition-all duration-300"
           style={{
-            borderColor:     isOpen ? 'rgb(52 211 153 / 0.5)' : 'rgba(255,255,255,0.1)',
-            backgroundColor: isOpen ? 'rgb(52 211 153 / 0.08)' : 'transparent',
-            color:           isOpen ? 'rgb(52 211 153)'        : 'rgba(255,255,255,0.3)',
+            borderColor:     isOpen ? 'rgb(168 85 247 / 0.5)' : 'rgba(255,255,255,0.1)',
+            backgroundColor: isOpen ? 'rgb(168 85 247 / 0.08)' : 'transparent',
+            color:           isOpen ? 'rgb(168 85 247)'        : 'rgba(255,255,255,0.3)',
             transform:       isOpen ? 'rotate(45deg)'          : 'rotate(0deg)',
           }}
         >
