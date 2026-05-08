@@ -75,25 +75,29 @@ const ProductJourney: React.FC = () => {
         .to(".hero-bg-text", { opacity: 0.1, scale: 1, duration: 1 }, 1)
         .to(".vegetation-left", { xPercent: -exitDistance, rotate: -exitRotation, duration: 2, ease: "power2.out" }, 0)
         .to(".vegetation-right", { xPercent: exitDistance, rotate: exitRotation, duration: 2, ease: "power2.out" }, 0)
-        .to(".tub-lid", { y: isMobile ? -83 : -7, duration: 2, ease: "power2.out" }, 0)
-        .to(".tub-base", { y: isMobile ? -80 : 0, duration: 2, ease: "power2.out" }, 0)
-        .to(".product-info", { opacity: 1, y: 0, duration: 0.8, ease: "power2.out"}, 1.5);
+        .to(".tub-lid", { y: isMobile ? -223 : -7, duration: 2, ease: "power2.out" }, 0)
+        .to(".tub-base", { y: isMobile ? -220 : 0, duration: 2, ease: "power2.out" }, 0)
+        .to(".product-info", { opacity: 1, y: isMobile ? -142: 0, duration: 0.8, ease: "power2.out"}, 1.5);
 
       const desktopOffsets = [
-        { x: "-26vw", y: "-30vh" }, //TL
-        { x: "26vw", y: "-30vh" }, //TR
-        { x: "-34vw", y: "8vh" }, //BL
-        { x: "0vw", y: "35vh" }, //bottom
-        { x: "34vw", y: "8vh" }, //BR
+        { x: "-26vw", y: "-30vh" }, //TL Aloe
+        { x: "26vw", y: "-30vh" }, //TR Vit C
+        { x: "-34vw", y: "8vh" }, //BL HA
+        {/*
+          { x: "0vw", y: "35vh" }, //bottom
+          { x: "34vw", y: "8vh" }, //BR
+        */}
         
       ];
 
       const mobileOffsets = [
-        { x: "-28vw", y: "-30vh" }, //Aloe (TL)
-        { x: "28vw", y: "-30vh" }, //Vit C (TR)
-        { x: "-27vw", y: "12vh" }, //HA (BL)
-        { x: "0vw", y: "35vh" }, //squalene (bottom-most)
-        { x: "27vw", y: "12vh" }, //chamo (BR)
+        { x: "-28vw", y: "-1vh" }, //Aloe (TL)
+        { x: "28vw", y: "14vh" }, //Vit C (TR)
+        { x: "-27vw", y: "34vh" }, //HA (BL)
+        {/*
+          { x: "0vw", y: "35vh" }, //squalene (bottom-most)
+          { x: "27vw", y: "12vh" }, //chamo (BR)
+        */}
         
       ];
 
@@ -112,17 +116,17 @@ const ProductJourney: React.FC = () => {
 
       timeline
         .to(".product-info", {
-          opacity: 0,
-          x: isMobile ? "-32vw" : "9vw",
-          y: isMobile ? "-29vh" : "15vh",
+          opacity: isMobile ? 1 : 0,
+          x: isMobile ? "-16vw" : "9vw",
+          y: isMobile ? "-31vh" : "15vh",
           scale: isMobile ? 0.45 : 1.2,
-          duration: 1,
-          ease: "power2.in"
+          duration: 2,
+          ease: "power3.inOut"
         }, ">-0.1")
         .to(".benefits-overlay", { yPercent: 0, duration: 2, ease: "power3.inOut" }, "<")
         .to(".tub-container", {
           x: isMobile ? 0 : "25vw",
-          y: isMobile ? "-34vh" : "14vh",
+          y: isMobile ? "-28vh" : "14vh",
           scale: isMobile ? 0.45 : 1.2,
           duration: 2,
           ease: "power3.inOut"

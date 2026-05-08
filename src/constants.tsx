@@ -26,24 +26,28 @@ export const INGREDIENTS = [
     image: "/ingredients/hyaluronic-acid2.jpg", 
     pos: { x: -220, y: 40 } 
   },
-  { 
-    id: 5, 
-    name: "Squalane", 
-    benefit: "Moisture Barrier",
-    desc: "Helps maintain moisture and improves skin texture without clogging pores.", 
-    image: "/ingredients/olive-ingredients.png", 
-    pos: { x: 0, y: 220 } 
-  }, 
-  { 
-    id: 4, 
-    name: "Chamomile Extract", 
-    benefit: "Calming",
-    desc: "Helps smooth skin and reduce the look of irritation.", 
-    image: "/ingredients/chamomile-ingredients2.jpg", 
-    pos: { x: 220, y: 40 } 
-  },
   
 ];
+  //omitted ingredients:
+  {/*
+    { 
+      id: 5, 
+      name: "Squalane", 
+      benefit: "Moisture Barrier",
+      desc: "Helps maintain moisture and improves skin texture without clogging pores.", 
+      image: "/ingredients/olive-ingredients.png", 
+      pos: { x: 0, y: 220 } 
+    }, 
+    { 
+      id: 4, 
+      name: "Chamomile Extract", 
+      benefit: "Calming",
+      desc: "Helps smooth skin and reduce the look of irritation.", 
+      image: "/ingredients/chamomile-ingredients2.jpg", 
+      pos: { x: 220, y: 40 } 
+    },
+    
+  */}
 
 export const BENEFITS = [
   { 
