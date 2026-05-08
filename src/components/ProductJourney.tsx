@@ -21,6 +21,7 @@ const BASE_SCALE = 1.0;
 const ProductJourney: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const triggerRef = useRef<HTMLDivElement>(null);
+  const swipePromptRef = useRef<HTMLDivElement>(null);
   const [isMobile, setIsMobile] = useState(false);
   const PRODUCT = {
     title: "Luvera Men's Daily Moisturizer",
@@ -64,6 +65,7 @@ const ProductJourney: React.FC = () => {
       gsap.set(".benefit-item", { opacity: 0, x: -50 });
       gsap.set(".hand-reveal", { opacity: 0, y: 150 });
       gsap.set(".product-info", { opacity: 0, y: 20 });
+      gsap.set(swipePromptRef.current, { y: 0, opacity: 1 });
 
       const exitDistance = isMobile ? 180 : 120;
       const exitRotation = isMobile ? 45 : 25;
@@ -115,7 +117,7 @@ const ProductJourney: React.FC = () => {
           y: isMobile ? "-29vh" : "15vh",
           scale: isMobile ? 0.45 : 1.2,
           duration: 1,
-          ease: "power2.in" // stops intercepting clicks when invisible
+          ease: "power2.in"
         }, ">-0.1")
         .to(".benefits-overlay", { yPercent: 0, duration: 2, ease: "power3.inOut" }, "<")
         .to(".tub-container", {
@@ -133,6 +135,18 @@ const ProductJourney: React.FC = () => {
           duration: 0.7,
           ease: "power2.out"
         }, "<+0.6");
+
+      // ── Swipe prompt: exits in sync with the genesis animation ──────────
+      // Inserted into the scrubbed timeline at position 0 — same frame the
+      // plants begin moving. Done by 0.6 (mid-way through the plant exit).
+      // Because it lives in the scrubbed timeline, it tracks scroll 1-to-1
+      // with no lag or timing mismatch.
+      timeline.to(swipePromptRef.current, {
+        y: -60,
+        opacity: 0,
+        duration: 0.6,
+        ease: "power2.in",
+      }, 0);
 
     }, containerRef);
 
@@ -307,14 +321,12 @@ const ProductJourney: React.FC = () => {
               : 'left-5/6 top-1/2 -translate-y-1/2 -ml-8 mt-3 w-55 flex flex-col items-start'
             }
           `}>
-            {/* Full-container link — sits behind everything */}
             {/* Full-container click target */}
             <div
               onClick={() => window.location.href = `/products/${PRODUCT.handle}`}
               className="absolute inset-0 z-0 cursor-pointer"
             />
 
-            {/* Content — z-10 so it renders above the link */}
             <a 
             href={`/products/${PRODUCT.handle}`}
             className="text-white hover:text-violet-400 z-10 font-serif font-black text-lg md:text-3xl leading-tight md:mb-2 relative transition duration-200">
@@ -327,7 +339,6 @@ const ProductJourney: React.FC = () => {
 
             <div className="h-px bg-white/10 mb-1 md:mb-6 w-full pointer-events-none relative z-10" />
 
-            {/* Button — z-20 so it sits above the link and captures its own clicks */}
             <button
               onClick={handleAddToCart}
               className="relative z-20 w-full md:px-6 py-1 md:py-3 rounded-full bg-white text-black text-xs font-black uppercase tracking-widest hover:bg-violet-40 shadow-[0_20px_60px_rgba(139,92,246,0.3)] transition-all duration-300 flex items-center justify-center cursor-pointer"
@@ -390,7 +401,7 @@ const ProductJourney: React.FC = () => {
                 />
               </div>
 
-              {/* Index column — sits on top of image, transparent + blurred */}
+              {/* Index column */}
               <div
                 className="shrink-0 flex flex-col items-center justify-end pb-3 relative z-10 border-r border-white/[0.07]"
                 style={{
@@ -438,9 +449,50 @@ const ProductJourney: React.FC = () => {
           ))}
         </div>
 
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center pointer-events-none">
-          <div className="w-px h-12 bg-linear-to-b from-white to-transparent mb-2 animate-bounce opacity-30" />
-          <span className="text-[10px] uppercase tracking-[0.6em] text-zinc-600 font-black text-center">Experience Luvera</span>
+        {/* Swipe prompt */}
+        <div
+          ref={swipePromptRef}
+          className="absolute top-20 left-1/2 -translate-x-1/2 z-50 pointer-events-none flex flex-col items-center gap-2"
+        >
+          {/* Scroll line */}
+          <div className="w-px h-6 relative overflow-hidden">
+            <div
+              className="absolute inset-0 bg-gradient-to-b from-transparent via-white/60 to-transparent"
+              style={{ animation: 'swipeScroll 1.4s ease-in-out infinite' }}
+            />
+          </div>
+          <div
+            style={{
+              backdropFilter: 'blur(8px)',
+              WebkitBackdropFilter: 'blur(8px)',
+              background: 'rgba(0,0,0,0.45)',
+              border: '1px solid rgba(255,255,255,0.12)',
+              borderRadius: '9999px',
+              padding: '6px 20px',
+            }}
+          >
+            <span style={{
+              fontFamily: "'Tenor Sans', sans-serif",
+              fontSize: '8px',
+              letterSpacing: '0.35em',
+              textTransform: 'uppercase' as const,
+              color: 'rgba(255,255,255,0.45)',
+              whiteSpace: 'nowrap',
+            }}>
+              Scroll to explore
+            </span>
+          </div>
+
+          
+
+          <style>{`
+            @keyframes swipeScroll {
+              0%   { transform: translateY(100%); opacity: 0; }
+              20%  { opacity: 1; }
+              80%  { opacity: 1; }
+              100% { transform: translateY(-100%); opacity: 0; }
+            }
+          `}</style>
         </div>
 
       </div>
