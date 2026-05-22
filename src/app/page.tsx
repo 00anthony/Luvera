@@ -45,7 +45,7 @@ const App: React.FC = () => {
 
       {/* Overlays */}
       {/* <DiscountPopup /> */}
-      <AIConcierge />
+      {/* <AIConcierge /> */}
     </div>
   );
 };
