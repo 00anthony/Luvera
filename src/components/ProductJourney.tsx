@@ -64,7 +64,7 @@ const ProductJourney: React.FC = () => {
       gsap.set(".benefits-overlay", { yPercent: 100 });
       gsap.set(".benefit-item", { opacity: 0, x: -50 });
       gsap.set(".hand-reveal", { opacity: 0, y: 150 });
-      gsap.set(".product-info", { opacity: 0, y: 20 });
+      gsap.set(".product-info", { opacity: 0, y: -800 });
       gsap.set(swipePromptRef.current, { y: 0, opacity: 1 });
 
       const exitDistance = isMobile ? 180 : 120;
@@ -77,7 +77,7 @@ const ProductJourney: React.FC = () => {
         .to(".vegetation-right", { xPercent: exitDistance, rotate: exitRotation, duration: 2, ease: "power2.out" }, 0)
         .to(".tub-lid", { y: isMobile ? -223 : -7, duration: 2, ease: "power2.out" }, 0)
         .to(".tub-base", { y: isMobile ? -220 : 0, duration: 2, ease: "power2.out" }, 0)
-        .to(".product-info", { opacity: 1, y: isMobile ? -142: 0, duration: 0.8, ease: "power2.out"}, 1.5);
+        .to(".product-info", { opacity: 1, y: isMobile ? -142: 0, duration: 2, ease: "power2.out"}, 0);
 
       const desktopOffsets = [
         { x: "-26vw", y: "-30vh" }, //TL Aloe
@@ -118,7 +118,7 @@ const ProductJourney: React.FC = () => {
         .to(".product-info", {
           opacity: isMobile ? 1 : 0,
           x: isMobile ? "-16vw" : "9vw",
-          y: isMobile ? "-31vh" : "15vh",
+          y: isMobile ? "-29vh" : "15vh",
           scale: isMobile ? 0.45 : 1.2,
           duration: 2,
           ease: "power3.inOut"
@@ -126,7 +126,7 @@ const ProductJourney: React.FC = () => {
         .to(".benefits-overlay", { yPercent: 0, duration: 2, ease: "power3.inOut" }, "<")
         .to(".tub-container", {
           x: isMobile ? 0 : "25vw",
-          y: isMobile ? "-28vh" : "14vh",
+          y: isMobile ? "-26vh" : "14vh",
           scale: isMobile ? 0.45 : 1.2,
           duration: 2,
           ease: "power3.inOut"
