@@ -53,22 +53,22 @@ export const BENEFITS = [
   { 
     title: "Deep Hydration", 
     desc: "Lightweight, long-lasting moisture that protects the skin barrier.", 
-    image: "/benefits/skin-barrier.jpg" 
+    image: "/benefits/water-droplet.jpg" 
   },
   { 
     title: "Soothes Skin", 
     desc: "Calms redness and irritation, perfect for sensitive skin & daily use.", 
-    image: "/benefits/face-cream.jpg" 
+    image: "/benefits/closeup-skin.jpeg" 
   },
   { 
     title: "Skin Healing", 
     desc: "Enhances healing of minor cuts, burns, and blemishes.", 
-    image: "/benefits/skin-irritant.jpg" 
+    image: "/benefits/lightskin.jpg" 
   },
   { 
     title: "Peptide Rich", 
     desc: "Fights aging and repairs skin with essential vitamins like Acetyl Hexapeptide-37.", 
-    image: "/benefits/peptide-rich.jpg" 
+    image: "/benefits/aloe-closeup.jpg" 
   }
 ];
 
