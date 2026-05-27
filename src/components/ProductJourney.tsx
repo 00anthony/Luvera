@@ -123,8 +123,8 @@ const ProductJourney: React.FC = () => {
       timeline
         .to(".product-info", {
           opacity: isMobile ? 1 : 1,
-          x: isMobile ? "-16vw" : "19vw",
-          y: isMobile ? "-29vh" : "18vh",
+          x: isMobile ? "-16vw" : "8vw",
+          y: isMobile ? "-29vh" : "-4vh",
           scale: isMobile ? 0.45 : 0.75,
           duration: 2,
           ease: "power3.inOut"
@@ -324,10 +324,10 @@ const ProductJourney: React.FC = () => {
 
           {/* Product Info */}
           <div className={`
-            product-info absolute pointer-events-auto z-50
+            product-info absolute pointer-events-auto z-50 
             ${isMobile
               ? 'left-3/4 top-1/4 -translate-y-1/2 -ml-16 mt-26 w-20 flex flex-col items-center text-center'
-              : 'left-5/6 top-1/2 -translate-y-1/2 -ml-8 mt-3 w-55 flex flex-col items-start'
+              : 'left-5/6 top-1/2 -translate-y-1/2 -ml-8 mt-3 w-55 flex flex-col items-start '
             }
           `}>
             {/* Full-container click target */}
@@ -338,12 +338,15 @@ const ProductJourney: React.FC = () => {
 
             <a 
             href={`/products/${PRODUCT.handle}`}
-            className="text-white hover:text-violet-400 z-10 font-serif font-black text-lg md:text-3xl leading-tight md:mb-2 relative transition duration-200">
+            className="text-white hover:text-violet-400 z-10 font-serif font-black text-lg md:text-3xl leading-tight md:mb-2 relative transition duration-200 ">
               {PRODUCT.title}
             </a>
 
-            <p className="text-violet-500 inline-flex text-sm font-bold uppercase tracking-widest md:mb-6 pointer-events-none relative z-10">
-              {PRODUCT.price} <span className='text-zinc-400 line-through ml-2'> $49.99</span>
+            <p
+              className="text-violet-500 inline-flex text-sm font-bold uppercase tracking-widest md:mb-6 pointer-events-none relative z-10"
+              style={{ textShadow: '0 0 12px rgba(139,92,246,0.6), 0 2px 8px rgba(0,0,0,0.9)' }}
+            >
+              {PRODUCT.price} <span className='text-zinc-400 line-through ml-2'>$49.99</span>
             </p>
 
             <div className="h-px bg-white/10 mb-1 md:mb-6 w-full pointer-events-none relative z-10" />
