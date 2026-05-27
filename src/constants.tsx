@@ -7,7 +7,7 @@ export const INGREDIENTS = [
     name: "Aloe Vera", 
     benefit: "Hydration & Soothing",
     desc: "Provides hydration, soothes irritation, and promotes healing.", 
-    image: "/ingredients/aloe-ingredients.png", 
+    image: "/ingredients/aloe-dark-bg.jpg", 
     pos: { x: -160, y: -160 } 
   },
   { 
@@ -15,7 +15,7 @@ export const INGREDIENTS = [
     name: "Vitamin C", 
     benefit: "Brightening",
     desc: "Helps promote a healthier, more even appearance.", 
-    image: "/ingredients/vitamin-c-ingredients.png", 
+    image: "/ingredients/orange-dark-bg.jpg", 
     pos: { x: 160, y: -160 } 
   },
   { 
@@ -23,7 +23,7 @@ export const INGREDIENTS = [
     name: "Hyaluronic Acid", 
     benefit: "Deep Hydration",
     desc: "Helps attract and retain moisture throughout the day.", 
-    image: "/ingredients/hyaluronic-acid2.jpg", 
+    image: "/ingredients/ha-dark-bg.jpg", 
     pos: { x: -220, y: 40 } 
   },
   

@@ -211,7 +211,7 @@ const ProductJourney: React.FC = () => {
                     src={ing.image}
                     alt={ing.name}
                     className="w-full h-full object-cover object-center block"
-                    style={{ filter: 'saturate(0.6) brightness(0.85)' }}
+                    style={{ filter: 'saturate(0.9) brightness(0.9)' }}
                   />
                   {/* Feather edge toward the text */}
                   <div
