@@ -55,8 +55,8 @@ const ProductJourney: React.FC = () => {
         }
       });
 
-      gsap.set(".vegetation-left", { xPercent: 0, rotate: 0, opacity: 1 });
-      gsap.set(".vegetation-right", { xPercent: 0, rotate: 0, opacity: 1 });
+      gsap.set(".vegetation-left", { xPercent: 0, rotate: 0, scale: 1, opacity: 1 });
+      gsap.set(".vegetation-right", { xPercent: 0, rotate: 0, scale: 1, opacity: 1 });
       gsap.set(".hero-bg-text", { opacity: 0.2, scale: 1 });
       gsap.set(".tub-lid", { y: -800 });
       gsap.set(".tub-base", { y: 1400 });
@@ -73,16 +73,19 @@ const ProductJourney: React.FC = () => {
       timeline
         .to(".hero-bg-text", { opacity: 1, scale: 1.05, duration: 1 }, 0)
         .to(".hero-bg-text", { opacity: 0.1, scale: 1, duration: 1 }, 1)
-        .to(".vegetation-left", { xPercent: -exitDistance, rotate: -exitRotation, duration: 2, ease: "power2.out" }, 0)
-        .to(".vegetation-right", { xPercent: exitDistance, rotate: exitRotation, duration: 2, ease: "power2.out" }, 0)
-        .to(".tub-lid", { y: isMobile ? -223 : -7, duration: 2, ease: "power2.out" }, 0)
-        .to(".tub-base", { y: isMobile ? -220 : 0, duration: 2, ease: "power2.out" }, 0)
-        .to(".product-info", { opacity: 1, y: isMobile ? -142: 0, duration: 2, ease: "power2.out"}, 0);
+        .to(".vegetation-left", { xPercent: -exitDistance, rotate: -exitRotation, scale: 1, duration: 2, ease: "power2.out" }, 0)
+        .to(".vegetation-right", { xPercent: exitDistance, rotate: exitRotation, scale: 1, duration: 2, ease: "power2.out" }, 0)
+        .to(".tub-lid", { y: isMobile ? -223 : 21, duration: 2, ease: "power2.out" }, 0)
+        .to(".tub-base", { y: isMobile ? -220 : 28, duration: 2, ease: "power2.out" }, 0)
+        .to(".product-info", { opacity: 1, y: isMobile ? -142: 28, duration: 2, ease: "power2.out"}, 0)
+        .to(".tub-lid", { x: isMobile ? 0 : -20, duration: 2, ease: "power2.out" }, 0)
+        .to(".tub-base", { x: isMobile ? 0 : -20, duration: 2, ease: "power2.out" }, 0)
+        .to(".product-info", { x: isMobile ? 0: -20, duration: 2, ease: "power2.out"}, 0);
 
       const desktopOffsets = [
-        { x: "-26vw", y: "-30vh" }, //TL Aloe
-        { x: "26vw", y: "-30vh" }, //TR Vit C
-        { x: "-34vw", y: "8vh" }, //BL HA
+        { x: "0", y: "-30vh" }, //Top Aloe
+        { x: "34vw", y: "8vh" }, //Right Vit C
+        { x: "-34vw", y: "8vh" }, //Left HA
         {/*
           { x: "0vw", y: "35vh" }, //bottom
           { x: "34vw", y: "8vh" }, //BR
@@ -101,6 +104,8 @@ const ProductJourney: React.FC = () => {
         
       ];
 
+      
+
       const activeOffsets = isMobile ? mobileOffsets : desktopOffsets;
 
       INGREDIENTS.forEach((ing, i) => {
@@ -114,24 +119,24 @@ const ProductJourney: React.FC = () => {
         }, 1.5 + (i * 0.1));
       });
 
+
       timeline
         .to(".product-info", {
-          opacity: isMobile ? 1 : 0,
-          x: isMobile ? "-16vw" : "9vw",
-          y: isMobile ? "-29vh" : "15vh",
-          scale: isMobile ? 0.45 : 1.2,
+          opacity: isMobile ? 1 : 1,
+          x: isMobile ? "-16vw" : "19vw",
+          y: isMobile ? "-29vh" : "18vh",
+          scale: isMobile ? 0.45 : 0.75,
           duration: 2,
           ease: "power3.inOut"
         }, ">-0.1")
         .to(".benefits-overlay", { yPercent: 0, duration: 2, ease: "power3.inOut" }, "<")
         .to(".tub-container", {
           x: isMobile ? 0 : "25vw",
-          y: isMobile ? "-26vh" : "14vh",
-          scale: isMobile ? 0.45 : 1.2,
+          y: isMobile ? "-26vh" : "16vh",
+          scale: isMobile ? 0.45 : 0.75,
           duration: 2,
           ease: "power3.inOut"
         }, "<")
-        .to(".hand-reveal", { opacity: 0.7, y: 0, duration: 1.5 }, "<+0.5")
         .to(".benefit-item", {
           opacity: 1,
           x: 0,
@@ -301,7 +306,7 @@ const ProductJourney: React.FC = () => {
 
           {/* Image — desktop only, right side, slightly transparent */}
           <img
-            src="/benefits/benefits-bg-no-tub.png"
+            src="/benefits/benefits-bg.jpeg"
             alt="benefits-background"
             className="hidden md:block absolute top-0 right-0 h-full w-1/2 object-cover object-center"
             style={{ filter: 'saturate(0.6) brightness(0.85)', opacity: 1 }}
