@@ -7,7 +7,7 @@ export const INGREDIENTS = [
     name: "Aloe Vera", 
     benefit: "Hydration & Soothing",
     desc: "Provides hydration, soothes irritation, and promotes healing.", 
-    image: "/ingredients/aloe-dark-bg.jpg", 
+    image: "/ingredients/aloe-dark-bg.webp", 
     pos: { x: -160, y: -160 } 
   },
   { 
@@ -15,7 +15,7 @@ export const INGREDIENTS = [
     name: "Vitamin C", 
     benefit: "Brightening",
     desc: "Helps promote a healthier, more even appearance.", 
-    image: "/ingredients/orange-dark-bg.jpg", 
+    image: "/ingredients/orange-dark-bg.webp", 
     pos: { x: 160, y: -160 } 
   },
   { 
@@ -23,7 +23,7 @@ export const INGREDIENTS = [
     name: "Hyaluronic Acid", 
     benefit: "Deep Hydration",
     desc: "Helps attract and retain moisture throughout the day.", 
-    image: "/ingredients/ha-dark-bg.jpg", 
+    image: "/ingredients/ha-dark-bg.webp", 
     pos: { x: -220, y: 40 } 
   },
   
@@ -35,7 +35,7 @@ export const INGREDIENTS = [
       name: "Squalane", 
       benefit: "Moisture Barrier",
       desc: "Helps maintain moisture and improves skin texture without clogging pores.", 
-      image: "/ingredients/olive-ingredients.png", 
+      image: "/ingredients/olive-ingredients.webp", 
       pos: { x: 0, y: 220 } 
     }, 
     { 
@@ -43,7 +43,7 @@ export const INGREDIENTS = [
       name: "Chamomile Extract", 
       benefit: "Calming",
       desc: "Helps smooth skin and reduce the look of irritation.", 
-      image: "/ingredients/chamomile-ingredients2.jpg", 
+      image: "/ingredients/chamomile-ingredients2.webp", 
       pos: { x: 220, y: 40 } 
     },
     
@@ -53,22 +53,22 @@ export const BENEFITS = [
   { 
     title: "Deep Hydration", 
     desc: "Lightweight, long-lasting moisture that protects the skin barrier.", 
-    image: "/benefits/water-droplet.jpg" 
+    image: "/benefits/water-droplet.webp" 
   },
   { 
     title: "Soothes Skin", 
     desc: "Calms redness and irritation, perfect for sensitive skin & daily use.", 
-    image: "/benefits/closeup-skin.jpeg" 
+    image: "/benefits/closeup-skin.webp" 
   },
   { 
     title: "Skin Healing", 
     desc: "Enhances healing of minor cuts, burns, and blemishes.", 
-    image: "/benefits/lightskin.jpg" 
+    image: "/benefits/lightskin.webp" 
   },
   { 
     title: "Peptide Rich", 
     desc: "Fights aging and repairs skin with essential vitamins like Acetyl Hexapeptide-37.", 
-    image: "/benefits/aloe-closeup.jpg" 
+    image: "/benefits/aloe-closeup.webp" 
   }
 ];
 
@@ -77,8 +77,8 @@ export const CREATORS = [
     id: "1", 
     name: "EMILY 👸🏽🎀🧁🧚🏼🩵✨✝️", 
     handle: "@xoemilyadams", 
-    image: "/ugc/emily-pfp-insta.jpg", 
-    videoThumb: "/ugc/emily-ugc1-thumbnail.png", 
+    image: "/ugc/emily-pfp-insta.webp", 
+    videoThumb: "/ugc/emily-ugc1-thumbnail.webp", 
     quote: "The BEST facial moisturizer on TikTok.", 
     instagramUrl: "https://www.instagram.com/xoemilyadams/",
     videoUrl: "/ugc/emily-ugc1.mov",
@@ -88,8 +88,8 @@ export const CREATORS = [
     id: "2", 
     name: "Sean Jayme", 
     handle: "@officialseanjayme", 
-    image: "/ugc/sean-pfp-insta.jpg", 
-    videoThumb: "/ugc/sean-ugc1-thumbnail.png", 
+    image: "/ugc/sean-pfp-insta.webp", 
+    videoThumb: "/ugc/sean-ugc1-thumbnail.webp", 
     quote: "My skin has been looking really really clean.", 
     instagramUrl: "https://www.instagram.com/officialseanjayme/",
     videoUrl: "/ugc/sean-ugc1.mov",
@@ -99,8 +99,8 @@ export const CREATORS = [
     id: "3", 
     name: "Mayer Caballero", 
     handle: "@mayer__elvis", 
-    image: "/ugc/mayer-pfp-insta.jpg", 
-    videoThumb: "/ugc/mayer-ugc1-thumbnail.png", 
+    image: "/ugc/mayer-pfp-insta.webp", 
+    videoThumb: "/ugc/mayer-ugc1-thumbnail.webp", 
     quote: "Get you one and thank me later.",
     instagramUrl: "https://www.instagram.com/mayer__elvis/",
     videoUrl: "/ugc/mayer-ugc1.mov",
@@ -110,8 +110,8 @@ export const CREATORS = [
     id: "4", 
     name: "Tory Haywood", 
     handle: "@torylhaywood", 
-    image: "/ugc/tory-pfp-insta.jpg", 
-    videoThumb: "/ugc/tory-ugc1-thumbnail.png", 
+    image: "/ugc/tory-pfp-insta.webp", 
+    videoThumb: "/ugc/tory-ugc1-thumbnail.webp", 
     quote: "The perfect Valentines day gift.",
     instagramUrl: "https://www.instagram.com/torylhaywood/",
     videoUrl: "/ugc/tory-ugc1.mov",

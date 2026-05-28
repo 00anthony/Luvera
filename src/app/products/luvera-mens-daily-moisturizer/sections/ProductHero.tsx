@@ -9,11 +9,11 @@ import { useCheckout } from '../hooks/Usecheckout'
 // ─── Placeholder media slides ─────────────────────────────────────────────────
 // Replace src values with your actual product images/videos.
 const MEDIA = [
-  { type: 'image', src: '/product/tub.PNG',             alt: 'Luvera moisturizer front'     },
-  { type: 'image', src: '/product/open-tub.PNG',        alt: 'Luvera moisturizer texture'   },
-  { type: 'image', src: '/product/benefits.PNG',        alt: 'Trio set contents'            },
-  { type: 'image', src: '/product/how-to-apply.PNG',    alt: 'Trio set contents'            },
-  { type: 'image', src: '/product/fda.PNG',             alt: 'Trio set contents'            },
+  { type: 'image', src: '/product/tub.webp',             alt: 'Luvera moisturizer front'     },
+  { type: 'image', src: '/product/open-tub.webp',        alt: 'Luvera moisturizer texture'   },
+  { type: 'image', src: '/product/benefits.webp',        alt: 'Trio set contents'            },
+  { type: 'image', src: '/product/how-to-apply.webp',    alt: 'Trio set contents'            },
+  { type: 'image', src: '/product/fda.webp',             alt: 'Trio set contents'            },
   { type: 'image', src: '/product/tub-and-package.webp',alt: 'Trio set contents'            },
   { type: 'image', src: '/product/package.webp',        alt: 'Luvera moisturizer lifestyle' },
   { type: 'video', src: '/product/snow.mp4',            alt: 'See it in action'             },
@@ -147,7 +147,7 @@ export default function ProductHero() {
                   >
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
-                      src={m.type === 'video' ? '/product/snow-thumb.png' : m.src}
+                      src={m.type === 'video' ? '/product/snow-thumb.webp' : m.src}
                       alt={m.alt}
                       className="w-full h-full object-cover"
                     />

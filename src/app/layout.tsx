@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     title: "Luvéra - Premium Men's Skincare | Lightweight Face Moisturizer",
     description:
       "Discover Luvéra's premium men's skincare. Lightweight, non-greasy face moisturizers for daily hydration across all skin types. Discover and shop today now online.",
-    images: ['/product/tub.PNG'],
+    images: ['/product/tub.webp'],
   },
 
   twitter: {
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     title: "Luvéra - Premium Men's Skincare | Lightweight Face Moisturizer",
     description:
       "Discover Luvéra's premium men's skincare. Lightweight, non-greasy face moisturizers for daily hydration across all skin types. Discover and shop today now online.",
-    images: ['/product/tub.PNG'],
+    images: ['/product/tub.webp'],
   },
 };
 

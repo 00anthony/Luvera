@@ -183,11 +183,11 @@ const ProductJourney: React.FC = () => {
         </div>
 
         <div className="vegetation-left absolute z-30 left-0 w-1/2 h-full pointer-events-none origin-bottom-left overflow-visible">
-          <img src="/hero/aloe-plant-blackbg-left.png" className="h-full w-full object-cover object-right opacity-70 grayscale-[0.2] overflow-visible" alt="" />
+          <img src="/hero/aloe-plant-blackbg-left.webp" className="h-full w-full object-cover object-right opacity-70 grayscale-[0.2] overflow-visible" alt="" />
         </div>
 
         <div className="vegetation-right absolute z-30 right-0 w-1/2 h-full pointer-events-none origin-bottom-right overflow-visible">
-          <img src="/hero/aloe-plant-blackbg-right.png" className="h-full w-full object-cover object-left opacity-70 grayscale-[0.2] overflow-visible" alt="" />
+          <img src="/hero/aloe-plant-blackbg-right.webp" className="h-full w-full object-cover object-left opacity-70 grayscale-[0.2] overflow-visible" alt="" />
         </div>
 
         <div className="absolute inset-0 z-20 flex items-center justify-center pointer-events-none">
@@ -309,7 +309,7 @@ const ProductJourney: React.FC = () => {
 
           {/* Image — desktop only, right side, slightly transparent */}
           <img
-            src="/benefits/benefits-bg.jpeg"
+            src="/benefits/benefits-bg.webp"
             alt="benefits-background"
             className="hidden md:block absolute top-0 right-0 h-full w-1/2 object-cover object-center"
             style={{ filter: 'saturate(0.9) brightness(0.9)', opacity: 1 }}
