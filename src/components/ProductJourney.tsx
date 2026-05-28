@@ -100,9 +100,9 @@ const ProductJourney: React.FC = () => {
         ];
 
         const mobileOffsets = [
-          { x: "-27vw", y: "-1vh" }, //Aloe (Top)
-          { x: "27vw", y: "14vh" }, //Vit C (R)
-          { x: "-26vw", y: "34vh" }, //HA (L)
+          { x: "-26vw", y: "-1vh" }, //Aloe (TL)
+          { x: "26vw", y: "14vh" }, //Vit C (BR)
+          { x: "-25vw", y: "34vh" }, //HA (BL)
           {/*
             { x: "0vw", y: "35vh" }, //squalene (bottom-most)
             { x: "27vw", y: "12vh" }, //chamo (BR)
