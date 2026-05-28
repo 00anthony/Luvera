@@ -100,9 +100,9 @@ const ProductJourney: React.FC = () => {
         ];
 
         const mobileOffsets = [
-          { x: "-26vw", y: "-1vh" }, //Aloe (TL)
+          { x: "-24vw", y: "-1vh" }, //Aloe (TL)
           { x: "26vw", y: "14vh" }, //Vit C (BR)
-          { x: "-25vw", y: "34vh" }, //HA (BL)
+          { x: "-24vw", y: "34vh" }, //HA (BL)
           {/*
             { x: "0vw", y: "35vh" }, //squalene (bottom-most)
             { x: "27vw", y: "12vh" }, //chamo (BR)
@@ -365,7 +365,7 @@ const ProductJourney: React.FC = () => {
             </a>
 
             {/* product price pill box */}
-            <div className="inline-flex items-baseline gap-2 px-3 py-1 rounded-full border border-violet-500/40 bg-violet-950/10 pointer-events-none relative z-10 md:mb-6"
+            <div className="inline-flex items-baseline gap-2 px-3 py-1 rounded-full md:border border-violet-500/40 bg-violet-950/10 pointer-events-none relative z-10 md:mb-6"
               style={{
                 backdropFilter: 'blur(8px)',
                 WebkitBackdropFilter: 'blur(8px)',
