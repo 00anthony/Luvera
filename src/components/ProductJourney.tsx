@@ -64,7 +64,7 @@ const ProductJourney: React.FC = () => {
 
         gsap.set(".vegetation-left", { xPercent: 0, rotate: 0, scale: 1, opacity: 1 });
         gsap.set(".vegetation-right", { xPercent: 0, rotate: 0, scale: 1, opacity: 1 });
-        gsap.set(".hero-bg-text", { opacity: 0.2, scale: 1 });
+        gsap.set(".hero-bg-text", { opacity: 0.4, scale: 1 });
         gsap.set(".tub-lid", { y: -800 });
         gsap.set(".tub-base", { y: 1400 });
         gsap.set(".ingredient-card", { opacity: 0, scale: 0.3, x: 0, y: 0 });
@@ -74,14 +74,15 @@ const ProductJourney: React.FC = () => {
         gsap.set(".product-info", { opacity: 0, y: -800 });
         gsap.set(swipePromptRef.current, { y: 0, opacity: 1 });
 
-        const exitDistance = isMobile ? 180 : 120;
-        const exitRotation = isMobile ? 45 : 25;
+        const exitDistance = isMobile ? 0 : 0;
+        const exitRotation = isMobile ? 0 : 0;
 
         timeline
           .to(".hero-bg-text", { opacity: 1, scale: 1.05, duration: 1 }, 0)
-          .to(".hero-bg-text", { opacity: 0.1, scale: 1, duration: 1 }, 1)
-          .to(".vegetation-left", { xPercent: -exitDistance, rotate: -exitRotation, scale: 1, duration: 2, ease: "power2.out" }, 0)
-          .to(".vegetation-right", { xPercent: exitDistance, rotate: exitRotation, scale: 1, duration: 2, ease: "power2.out" }, 0)
+          .to(".hero-bg-text", { opacity: 0.3, scale: 1, duration: 1 }, 1)
+          .to(".vegetation-left", { opacity: 0.5, duration: 1, }, 0) //xPercent: -exitDistance, rotate: -exitRotation, scale: 1, ease: "power2.out"
+          .to(".vegetation-right", { opacity: 0.5,  duration: 1, }, 0) //xPercent: exitDistance, rotate: exitRotation, scale: 1, ease: "power2.out"
+
           .to(".tub-lid", { y: isMobile ? -223 : 21, duration: 2, ease: "power2.out" }, 0)
           .to(".tub-base", { y: isMobile ? -220 : 28, duration: 2, ease: "power2.out" }, 0)
           .to(".product-info", { opacity: 1, y: isMobile ? -142: 28, duration: 2, ease: "power2.out"}, 0)
@@ -181,6 +182,7 @@ const ProductJourney: React.FC = () => {
     <div ref={containerRef} className="relative bg-black overflow-hidden">
       <div ref={triggerRef} className="h-screen w-full flex items-center justify-center overflow-hidden">
 
+        {/* purple overlay */}
         <div className="absolute inset-0 z-0">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150vw] h-[150vw] bg-purple-950/10 rounded-full blur-[200px]" />
         </div>
@@ -191,10 +193,11 @@ const ProductJourney: React.FC = () => {
           </span>
         </div>
 
+        {/* removed opacity and grayscale from hero aloe */}
         <div className="vegetation-left absolute z-30 left-0 w-1/2 h-full pointer-events-none origin-bottom-left overflow-visible">
           <img 
             src="/hero/aloe-plant-blackbg-left.webp" 
-            className="h-full w-full object-cover object-right opacity-70 grayscale-[0.2] overflow-visible" 
+            className="h-full w-full object-cover object-right   overflow-visible" 
             alt=""
             fetchPriority='high'
           />
@@ -203,13 +206,13 @@ const ProductJourney: React.FC = () => {
         <div className="vegetation-right absolute z-30 right-0 w-1/2 h-full pointer-events-none origin-bottom-right overflow-visible">
           <img 
             src="/hero/aloe-plant-blackbg-right.webp" 
-            className="h-full w-full object-cover object-left opacity-70 grayscale-[0.2] overflow-visible" 
+            className="h-full w-full object-cover object-left  overflow-visible" 
             alt=""
             fetchPriority='high' 
           />
         </div>
 
-        <div className="absolute inset-0 z-20 flex items-center justify-center pointer-events-none">
+        <div className="absolute inset-0 z-40 flex items-center justify-center pointer-events-none">
           {INGREDIENTS.map((ing, i) => (
             <div
               key={ing.id}
@@ -230,7 +233,7 @@ const ProductJourney: React.FC = () => {
                     src={ing.image}
                     alt={ing.name}
                     className="w-full h-full object-cover object-center block"
-                    style={{ filter: 'saturate(0.9) brightness(0.9)' }}
+                    //style={{ filter: 'saturate(0.9) brightness(0.9)' }}
                   />
                   {/* Feather edge toward the text */}
                   <div
@@ -321,7 +324,7 @@ const ProductJourney: React.FC = () => {
           ))}
         </div>
 
-        <div className="benefits-overlay absolute inset-0 z-30 pointer-events-none">
+        <div className="benefits-overlay absolute inset-0 z-50 pointer-events-none">
           {/* Dark overlay for the whole section */}
           <div className="absolute inset-0 bg-black/50 backdrop-blur-md" />
           <div className="absolute inset-0 bg-linear-to-t from-black via-black/80 to-transparent" />
@@ -331,15 +334,9 @@ const ProductJourney: React.FC = () => {
             src="/benefits/benefits-bg.webp"
             alt="benefits-background"
             className="hidden md:block absolute top-0 right-0 h-full w-1/2 object-cover object-center"
-            style={{ filter: 'saturate(0.9) brightness(0.9)', opacity: 1 }}
+            //style={{ filter: 'saturate(0.9) brightness(0.9)', opacity: 1 }}
           />
         </div>
-
-        {!isMobile && (
-          <div className="hand-reveal absolute z-40 right-[2%] bottom-[-15%] w-200 pointer-events-none opacity-0 translate-y-37.5">
-            <img src="https://images.unsplash.com/photo-1515377662630-6c7d95a4e6ca?q=80&w=1000&auto=format&fit=crop" className="w-full h-auto grayscale opacity-80 mix-blend-screen scale-x-[-1]" alt="" />
-          </div>
-        )}
 
         {/* Tub + Product Info wrapper — keeps them coupled for desktop layout */}
         <div className="relative z-50 flex flex-col items-center">
@@ -423,7 +420,7 @@ const ProductJourney: React.FC = () => {
           </div>
         </div>
 
-        <div className={`absolute z-45 ${isMobile ? 'bottom-[5%] left-0 right-0 px-6 space-y-3' : 'left-[8%] top-1/2 -translate-y-1/2 max-w-xl space-y-3.5'}`}>
+        <div className={`absolute z-50 ${isMobile ? 'bottom-[5%] left-0 right-0 px-6 space-y-3' : 'left-[8%] top-1/2 -translate-y-1/2 max-w-xl space-y-3.5'}`}>
           {BENEFITS.map((benefit, i) => (
             <div
               key={i}
