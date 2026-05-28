@@ -235,7 +235,7 @@ const FAQ: React.FC = () => {
             <p className="text-white/40 text-sm mt-0.5">Our team usually replies within a few hours.</p>
           </div>
           <a
-            href="mailto:support@luveralotion.com"
+            href="mailto:luveraskincare@gmail.com"
             className="shrink-0 px-6 py-3 rounded-full text-sm font-bold tracking-widest uppercase
                        transition-all duration-300 hover:opacity-90"
             style={{

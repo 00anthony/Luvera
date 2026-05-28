@@ -299,33 +299,35 @@ const ComingSoon: React.FC = () => {
           <div className={`cs-fade-up delay-3 ${mounted ? 'visible' : ''}`}>
             <p className="cs-body">
               A new chapter in men's skincare is almost here.
-              Be the first to know when we launch.
+              Check back to see what's in store.
             </p>
           </div>
 
           {/* Email capture */}
-          <div className={`cs-fade-up delay-4 ${mounted ? 'visible' : ''}`} style={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
-            {!submitted ? (
-              <div className="cs-input-wrap">
-                <input
-                  ref={inputRef}
-                  className="cs-input"
-                  type="email"
-                  placeholder="Your email address"
-                  value={email}
-                  onChange={e => setEmail(e.target.value)}
-                  onKeyDown={e => e.key === 'Enter' && handleSubmit()}
-                />
-                <button className="cs-btn" onClick={handleSubmit}>
-                  Notify me
-                </button>
-              </div>
-            ) : (
-              <p className="cs-success">
-                You're on the list — we'll be in touch.
-              </p>
-            )}
-          </div>
+          {/*
+            <div className={`cs-fade-up delay-4 ${mounted ? 'visible' : ''}`} style={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
+              {!submitted ? (
+                <div className="cs-input-wrap">
+                  <input
+                    ref={inputRef}
+                    className="cs-input"
+                    type="email"
+                    placeholder="Your email address"
+                    value={email}
+                    onChange={e => setEmail(e.target.value)}
+                    onKeyDown={e => e.key === 'Enter' && handleSubmit()}
+                  />
+                  <button className="cs-btn" onClick={handleSubmit}>
+                    Notify me
+                  </button>
+                </div>
+              ) : (
+                <p className="cs-success">
+                  You're on the list — we'll be in touch.
+                </p>
+              )}
+            </div>
+          */}
 
           {/* Bottom links */}
           <div className={`cs-fade-up delay-5 ${mounted ? 'visible' : ''}`} style={{ display: 'flex', gap: '32px', marginTop: '8px' }}>
@@ -333,11 +335,11 @@ const ComingSoon: React.FC = () => {
               Instagram
             </a>
             <span className="cs-label" style={{ opacity: 0.2 }}>·</span>
-            <a href="https://luvera-9280.myshopify.com" className="cs-nav-link">
+            <a href="/products/luvera-mens-daily-moisturizer" className="cs-nav-link">
               Shop
             </a>
             <span className="cs-label" style={{ opacity: 0.2 }}>·</span>
-            <a href="mailto:hello@useluvera.com" className="cs-nav-link">
+            <a href="mailto:luveraskincare@gmail.com" className="cs-nav-link">
               Contact
             </a>
           </div>

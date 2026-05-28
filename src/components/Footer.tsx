@@ -19,9 +19,13 @@ const Footer: React.FC = () => {
                 placeholder="Email address" 
                 className="flex-1 bg-white/5 border border-white/10 px-6 py-4 rounded-full focus:outline-none focus:border-purple-500 transition-colors"
               />
-              <button className="bg-white text-black w-14 h-14 rounded-full flex items-center justify-center hover:bg-purple-500 hover:text-white transition-all group">
-                <Send className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-              </button>
+              <a 
+                href='/coming-soon'
+                className="bg-white text-black w-14 h-14 rounded-full flex items-center justify-center hover:bg-violet-600 hover:text-white  cursor-pointer transition-all group"
+                
+              >
+                <Send className="w-5 h-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+              </a>
             </form>
           </div>
 
@@ -39,7 +43,7 @@ const Footer: React.FC = () => {
               <ul className="space-y-2 text-sm text-gray-400">
                 <li><a href="/products/luvera-mens-daily-moisturizer#story" className="hover:text-white">Our Story</a></li>
                 <li><a href="/products/luvera-mens-daily-moisturizer#science" className="hover:text-white">Science</a></li>
-                <li><a href="/coming-soon" className="hover:text-white">Contact</a></li>
+                <li><a href="mailto:luveraskincare@gmail.com" className="hover:text-white">Contact</a></li>
               </ul>
             </div>
             <div className="space-y-4 col-span-2 sm:col-span-1">
