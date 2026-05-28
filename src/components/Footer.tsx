@@ -29,17 +29,17 @@ const Footer: React.FC = () => {
             <div className="space-y-4">
               <h4 className="text-xs font-bold uppercase tracking-widest text-purple-400">Shop</h4>
               <ul className="space-y-2 text-sm text-gray-400">
-                <li><a href={TIKTOK_SHOP_URL} className="hover:text-white">Hydrating Lotion</a></li>
-                <li><a href="#" className="hover:text-white">Bundles</a></li>
-                <li><a href="#" className="hover:text-white">Gift Cards</a></li>
+                <li><a href="/products/luvera-mens-daily-moisturizer" className="hover:text-white">Hydrating Lotion</a></li>
+                <li><a href="/products/luvera-mens-daily-moisturizer" className="hover:text-white">Bundles</a></li>
+                <li><a href="/coming-soon" className="hover:text-white">Gift Cards</a></li>
               </ul>
             </div>
             <div className="space-y-4">
               <h4 className="text-xs font-bold uppercase tracking-widest text-purple-400">Company</h4>
               <ul className="space-y-2 text-sm text-gray-400">
-                <li><a href="#" className="hover:text-white">Our Story</a></li>
-                <li><a href="#" className="hover:text-white">Sustainability</a></li>
-                <li><a href="#" className="hover:text-white">Contact</a></li>
+                <li><a href="/products/luvera-mens-daily-moisturizer#story" className="hover:text-white">Our Story</a></li>
+                <li><a href="/products/luvera-mens-daily-moisturizer#science" className="hover:text-white">Science</a></li>
+                <li><a href="/coming-soon" className="hover:text-white">Contact</a></li>
               </ul>
             </div>
             <div className="space-y-4 col-span-2 sm:col-span-1">
@@ -73,8 +73,8 @@ const Footer: React.FC = () => {
             © 2024 Luvera Skincare Inc. All rights reserved.
           </p>
           <div className="flex space-x-6 mt-6 md:mt-0">
-            <a href="#" className="text-[10px] text-gray-500 uppercase tracking-widest hover:text-white transition-colors">Privacy Policy</a>
-            <a href="#" className="text-[10px] text-gray-500 uppercase tracking-widest hover:text-white transition-colors">Terms of Service</a>
+            <a href="/coming-soon" className="text-[10px] text-gray-500 uppercase tracking-widest hover:text-white transition-colors">Privacy Policy</a>
+            <a href="/coming-soon" className="text-[10px] text-gray-500 uppercase tracking-widest hover:text-white transition-colors">Terms of Service</a>
           </div>
         </div>
       </div>
