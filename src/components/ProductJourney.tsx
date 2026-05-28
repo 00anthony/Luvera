@@ -4,6 +4,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { INGREDIENTS, BENEFITS } from '../constants';
 import { ShoppingCart } from 'lucide-react';
+import Image from 'next/image';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -423,9 +424,11 @@ const ProductJourney: React.FC = () => {
             >
               {/* Image — absolutely positioned behind everything */}
               <div className="absolute top-0 left-0 bottom-0 overflow-hidden" style={{ width: isMobile ? '110px' : '130px' }}>
-                <img
+                <Image
                   src={benefit.image}
                   alt={benefit.title}
+                  fill
+                  sizes='130px'
                   className="w-full h-full object-cover object-center block"
                   
                 />
@@ -492,7 +495,7 @@ const ProductJourney: React.FC = () => {
           {/* Scroll line */}
           <div className="w-px h-6 relative overflow-hidden">
             <div
-              className="absolute inset-0 bg-gradient-to-b from-transparent via-white/60 to-transparent"
+              className="absolute inset-0 bg-linear-to-b from-transparent via-white/60 to-transparent"
               style={{ animation: 'swipeScroll 1.4s ease-in-out infinite' }}
             />
           </div>
