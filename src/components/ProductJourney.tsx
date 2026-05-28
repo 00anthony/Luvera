@@ -345,12 +345,22 @@ const ProductJourney: React.FC = () => {
               {PRODUCT.title}
             </a>
 
-            <p
-              className="text-violet-500 inline-flex text-sm font-bold uppercase tracking-widest md:mb-6 pointer-events-none relative z-10"
-              style={{ textShadow: '0 0 12px rgba(139,92,246,0.6), 0 2px 8px rgba(0,0,0,0.9)' }}
+            {/* product price pill box */}
+            <div className="inline-flex items-baseline gap-2 px-3 py-1 rounded-full border border-violet-500/40 bg-violet-950/10 pointer-events-none relative z-10 md:mb-6"
+              style={{
+                backdropFilter: 'blur(8px)',
+                WebkitBackdropFilter: 'blur(8px)',
+                boxShadow: '0 0 18px rgba(139,92,246,0.25), inset 0 1px 0 rgba(255,255,255,0.06)',
+              }}
             >
-              {PRODUCT.price} <span className='text-zinc-400 line-through ml-2'>$49.99</span>
-            </p>
+              <span
+                className="text-violet-600 text-md font-bold uppercase tracking-widest"
+                style={{ textShadow: '0 0 12px rgba(139,92,246,0.6)' }}
+              >
+                {PRODUCT.price}
+              </span>
+              <span className="text-violet-200 text-sm line-through">$49.99</span>
+            </div>
 
             <div className="h-px bg-white/10 mb-1 md:mb-6 w-full pointer-events-none relative z-10" />
 
