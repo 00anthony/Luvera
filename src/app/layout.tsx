@@ -53,9 +53,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <head>
+        {/* Preconnect for Google Fonts — saves ~260ms on LCP per Lighthouse */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+
+        {/* Preload hero images — tells browser to fetch these before JS runs */}
+        <link rel="preload" as="image" href="/hero/aloe-plant-blackbg-left.webp" fetchPriority="high" />
+        <link rel="preload" as="image" href="/hero/aloe-plant-blackbg-right.webp" fetchPriority="high" />
+      </head>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <Navbar />
         {children}
         <Footer />

@@ -183,11 +183,21 @@ const ProductJourney: React.FC = () => {
         </div>
 
         <div className="vegetation-left absolute z-30 left-0 w-1/2 h-full pointer-events-none origin-bottom-left overflow-visible">
-          <img src="/hero/aloe-plant-blackbg-left.webp" className="h-full w-full object-cover object-right opacity-70 grayscale-[0.2] overflow-visible" alt="" />
+          <img 
+            src="/hero/aloe-plant-blackbg-left.webp" 
+            className="h-full w-full object-cover object-right opacity-70 grayscale-[0.2] overflow-visible" 
+            alt=""
+            fetchPriority='high'
+          />
         </div>
 
         <div className="vegetation-right absolute z-30 right-0 w-1/2 h-full pointer-events-none origin-bottom-right overflow-visible">
-          <img src="/hero/aloe-plant-blackbg-right.webp" className="h-full w-full object-cover object-left opacity-70 grayscale-[0.2] overflow-visible" alt="" />
+          <img 
+            src="/hero/aloe-plant-blackbg-right.webp" 
+            className="h-full w-full object-cover object-left opacity-70 grayscale-[0.2] overflow-visible" 
+            alt=""
+            fetchPriority='high' 
+          />
         </div>
 
         <div className="absolute inset-0 z-20 flex items-center justify-center pointer-events-none">
