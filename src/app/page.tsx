@@ -1,7 +1,8 @@
-
 import React from 'react';
+import dynamic from 'next/dynamic';
+
 import ProductJourney from '../components/ProductJourney';
-import Creators from '../components/Creators';
+import LazyCreators from '@/components/LazyCreators'
 //import DiscountPopup from '../components/DiscountPopup';
 import AIConcierge from '../components/AIConcierge';
 import { TIKTOK_SHOP_URL } from '../constants';
@@ -9,6 +10,7 @@ import LoadingScreen from '@/components/Loadingscreen';
 import FAQ from '@/components/Faq';
 
 const App: React.FC = () => {
+
   return (
     <div className="relative min-h-screen selection:bg-purple-500/30">
       <LoadingScreen />
@@ -16,7 +18,7 @@ const App: React.FC = () => {
         {/* The Core Experience */}
         <ProductJourney />
         
-        <Creators />
+        <LazyCreators />
 
         <FAQ />
 
