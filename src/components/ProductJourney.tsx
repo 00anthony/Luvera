@@ -87,7 +87,6 @@ const ProductJourney: React.FC = () => {
           .to(".product-info", { opacity: 1, y: isMobile ? -142: 28, duration: 2, ease: "power2.out"}, 0)
           .to(".tub-lid", { x: isMobile ? 0 : -20, duration: 2, ease: "power2.out" }, 0)
           .to(".tub-base", { x: isMobile ? 0 : -20, duration: 2, ease: "power2.out" }, 0)
-          .to(".product-info", { x: isMobile ? 0: -20, duration: 2, ease: "power2.out"}, 0);
 
         const desktopOffsets = [
           { x: "0", y: "-30vh" }, //Top Aloe
@@ -101,9 +100,9 @@ const ProductJourney: React.FC = () => {
         ];
 
         const mobileOffsets = [
-          { x: "-28vw", y: "-1vh" }, //Aloe (TL)
-          { x: "28vw", y: "14vh" }, //Vit C (TR)
-          { x: "-27vw", y: "34vh" }, //HA (BL)
+          { x: "-27vw", y: "-1vh" }, //Aloe (Top)
+          { x: "27vw", y: "14vh" }, //Vit C (R)
+          { x: "-26vw", y: "34vh" }, //HA (L)
           {/*
             { x: "0vw", y: "35vh" }, //squalene (bottom-most)
             { x: "27vw", y: "12vh" }, //chamo (BR)
@@ -130,17 +129,17 @@ const ProductJourney: React.FC = () => {
         timeline
           .to(".product-info", {
             opacity: isMobile ? 1 : 1,
-            x: isMobile ? "-16vw" : "8vw",
-            y: isMobile ? "-29vh" : "-4vh",
-            scale: isMobile ? 0.45 : 0.75,
+            x: isMobile ? "-16vw" : "21vw",
+            y: isMobile ? "-29vh" : "19vh",
+            scale: isMobile ? 0.45 : 0.85,
             duration: 2,
             ease: "power3.inOut"
           }, ">-0.1")
           .to(".benefits-overlay", { yPercent: 0, duration: 2, ease: "power3.inOut" }, "<")
           .to(".tub-container", {
             x: isMobile ? 0 : "25vw",
-            y: isMobile ? "-26vh" : "16vh",
-            scale: isMobile ? 0.45 : 0.75,
+            y: isMobile ? "-26vh" : "17vh",
+            scale: isMobile ? 0.45 : 0.85,
             duration: 2,
             ease: "power3.inOut"
           }, "<")
@@ -374,7 +373,7 @@ const ProductJourney: React.FC = () => {
               }}
             >
               <span
-                className="text-violet-600 text-md font-bold uppercase tracking-widest"
+                className="text-violet-400 text-md font-bold uppercase tracking-widest"
                 style={{ textShadow: '0 0 12px rgba(139,92,246,0.6)' }}
               >
                 {PRODUCT.price}
