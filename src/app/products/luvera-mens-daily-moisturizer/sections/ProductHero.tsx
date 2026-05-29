@@ -68,11 +68,7 @@ export default function ProductHero() {
                           onClick={() => setVideoPlaying(true)}
                           className="absolute inset-0 flex items-center justify-center group"
                         >
-                          <div className="w-20 h-20 rounded-full bg-white/10 backdrop-blur-xl
-                                          border border-white/20 flex items-center justify-center
-                                          scale-90 group-hover:scale-100 transition-transform duration-300">
-                            <Play className="w-8 h-8 fill-white text-white ml-1" />
-                          </div>
+                          
                         </button>
                       )}
                     </>

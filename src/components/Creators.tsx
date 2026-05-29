@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Play, ArrowRight, X, ExternalLink, ChevronLeft, ChevronRight } from 'lucide-react';
 import { CREATORS } from '../constants';
 import { motion, Variants, AnimatePresence } from 'framer-motion';
+import Image from 'next/image';
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 interface Creator {
@@ -125,9 +126,11 @@ function VideoModal({
             rel="noopener noreferrer"
             className="flex items-center justify-between mt-4 px-1">
             <div className="flex items-center gap-3">
-              <img
+              <Image
                 src={creator.image}
                 alt={creator.name}
+                width={36}
+                height={36}
                 className="w-9 h-9 rounded-full border border-purple-500/40 object-cover"
               />
               <div>
@@ -184,9 +187,11 @@ function CreatorCard({
                  bg-zinc-900 border border-white/5 cursor-pointer snap-center"
     >
       {/* Thumbnail — this is ALL that loads until click */}
-      <img
+      <Image
         src={creator.videoThumb}
         alt={creator.name}
+
+        fill
         loading="lazy"
         decoding="async"
         className="w-full h-full object-cover transition-transform duration-[1.5s]
@@ -214,10 +219,12 @@ function CreatorCard({
         </p>
         <div className="flex items-center space-x-4">
           <div className="relative shrink-0">
-            <img
+            <Image
               src={creator.image}
               className="w-10 h-10 rounded-full border-2 border-purple-500/30 object-cover"
               alt=""
+              width={40}
+              height={40}
               loading="lazy"
             />
             <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-purple-500 rounded-full

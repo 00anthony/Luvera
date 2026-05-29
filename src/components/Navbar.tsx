@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react'
 import { createPortal } from 'react-dom'
 import { ShoppingBag, Menu, X } from 'lucide-react'
 import Link from 'next/link'
+import Image from 'next/image'
 
 const CART_URL = 'https://checkout.useluvera.com/cart'
 
@@ -134,9 +135,11 @@ const Navbar: React.FC = () => {
             className="absolute left-1/2 -translate-x-1/2"
             aria-label="Luvera home"
           >
-            <img
+            <Image
               src="/logo-white.webp"
               alt="Luvera logo"
+              width={155}
+              height={72}
               className="max-h-18 w-auto object-contain"
             />
           </a>

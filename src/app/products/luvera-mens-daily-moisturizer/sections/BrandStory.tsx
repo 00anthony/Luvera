@@ -2,6 +2,7 @@
 
 import React from 'react'
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 
 export default function BrandStory() {
   return (
@@ -49,7 +50,12 @@ export default function BrandStory() {
             <div className="flex items-center gap-4 pt-2">
               <div className="w-12 h-12 rounded-full bg-zinc-800 overflow-hidden">
                 {/* Replace with actual founder image */}
-                <img src='/founders.webp' />
+                <Image 
+                  src='/founders.webp' 
+                  alt='founders'
+                  width={48}
+                  height={48}
+                />
               </div>
               <div>
                 <p className="text-white font-bold text-sm">The Luvera Team</p>

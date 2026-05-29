@@ -195,19 +195,21 @@ const ProductJourney: React.FC = () => {
 
         {/* removed opacity and grayscale from hero aloe */}
         <div className="vegetation-left absolute z-30 left-0 w-1/2 h-full pointer-events-none origin-bottom-left overflow-visible">
-          <img 
+          <Image 
             src="/hero/aloe-plant-blackbg-left.webp" 
             className="h-full w-full object-cover object-right   overflow-visible" 
-            alt=""
+            alt="aloe-plant"
+            fill
             fetchPriority='high'
           />
         </div>
 
         <div className="vegetation-right absolute z-30 right-0 w-1/2 h-full pointer-events-none origin-bottom-right overflow-visible">
-          <img 
+          <Image 
             src="/hero/aloe-plant-blackbg-right.webp" 
             className="h-full w-full object-cover object-left  overflow-visible" 
-            alt=""
+            alt="aloe-plant"
+            fill
             fetchPriority='high' 
           />
         </div>
@@ -229,11 +231,12 @@ const ProductJourney: React.FC = () => {
               <div className="flex relative overflow-hidden" style={{ height: isMobile ? '110px' : '148px' }}>
                 {/* Image panel — left half, full bleed */}
                 <div className="relative overflow-hidden" style={{ width: '48%', flexShrink: 0 }}>
-                  <img
+                  <Image
                     src={ing.image}
                     alt={ing.name}
+                    width="144"
+                    height="148"
                     className="w-full h-full object-cover object-center block"
-                    //style={{ filter: 'saturate(0.9) brightness(0.9)' }}
                   />
                   {/* Feather edge toward the text */}
                   <div
@@ -330,9 +333,10 @@ const ProductJourney: React.FC = () => {
           <div className="absolute inset-0 bg-linear-to-t from-black via-black/80 to-transparent" />
 
           {/* Image — desktop only, right side, slightly transparent */}
-          <img
+          <Image
             src="/benefits/benefits-bg.webp"
             alt="benefits-background"
+            fill
             className="hidden md:block absolute top-0 right-0 h-full w-1/2 object-cover object-center"
             //style={{ filter: 'saturate(0.9) brightness(0.9)', opacity: 1 }}
           />
