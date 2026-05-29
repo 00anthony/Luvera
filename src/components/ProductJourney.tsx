@@ -237,6 +237,8 @@ const ProductJourney: React.FC = () => {
                     width="144"
                     height="148"
                     className="w-full h-full object-cover object-center block"
+                    loading='lazy'
+                    decoding="async"
                   />
                   {/* Feather edge toward the text */}
                   <div
@@ -336,8 +338,11 @@ const ProductJourney: React.FC = () => {
           <Image
             src="/benefits/benefits-bg.webp"
             alt="benefits-background"
-            fill
+            width={741}
+            height={954}
             className="hidden md:block absolute top-0 right-0 h-full w-1/2 object-cover object-center"
+            loading='lazy'
+            decoding="async"
             //style={{ filter: 'saturate(0.9) brightness(0.9)', opacity: 1 }}
           />
         </div>
@@ -439,6 +444,8 @@ const ProductJourney: React.FC = () => {
                   fill
                   sizes='130px'
                   className="w-full h-full object-cover object-center block"
+                  loading='lazy'
+                  decoding="async"
                   
                 />
                 {/* Feather edge toward the text */}

@@ -132,6 +132,8 @@ function VideoModal({
                 width={36}
                 height={36}
                 className="w-9 h-9 rounded-full border border-purple-500/40 object-cover"
+                loading='lazy'
+                decoding="async"
               />
               <div>
                 <p className="text-white font-bold text-sm leading-none">{creator.name}</p>
@@ -226,6 +228,7 @@ function CreatorCard({
               width={40}
               height={40}
               loading="lazy"
+              decoding="async"
             />
             <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-purple-500 rounded-full
                             border-2 border-black flex items-center justify-center">

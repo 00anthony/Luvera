@@ -55,6 +55,8 @@ export default function BrandStory() {
                   alt='founders'
                   width={48}
                   height={48}
+                  loading='lazy'
+                  decoding="async"
                 />
               </div>
               <div>
