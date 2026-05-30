@@ -236,7 +236,7 @@ function CreatorCard({
             </div>
           </div>
           <div>
-            <h4 className="text-base font-bold text-white leading-none">{creator.name}</h4>
+            <h3 className="text-base font-bold text-white leading-none">{creator.name}</h3>
             <span className="text-[9px] text-purple-400 uppercase tracking-[0.3em] font-black mt-1 block">
               {creator.handle}
             </span>

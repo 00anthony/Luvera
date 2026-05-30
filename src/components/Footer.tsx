@@ -32,7 +32,7 @@ const Footer: React.FC = () => {
 
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-8">
             <div className="space-y-4">
-              <h5 className="text-xs font-bold uppercase tracking-widest text-purple-400">Shop</h5>
+              <h4 className="text-xs font-bold uppercase tracking-widest text-purple-400">Shop</h4>
               <ul className="space-y-2 text-sm text-gray-400">
                 <li><a href="/products/luvera-mens-daily-moisturizer" className="hover:text-white">Hydrating Lotion</a></li>
                 <li><a href="/products/luvera-mens-daily-moisturizer" className="hover:text-white">Bundles</a></li>
@@ -40,7 +40,7 @@ const Footer: React.FC = () => {
               </ul>
             </div>
             <div className="space-y-4">
-              <h5 className="text-xs font-bold uppercase tracking-widest text-purple-400">Company</h5>
+              <h4 className="text-xs font-bold uppercase tracking-widest text-purple-400">Company</h4>
               <ul className="space-y-2 text-sm text-gray-400">
                 <li><a href="/products/luvera-mens-daily-moisturizer#story" className="hover:text-white">Our Story</a></li>
                 <li><a href="/products/luvera-mens-daily-moisturizer#science" className="hover:text-white">Science</a></li>
@@ -48,7 +48,7 @@ const Footer: React.FC = () => {
               </ul>
             </div>
             <div className="space-y-4 col-span-2 sm:col-span-1">
-              <h5 className="text-xs font-bold uppercase tracking-widest text-purple-400">Social</h5>
+              <h4 className="text-xs font-bold uppercase tracking-widest text-purple-400">Social</h4>
               <div className="flex space-x-4">
                 <a 
                   href='https://www.instagram.com/luvera.skincare/'
