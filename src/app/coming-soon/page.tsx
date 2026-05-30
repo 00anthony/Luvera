@@ -22,7 +22,7 @@ const ComingSoon: React.FC = () => {
   return (
     <>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Tenor+Sans&display=swap');
+        
 
         .cs-root {
           min-height: 100svh;
@@ -250,7 +250,7 @@ const ComingSoon: React.FC = () => {
         .cs-nav-link:hover { color: rgba(255,255,255,0.6); }
       `}</style>
 
-      <div className="cs-root">
+      <div className="cs-root" style={{ fontFamily: 'var(--font-cormorant), serif' }}>
         {/* Atmosphere */}
         <div className="cs-glow" />
         <div className="cs-grain" />
