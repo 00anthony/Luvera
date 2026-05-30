@@ -123,7 +123,7 @@ export default function LoadingScreen() {
       <span
         style={{
           marginTop: 22,
-          fontFamily: "'Cormorant Garamond', serif",
+          fontFamily: "serif",
           fontStyle: "italic",
           fontWeight: 300,
           fontSize: "0.72rem",
@@ -136,22 +136,7 @@ export default function LoadingScreen() {
         skin, elevated
       </span>
 
-      {/* Keyframes injected once via a style tag */}
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,300&family=Raleway:wght@200&display=swap');
-
-        @keyframes luvera-spin {
-          to { transform: rotate(360deg); }
-        }
-        @keyframes luvera-breathe {
-          0%, 100% { opacity: 0.75; }
-          50%       { opacity: 1; }
-        }
-        @keyframes luvera-fadeup {
-          from { opacity: 0; transform: translateY(4px); }
-          to   { opacity: 1; transform: translateY(0); }
-        }
-      `}</style>
+      
     </div>
   );
 }

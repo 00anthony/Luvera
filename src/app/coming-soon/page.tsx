@@ -117,7 +117,7 @@ const ComingSoon: React.FC = () => {
         .delay-5 { transition-delay: 0.7s; }
 
         .cs-wordmark {
-          font-family: 'Cormorant Garamond', serif;
+          font-family: serif;
           font-size: clamp(72px, 18vw, 180px);
           font-weight: 300;
           letter-spacing: -0.02em;
@@ -131,7 +131,7 @@ const ComingSoon: React.FC = () => {
         }
 
         .cs-label {
-          font-family: 'Tenor Sans', sans-serif;
+          font-family: sans-serif;
           font-size: 9px;
           letter-spacing: 0.35em;
           text-transform: uppercase;
@@ -139,7 +139,7 @@ const ComingSoon: React.FC = () => {
         }
 
         .cs-headline {
-          font-family: 'Cormorant Garamond', serif;
+          font-family: serif;
           font-weight: 300;
           font-size: clamp(42px, 8vw, 80px);
           line-height: 1.0;
@@ -154,7 +154,7 @@ const ComingSoon: React.FC = () => {
         }
 
         .cs-body {
-          font-family: 'Cormorant Garamond', serif;
+          font-family: serif;
           font-size: clamp(15px, 2vw, 18px);
           font-style: italic;
           font-weight: 300;
@@ -188,7 +188,7 @@ const ComingSoon: React.FC = () => {
           background: transparent;
           border: none;
           outline: none;
-          font-family: 'Tenor Sans', sans-serif;
+          font-family: sans-serif;
           font-size: 11px;
           letter-spacing: 0.15em;
           color: rgba(255,255,255,0.7);
@@ -204,7 +204,7 @@ const ComingSoon: React.FC = () => {
           border: none;
           border-radius: 9999px;
           padding: 10px 20px;
-          font-family: 'Tenor Sans', sans-serif;
+          font-family: sans-serif;
           font-size: 9px;
           letter-spacing: 0.25em;
           text-transform: uppercase;
@@ -229,7 +229,7 @@ const ComingSoon: React.FC = () => {
 
         /* Success state */
         .cs-success {
-          font-family: 'Cormorant Garamond', serif;
+          font-family: serif;
           font-size: 15px;
           font-style: italic;
           color: rgba(167,139,250,0.8);
@@ -239,7 +239,7 @@ const ComingSoon: React.FC = () => {
 
         /* Bottom nav link */
         .cs-nav-link {
-          font-family: 'Tenor Sans', sans-serif;
+          font-family: sans-serif;
           font-size: 8px;
           letter-spacing: 0.35em;
           text-transform: uppercase;
@@ -250,7 +250,7 @@ const ComingSoon: React.FC = () => {
         .cs-nav-link:hover { color: rgba(255,255,255,0.6); }
       `}</style>
 
-      <div className="cs-root" style={{ fontFamily: 'var(--font-cormorant), serif' }}>
+      <div className="cs-root" style={{ fontFamily: 'serif' }}>
         {/* Atmosphere */}
         <div className="cs-glow" />
         <div className="cs-grain" />

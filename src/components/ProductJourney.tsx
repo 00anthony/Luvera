@@ -252,7 +252,7 @@ const ProductJourney: React.FC = () => {
                   <p
                     className="uppercase mb-1.5"
                     style={{
-                      fontFamily: "var(--font-tenor), sans-serif",
+                      fontFamily: "sans-serif",
                       fontSize: isMobile ? '6px' : '8px',
                       letterSpacing: '0.22em',
                       color: 'rgba(255,255,255,0.3)',
@@ -262,9 +262,9 @@ const ProductJourney: React.FC = () => {
                   </p>
                   <h4
                     style={{
-                      fontFamily: "var(--font-cormorant), serif",
+                      fontFamily: "serif",
                       fontSize: isMobile ? '17px' : '22px',
-                      fontWeight: 300,
+                      fontWeight: 'lighter',
                       color: '#f0ece6',
                       lineHeight: 1.1,
                       letterSpacing: '0.01em',
@@ -276,9 +276,9 @@ const ProductJourney: React.FC = () => {
 
                 {/* Giant faded index number */}
                 <div
-                  className="absolute bottom-0 right-2 pointer-events-none select-none leading-none"
+                  className="absolute font-serif bottom-0 right-2 pointer-events-none select-none leading-none"
                   style={{
-                    fontFamily: "var(--font-cormorant), serif",
+                    
                     fontSize: isMobile ? '64px' : '96px',
                     fontWeight: 300,
                     color: 'rgba(255,255,255,0.04)',
@@ -296,13 +296,13 @@ const ProductJourney: React.FC = () => {
               {/* Body: desc + benefit pill */}
               <div className="px-5 pb-5 flex flex-col gap-3.5">
                 <p
-                  className="m-0"
+                  className="m-0 font-serif"
                   style={{
-                    fontFamily: "var(--font-cormorant), serif",
-                    fontSize: isMobile ? '12px' : '15px',
+                    
+                    fontSize: isMobile ? '12px' : '14px',
                     fontStyle: 'italic',
-                    fontWeight: 300,
-                    color: 'rgba(240,236,230,0.65)',
+                    fontWeight: 200,
+                    color: 'rgba(240,236,230,0.55)',
                     lineHeight: 1.65,
                   }}
                 >
@@ -315,9 +315,10 @@ const ProductJourney: React.FC = () => {
                     borderRadius: '100px',
                     border: '0.5px solid rgba(255,255,255,0.12)',
                     background: 'rgba(255,255,255,0.04)',
-                    fontFamily: "var(--font-tenor), sans-serif",
+                    
                     fontSize: isMobile ? '7px' : '9px',
-                    letterSpacing: '0.18em',
+                    letterSpacing: '0.24em',
+                    
                     textTransform: 'uppercase',
                     color: 'rgba(255,255,255,0.4)',
                   }}
@@ -480,9 +481,9 @@ const ProductJourney: React.FC = () => {
                 }}
               >
                 <span
-                  className="text-white/35"
+                  className="text-white/35 font-serif"
                   style={{
-                    fontFamily: "var(--font-cormorant), serif",
+                    
                     fontSize: '11px',
                     fontWeight: 300,
                     letterSpacing: '0.1em',
@@ -496,21 +497,21 @@ const ProductJourney: React.FC = () => {
 
               {/* Text content */}
               <div className="ml-20 flex-1 flex flex-col justify-center gap-2 px-4 py-5 relative z-10">
-                <p style={{ fontFamily: "var(--font-tenor), sans-serif", fontSize: '7.5px', letterSpacing: '0.24em', color: 'rgba(255,255,255,0.25)', textTransform: 'uppercase' }}>
+                <p style={{ fontSize: '7.5px', letterSpacing: '0.36em', color: 'rgba(255,255,255,0.25)', textTransform: 'uppercase' }}>
                   Luvera Certified
                 </p>
-                <h3 className="m-0" style={{ fontFamily: "var(--font-cormorant), serif", fontSize: isMobile ? '20px' : '26px', fontWeight: 300, color: '#f0ece6', lineHeight: 1.05 }}>
+                <h3 className="m-0 font-serif" style={{ fontSize: isMobile ? '20px' : '26px', fontWeight: 100, color: '#f0ece6', lineHeight: 1.05 }}>
                   {benefit.title}
                 </h3>
                 <div style={{ height: '0.5px', background: 'linear-gradient(to right, rgba(255,255,255,0.12), transparent)' }} />
-                <p className="m-0" style={{ fontFamily: "var(--font-cormorant), serif", fontSize: isMobile ? '11px' : '13.5px', fontStyle: 'italic', fontWeight: 300, color: 'rgba(240,236,230,0.5)', lineHeight: 1.6 }}>
+                <p className="m-0 font-serif" style={{ fontSize: isMobile ? '11px' : '13.5px', fontStyle: 'italic', fontWeight: 300, color: 'rgba(240,236,230,0.5)', lineHeight: 1.6 }}>
                   {benefit.desc}
                 </p>
               </div>
 
               {/* Ghost number */}
-              <div className="absolute right-4 bottom-0 pointer-events-none select-none leading-none z-10"
-                style={{ fontFamily: "var(--font-cormorant), serif", fontSize: '88px', fontWeight: 300, color: 'rgba(255,255,255,0.03)' }}>
+              <div className="absolute font-serif right-4 bottom-0 pointer-events-none select-none leading-none z-10"
+                style={{ fontSize: '88px', fontWeight: 300, color: 'rgba(255,255,255,0.03)' }}>
                 {String(i + 1).padStart(2, '0')}
               </div>
             </div>
@@ -540,12 +541,13 @@ const ProductJourney: React.FC = () => {
             }}
           >
             <span style={{
-              fontFamily: "var(--font-tenor), sans-serif",
+              
               fontSize: '8px',
               letterSpacing: '0.35em',
               textTransform: 'uppercase' as const,
               color: 'rgba(255,255,255,0.45)',
               whiteSpace: 'nowrap',
+              
             }}>
               Scroll to explore
             </span>

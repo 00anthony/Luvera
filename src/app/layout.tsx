@@ -1,34 +1,8 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import { Cormorant_Garamond, Tenor_Sans } from 'next/font/google';
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-const cormorant = Cormorant_Garamond({
-  subsets: ['latin'],
-  weight: ['300', '400'],
-  style: ['normal', 'italic'],
-  variable: '--font-cormorant',
-  display: 'swap',
-});
-
-const tenorSans = Tenor_Sans({
-  subsets: ['latin'],
-  weight: ['400'],
-  variable: '--font-tenor',
-  display: 'swap',
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://useluvera.com"),
@@ -74,7 +48,7 @@ export default function RootLayout({
         <link rel="preload" as="image" href="/hero/aloe-plant-blackbg-left.webp" fetchPriority="high" />
         <link rel="preload" as="image" href="/hero/aloe-plant-blackbg-right.webp" fetchPriority="high" />
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} ${cormorant.variable} ${tenorSans.variable} antialiased`}>
+      <body className={` antialiased`}>
         <Navbar />
         {children}
         <Footer />
