@@ -183,9 +183,11 @@ const ProductJourney: React.FC = () => {
       <div ref={triggerRef} className="h-screen w-full flex items-center justify-center overflow-hidden">
 
         {/* purple overlay */}
-        <div className="absolute inset-0 z-0">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150vw] h-[150vw] bg-purple-950/10 rounded-full blur-[200px]" />
-        </div>
+        {!isMobile && (
+          <div className="absolute inset-0 z-0">
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150vw] h-[150vw] bg-purple-950/10 rounded-full blur-[200px]" />
+          </div>
+        )}
 
         <div className="hero-bg-text absolute inset-0 z-10 flex items-center justify-center pointer-events-none">
           <span className="text-[25vw] font-serif font-black tracking-tight md:tracking-tighter text-zinc-700 leading-none whitespace-nowrap">
@@ -197,20 +199,24 @@ const ProductJourney: React.FC = () => {
         <div className="vegetation-left absolute z-30 left-0 w-1/2 h-full pointer-events-none origin-bottom-left overflow-visible">
           <Image 
             src="/hero/aloe-plant-blackbg-left.webp" 
-            className="h-full w-full object-cover object-right   overflow-visible" 
             alt="aloe-plant"
             fill
             fetchPriority='high'
+            sizes='50vw'
+            className="h-full w-full object-cover object-right   overflow-visible" 
+
           />
         </div>
 
         <div className="vegetation-right absolute z-30 right-0 w-1/2 h-full pointer-events-none origin-bottom-right overflow-visible">
           <Image 
             src="/hero/aloe-plant-blackbg-right.webp" 
-            className="h-full w-full object-cover object-left  overflow-visible" 
             alt="aloe-plant"
             fill
-            fetchPriority='high' 
+            fetchPriority='high'
+            sizes='50vw'
+            className="h-full w-full object-cover object-left  overflow-visible" 
+   
           />
         </div>
 
@@ -221,9 +227,9 @@ const ProductJourney: React.FC = () => {
               className={`ing-${i} ingredient-card absolute rounded-4xl overflow-hidden flex flex-col`}
               style={{
                 width: isMobile ? '200px' : '300px',
-                backdropFilter: 'blur(12px)',
-                  WebkitBackdropFilter: 'blur(12px)',
-                background: '',
+                backdropFilter: isMobile ? 'none' : 'blur(12px)',
+                WebkitBackdropFilter: isMobile ? 'none' : 'blur(12px)',
+                background: isMobile ? 'rgba(17,17,20,0.85)' : '',
                 border: '0px solid rgba(255,255,255,0.1)',
               }}
             >
@@ -373,8 +379,8 @@ const ProductJourney: React.FC = () => {
             {/* product price pill box */}
             <div className="inline-flex items-baseline gap-2 px-3 py-1 rounded-full md:border border-violet-500/40 bg-violet-950/10 pointer-events-none relative z-10 md:mb-6"
               style={{
-                backdropFilter: 'blur(8px)',
-                WebkitBackdropFilter: 'blur(8px)',
+                backdropFilter: isMobile ? 'none' : 'blur(8px)',
+                WebkitBackdropFilter: isMobile ? 'none' : 'blur(8px)',
                 boxShadow: '0 0 18px rgba(139,92,246,0.25), inset 0 1px 0 rgba(255,255,255,0.06)',
               }}
             >
@@ -401,9 +407,12 @@ const ProductJourney: React.FC = () => {
           {/* Tub Container */}
           <div className="tub-container w-150 flex flex-col items-center">
             <div className="tub-lid z-20 overflow-visible flex justify-center">
-              <img
+              <Image
                 src={TUB_LID_URL}
                 alt="Product Lid"
+                width={700}
+                height={700}
+                fetchPriority="high"
                 style={{
                   width: isMobile ? LID_WIDTH_MOBILE : LID_WIDTH_DESKTOP,
                   maxWidth: "none",
@@ -414,9 +423,12 @@ const ProductJourney: React.FC = () => {
               />
             </div>
             <div className="tub-base z-10 relative flex justify-center">
-              <img
+              <Image
                 src={TUB_BASE_URL}
                 alt="Product Base"
+                width={700}
+                height={700}
+                fetchPriority="high"
                 style={{
                   width: isMobile ? BASE_WIDTH_MOBILE : BASE_WIDTH_DESKTOP,
                   maxWidth: "none",
@@ -460,9 +472,9 @@ const ProductJourney: React.FC = () => {
                 className="shrink-0 flex flex-col items-center justify-end pb-3 relative z-10 border-r border-white/[0.07]"
                 style={{
                   width: isMobile ? '36px' : '42px',
-                  backdropFilter: 'blur(12px)',
-                  WebkitBackdropFilter: 'blur(12px)',
-                  background: 'rgba(17,17,20,0.25)',
+                  backdropFilter: isMobile ? 'none' : 'blur(12px)',
+                  WebkitBackdropFilter: isMobile ? 'none' : 'blur(12px)',
+                  background: isMobile ? 'rgba(17,17,20,0.9)' : 'rgba(17,17,20,0.25)',
                 }}
               >
                 <span
@@ -517,9 +529,9 @@ const ProductJourney: React.FC = () => {
           </div>
           <div
             style={{
-              backdropFilter: 'blur(8px)',
-              WebkitBackdropFilter: 'blur(8px)',
-              background: 'rgba(0,0,0,0.45)',
+              backdropFilter: isMobile ? 'none' : 'blur(8px)',
+              WebkitBackdropFilter: isMobile ? 'none' : 'blur(8px)',
+              background: isMobile ? 'rgba(0,0,0,0.75)' : 'rgba(0,0,0,0.45)',
               border: '1px solid rgba(255,255,255,0.12)',
               borderRadius: '9999px',
               padding: '6px 20px',
