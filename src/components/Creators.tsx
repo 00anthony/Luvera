@@ -192,10 +192,10 @@ function CreatorCard({
       <Image
         src={creator.videoThumb}
         alt={creator.name}
-
         fill
         loading="lazy"
         decoding="async"
+        sizes="(max-width: 640px) 72vw, (max-width: 768px) 46vw, (max-width: 1024px) 28vw, 22vw"
         className="w-full h-full object-cover transition-transform duration-[1.5s]
                    group-hover:scale-110 opacity-70 group-hover:opacity-100
                    grayscale-[0.3] group-hover:grayscale-0"
