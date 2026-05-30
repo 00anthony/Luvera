@@ -53,6 +53,8 @@ const ProductJourney: React.FC = () => {
           scrub: 1.5,
           pin: true,
           anticipatePin: 1,
+          invalidateOnRefresh: true,  // recalculates only on resize, not every frame
+          fastScrollEnd: true, 
         }
       });
 
@@ -398,7 +400,10 @@ const ProductJourney: React.FC = () => {
 
           {/* Tub Container */}
           <div className="tub-container w-150 flex flex-col items-center">
-            <div className="tub-lid z-20 overflow-visible flex justify-center">
+            <div 
+              className="tub-lid z-20 overflow-visible flex justify-center"
+              style={{ transform: 'translateY(-800px)', willChange: 'transform' }}
+            >
               <Image
                 src={TUB_LID_URL}
                 alt="Product Lid"
@@ -415,7 +420,10 @@ const ProductJourney: React.FC = () => {
                 className="h-auto object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.8)]"
               />
             </div>
-            <div className="tub-base z-10 relative flex justify-center">
+            <div 
+              className="tub-base z-10 relative flex justify-center"
+              style={{ transform: 'translateY(1400px)', willChange: 'transform' }}
+            >
               <Image
                 src={TUB_BASE_URL}
                 alt="Product Base"
