@@ -1,8 +1,12 @@
 'use client'
 import React, { useRef, useEffect, useState } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { INGREDIENTS, BENEFITS } from '../constants';
 import { ShoppingCart } from 'lucide-react';
 import Image from 'next/image';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const TUB_LID_URL = "/hero/tub-lid2.webp";
 const TUB_BASE_URL = "/hero/tub-base2.webp";
@@ -40,136 +44,128 @@ const ProductJourney: React.FC = () => {
     checkMobile();
     window.addEventListener('resize', checkMobile);
 
-    let ctx: gsap.Context;
-    const init = async () => {
-      const { default: gsap } = await import('gsap');
-      const { ScrollTrigger } = await import('gsap/ScrollTrigger');
-      gsap.registerPlugin(ScrollTrigger);
+    const ctx = gsap.context(() => {
+      const timeline = gsap.timeline({
+        scrollTrigger: {
+          trigger: triggerRef.current,
+          start: "top top",
+          end: "+=500%",
+          scrub: 1.5,
+          pin: true,
+          anticipatePin: 1,
+        }
+      });
 
-      ctx = gsap.context(() => {
-        const timeline = gsap.timeline({
-          scrollTrigger: {
-            trigger: triggerRef.current,
-            start: "top top",
-            end: "+=500%",
-            scrub: 1.5,
-            pin: true,
-            anticipatePin: 1,
-          }
-        });
+      gsap.set(".vegetation-left", { xPercent: 0, rotate: 0, scale: 1, opacity: 1 });
+      gsap.set(".vegetation-right", { xPercent: 0, rotate: 0, scale: 1, opacity: 1 });
+      gsap.set(".hero-bg-text", { opacity: 0.4, scale: 1 });
+      gsap.set(".tub-lid", { y: -800 });
+      gsap.set(".tub-base", { y: 1400 });
+      gsap.set(".ingredient-card", { opacity: 0, scale: 0.3, x: 0, y: 0 });
+      gsap.set(".benefits-overlay", { yPercent: 100 });
+      gsap.set(".benefit-item", { opacity: 0, x: -50 });
+      gsap.set(".hand-reveal", { opacity: 0, y: 150 });
+      gsap.set(".product-info", { opacity: 0, y: -800 });
+      gsap.set(swipePromptRef.current, { y: 0, opacity: 1 });
 
-        gsap.set(".vegetation-left", { xPercent: 0, rotate: 0, scale: 1, opacity: 1 });
-        gsap.set(".vegetation-right", { xPercent: 0, rotate: 0, scale: 1, opacity: 1 });
-        gsap.set(".hero-bg-text", { opacity: 0.4, scale: 1 });
-        gsap.set(".tub-lid", { y: -800 });
-        gsap.set(".tub-base", { y: 1400 });
-        gsap.set(".ingredient-card", { opacity: 0, scale: 0.3, x: 0, y: 0 });
-        gsap.set(".benefits-overlay", { yPercent: 100 });
-        gsap.set(".benefit-item", { opacity: 0, x: -50 });
-        gsap.set(".hand-reveal", { opacity: 0, y: 150 });
-        gsap.set(".product-info", { opacity: 0, y: -800 });
-        gsap.set(swipePromptRef.current, { y: 0, opacity: 1 });
+      const exitDistance = isMobile ? 0 : 0;
+      const exitRotation = isMobile ? 0 : 0;
 
-        const exitDistance = isMobile ? 0 : 0;
-        const exitRotation = isMobile ? 0 : 0;
+      timeline
+        .to(".hero-bg-text", { opacity: 1, scale: 1.05, duration: 1 }, 0)
+        .to(".hero-bg-text", { opacity: 0.3, scale: 1, duration: 1 }, 1)
+        .to(".vegetation-left", { opacity: 0.5, duration: 1, }, 0) //xPercent: -exitDistance, rotate: -exitRotation, scale: 1, ease: "power2.out"
+        .to(".vegetation-right", { opacity: 0.5,  duration: 1, }, 0) //xPercent: exitDistance, rotate: exitRotation, scale: 1, ease: "power2.out"
 
-        timeline
-          .to(".hero-bg-text", { opacity: 1, scale: 1.05, duration: 1 }, 0)
-          .to(".hero-bg-text", { opacity: 0.3, scale: 1, duration: 1 }, 1)
-          .to(".vegetation-left", { opacity: 0.5, duration: 1, }, 0) //xPercent: -exitDistance, rotate: -exitRotation, scale: 1, ease: "power2.out"
-          .to(".vegetation-right", { opacity: 0.5,  duration: 1, }, 0) //xPercent: exitDistance, rotate: exitRotation, scale: 1, ease: "power2.out"
+        .to(".tub-lid", { y: isMobile ? -223 : 21, duration: 2, ease: "power2.out" }, 0)
+        .to(".tub-base", { y: isMobile ? -220 : 28, duration: 2, ease: "power2.out" }, 0)
+        .to(".product-info", { opacity: 1, y: isMobile ? -142: 28, duration: 2, ease: "power2.out"}, 0)
+        .to(".tub-lid", { x: isMobile ? 0 : -20, duration: 2, ease: "power2.out" }, 0)
+        .to(".tub-base", { x: isMobile ? 0 : -20, duration: 2, ease: "power2.out" }, 0)
 
-          .to(".tub-lid", { y: isMobile ? -223 : 21, duration: 2, ease: "power2.out" }, 0)
-          .to(".tub-base", { y: isMobile ? -220 : 28, duration: 2, ease: "power2.out" }, 0)
-          .to(".product-info", { opacity: 1, y: isMobile ? -142: 28, duration: 2, ease: "power2.out"}, 0)
-          .to(".tub-lid", { x: isMobile ? 0 : -20, duration: 2, ease: "power2.out" }, 0)
-          .to(".tub-base", { x: isMobile ? 0 : -20, duration: 2, ease: "power2.out" }, 0)
-
-        const desktopOffsets = [
-          { x: "0", y: "-30vh" }, //Top Aloe
-          { x: "34vw", y: "8vh" }, //Right Vit C
-          { x: "-34vw", y: "8vh" }, //Left HA
-          {/*
-            { x: "0vw", y: "35vh" }, //bottom
-            { x: "34vw", y: "8vh" }, //BR
-          */}
-          
-        ];
-
-        const mobileOffsets = [
-          { x: "-24vw", y: "-1vh" }, //Aloe (TL)
-          { x: "26vw", y: "14vh" }, //Vit C (BR)
-          { x: "-24vw", y: "34vh" }, //HA (BL)
-          {/*
-            { x: "0vw", y: "35vh" }, //squalene (bottom-most)
-            { x: "27vw", y: "12vh" }, //chamo (BR)
-          */}
-          
-        ];
-
+      const desktopOffsets = [
+        { x: "0", y: "-30vh" }, //Top Aloe
+        { x: "34vw", y: "8vh" }, //Right Vit C
+        { x: "-34vw", y: "8vh" }, //Left HA
+        {/*
+          { x: "0vw", y: "35vh" }, //bottom
+          { x: "34vw", y: "8vh" }, //BR
+        */}
         
+      ];
 
-        const activeOffsets = isMobile ? mobileOffsets : desktopOffsets;
+      const mobileOffsets = [
+        { x: "-24vw", y: "-1vh" }, //Aloe (TL)
+        { x: "26vw", y: "14vh" }, //Vit C (BR)
+        { x: "-24vw", y: "34vh" }, //HA (BL)
+        {/*
+          { x: "0vw", y: "35vh" }, //squalene (bottom-most)
+          { x: "27vw", y: "12vh" }, //chamo (BR)
+        */}
+        
+      ];
 
-        INGREDIENTS.forEach((ing, i) => {
-          timeline.to(`.ing-${i}`, {
-            opacity: 1,
-            scale: 1,
-            x: activeOffsets[i].x,
-            y: activeOffsets[i].y,
-            duration: 1,
-            ease: "expo.out"
-          }, 1.5 + (i * 0.1));
-        });
+      
+
+      const activeOffsets = isMobile ? mobileOffsets : desktopOffsets;
+
+      INGREDIENTS.forEach((ing, i) => {
+        timeline.to(`.ing-${i}`, {
+          opacity: 1,
+          scale: 1,
+          x: activeOffsets[i].x,
+          y: activeOffsets[i].y,
+          duration: 1,
+          ease: "expo.out"
+        }, 1.5 + (i * 0.1));
+      });
 
 
-        timeline
-          .to(".product-info", {
-            opacity: isMobile ? 1 : 1,
-            x: isMobile ? "-16vw" : "21vw",
-            y: isMobile ? "-29vh" : "19vh",
-            scale: isMobile ? 0.45 : 0.85,
-            duration: 2,
-            ease: "power3.inOut"
-          }, ">-0.1")
-          .to(".benefits-overlay", { yPercent: 0, duration: 2, ease: "power3.inOut" }, "<")
-          .to(".tub-container", {
-            x: isMobile ? 0 : "25vw",
-            y: isMobile ? "-26vh" : "17vh",
-            scale: isMobile ? 0.45 : 0.85,
-            duration: 2,
-            ease: "power3.inOut"
-          }, "<")
-          .to(".benefit-item", {
-            opacity: 1,
-            x: 0,
-            stagger: {
-              each: 0.15,
-              from: "end",
-            },
-            duration: 0.7,
-            ease: "power2.out"
-          }, ">-1");
+      timeline
+        .to(".product-info", {
+          opacity: isMobile ? 1 : 1,
+          x: isMobile ? "-16vw" : "21vw",
+          y: isMobile ? "-29vh" : "19vh",
+          scale: isMobile ? 0.45 : 0.85,
+          duration: 2,
+          ease: "power3.inOut"
+        }, ">-0.1")
+        .to(".benefits-overlay", { yPercent: 0, duration: 2, ease: "power3.inOut" }, "<")
+        .to(".tub-container", {
+          x: isMobile ? 0 : "25vw",
+          y: isMobile ? "-26vh" : "17vh",
+          scale: isMobile ? 0.45 : 0.85,
+          duration: 2,
+          ease: "power3.inOut"
+        }, "<")
+        .to(".benefit-item", {
+          opacity: 1,
+          x: 0,
+          stagger: {
+            each: 0.15,
+            from: "end",
+          },
+          duration: 0.7,
+          ease: "power2.out"
+        }, ">-1");
 
-        // ── Swipe prompt: exits in sync with the genesis animation ──────────
-        // Inserted into the scrubbed timeline at position 0 — same frame the
-        // plants begin moving. Done by 0.6 (mid-way through the plant exit).
-        // Because it lives in the scrubbed timeline, it tracks scroll 1-to-1
-        // with no lag or timing mismatch.
-        timeline.to(swipePromptRef.current, {
-          y: -60,
-          opacity: 0,
-          duration: 0.6,
-          ease: "power2.in",
-        }, 0);
+      // ── Swipe prompt: exits in sync with the genesis animation ──────────
+      // Inserted into the scrubbed timeline at position 0 — same frame the
+      // plants begin moving. Done by 0.6 (mid-way through the plant exit).
+      // Because it lives in the scrubbed timeline, it tracks scroll 1-to-1
+      // with no lag or timing mismatch.
+      timeline.to(swipePromptRef.current, {
+        y: -60,
+        opacity: 0,
+        duration: 0.6,
+        ease: "power2.in",
+      }, 0);
 
-      }, containerRef);
-    }
+    }, containerRef);
 
     
-    init();
     return () => {
-      ctx?.revert();
+      ctx.revert();
       window.removeEventListener('resize', checkMobile);
     };
   }, [isMobile]);
