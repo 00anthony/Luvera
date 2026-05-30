@@ -21,6 +21,7 @@ const Footer: React.FC = () => {
               />
               <a 
                 href='/coming-soon'
+                aria-label='Join Luvera Newsletter'
                 className="bg-white text-black w-14 h-14 rounded-full flex items-center justify-center hover:bg-violet-600 hover:text-white  cursor-pointer transition-all group"
                 
               >
@@ -53,6 +54,7 @@ const Footer: React.FC = () => {
                   href='https://www.instagram.com/luvera.skincare/'
                   target='_blank'
                   rel="noopener noreferrer"
+                  aria-label='instagram'
                   className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:border-purple-500 hover:text-purple-400 transition-all"
                 >
                   <Instagram className="w-4 h-4" />
@@ -73,12 +75,12 @@ const Footer: React.FC = () => {
 
         <div className="flex flex-col md:flex-row items-center justify-between pt-12 border-t border-white/5">
           <span className="text-2xl font-serif mb-6 md:mb-0">Luvera</span>
-          <p className="text-[10px] text-gray-500 uppercase tracking-widest">
+          <p className="text-[10px] text-gray-400 uppercase tracking-widest">
             © 2024 Luvera Skincare Inc. All rights reserved.
           </p>
           <div className="flex space-x-6 mt-6 md:mt-0">
-            <a href="/coming-soon" className="text-[10px] text-gray-500 uppercase tracking-widest hover:text-white transition-colors">Privacy Policy</a>
-            <a href="/coming-soon" className="text-[10px] text-gray-500 uppercase tracking-widest hover:text-white transition-colors">Terms of Service</a>
+            <a href="/coming-soon" className="text-[10px] text-gray-400 uppercase tracking-widest hover:text-white transition-colors">Privacy Policy</a>
+            <a href="/coming-soon" className="text-[10px] text-gray-400 uppercase tracking-widest hover:text-white transition-colors">Terms of Service</a>
           </div>
         </div>
       </div>
