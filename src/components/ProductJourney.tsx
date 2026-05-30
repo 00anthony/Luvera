@@ -1,12 +1,8 @@
 'use client'
 import React, { useRef, useEffect, useState } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { INGREDIENTS, BENEFITS } from '../constants';
 import { ShoppingCart } from 'lucide-react';
 import Image from 'next/image';
-
-gsap.registerPlugin(ScrollTrigger);
 
 const TUB_LID_URL = "/hero/tub-lid2.webp";
 const TUB_BASE_URL = "/hero/tub-base2.webp";
@@ -258,7 +254,7 @@ const ProductJourney: React.FC = () => {
                   <p
                     className="uppercase mb-1.5"
                     style={{
-                      fontFamily: "'Tenor Sans', sans-serif",
+                      fontFamily: "var(--font-tenor), sans-serif",
                       fontSize: isMobile ? '6px' : '8px',
                       letterSpacing: '0.22em',
                       color: 'rgba(255,255,255,0.3)',
@@ -268,7 +264,7 @@ const ProductJourney: React.FC = () => {
                   </p>
                   <h4
                     style={{
-                      fontFamily: "'Cormorant Garamond', serif",
+                      fontFamily: "var(--font-cormorant), serif",
                       fontSize: isMobile ? '17px' : '22px',
                       fontWeight: 300,
                       color: '#f0ece6',
@@ -284,7 +280,7 @@ const ProductJourney: React.FC = () => {
                 <div
                   className="absolute bottom-0 right-2 pointer-events-none select-none leading-none"
                   style={{
-                    fontFamily: "'Cormorant Garamond', serif",
+                    fontFamily: "var(--font-cormorant), serif",
                     fontSize: isMobile ? '64px' : '96px',
                     fontWeight: 300,
                     color: 'rgba(255,255,255,0.04)',
@@ -304,7 +300,7 @@ const ProductJourney: React.FC = () => {
                 <p
                   className="m-0"
                   style={{
-                    fontFamily: "'Cormorant Garamond', serif",
+                    fontFamily: "var(--font-cormorant), serif",
                     fontSize: isMobile ? '12px' : '15px',
                     fontStyle: 'italic',
                     fontWeight: 300,
@@ -321,7 +317,7 @@ const ProductJourney: React.FC = () => {
                     borderRadius: '100px',
                     border: '0.5px solid rgba(255,255,255,0.12)',
                     background: 'rgba(255,255,255,0.04)',
-                    fontFamily: "'Tenor Sans', sans-serif",
+                    fontFamily: "var(--font-tenor), sans-serif",
                     fontSize: isMobile ? '7px' : '9px',
                     letterSpacing: '0.18em',
                     textTransform: 'uppercase',
@@ -337,7 +333,7 @@ const ProductJourney: React.FC = () => {
 
         <div className="benefits-overlay absolute inset-0 z-50 pointer-events-none">
           {/* Dark overlay for the whole section */}
-          <div className="absolute inset-0 bg-black/50 backdrop-blur-md" />
+          <div className={`absolute inset-0 bg-black/50 ${isMobile ? '' : 'backdrop-blur-md'}`} />
           <div className="absolute inset-0 bg-linear-to-t from-black via-black/80 to-transparent" />
 
           {/* Image — desktop only, right side, slightly transparent */}
@@ -413,6 +409,7 @@ const ProductJourney: React.FC = () => {
                 width={700}
                 height={700}
                 fetchPriority="high"
+                loading='eager'
                 style={{
                   width: isMobile ? LID_WIDTH_MOBILE : LID_WIDTH_DESKTOP,
                   maxWidth: "none",
@@ -429,6 +426,7 @@ const ProductJourney: React.FC = () => {
                 width={700}
                 height={700}
                 fetchPriority="high"
+                loading='eager'
                 style={{
                   width: isMobile ? BASE_WIDTH_MOBILE : BASE_WIDTH_DESKTOP,
                   maxWidth: "none",
@@ -480,7 +478,7 @@ const ProductJourney: React.FC = () => {
                 <span
                   className="text-white/35"
                   style={{
-                    fontFamily: "'Cormorant Garamond', serif",
+                    fontFamily: "var(--font-cormorant), serif",
                     fontSize: '11px',
                     fontWeight: 300,
                     letterSpacing: '0.1em',
@@ -494,21 +492,21 @@ const ProductJourney: React.FC = () => {
 
               {/* Text content */}
               <div className="ml-20 flex-1 flex flex-col justify-center gap-2 px-4 py-5 relative z-10">
-                <p style={{ fontFamily: "'Tenor Sans', sans-serif", fontSize: '7.5px', letterSpacing: '0.24em', color: 'rgba(255,255,255,0.25)', textTransform: 'uppercase' }}>
+                <p style={{ fontFamily: "var(--font-tenor), sans-serif", fontSize: '7.5px', letterSpacing: '0.24em', color: 'rgba(255,255,255,0.25)', textTransform: 'uppercase' }}>
                   Luvera Certified
                 </p>
-                <h3 className="m-0" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: isMobile ? '20px' : '26px', fontWeight: 300, color: '#f0ece6', lineHeight: 1.05 }}>
+                <h3 className="m-0" style={{ fontFamily: "var(--font-cormorant), serif", fontSize: isMobile ? '20px' : '26px', fontWeight: 300, color: '#f0ece6', lineHeight: 1.05 }}>
                   {benefit.title}
                 </h3>
                 <div style={{ height: '0.5px', background: 'linear-gradient(to right, rgba(255,255,255,0.12), transparent)' }} />
-                <p className="m-0" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: isMobile ? '11px' : '13.5px', fontStyle: 'italic', fontWeight: 300, color: 'rgba(240,236,230,0.5)', lineHeight: 1.6 }}>
+                <p className="m-0" style={{ fontFamily: "var(--font-cormorant), serif", fontSize: isMobile ? '11px' : '13.5px', fontStyle: 'italic', fontWeight: 300, color: 'rgba(240,236,230,0.5)', lineHeight: 1.6 }}>
                   {benefit.desc}
                 </p>
               </div>
 
               {/* Ghost number */}
               <div className="absolute right-4 bottom-0 pointer-events-none select-none leading-none z-10"
-                style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '88px', fontWeight: 300, color: 'rgba(255,255,255,0.03)' }}>
+                style={{ fontFamily: "var(--font-cormorant), serif", fontSize: '88px', fontWeight: 300, color: 'rgba(255,255,255,0.03)' }}>
                 {String(i + 1).padStart(2, '0')}
               </div>
             </div>
@@ -538,7 +536,7 @@ const ProductJourney: React.FC = () => {
             }}
           >
             <span style={{
-              fontFamily: "'Tenor Sans', sans-serif",
+              fontFamily: "var(--font-tenor), sans-serif",
               fontSize: '8px',
               letterSpacing: '0.35em',
               textTransform: 'uppercase' as const,
