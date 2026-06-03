@@ -196,6 +196,7 @@ const ProductJourney: React.FC = () => {
             alt="aloe-plant"
             fill
             fetchPriority='high'
+            loading='eager'
             sizes='50vw'
             className="h-full w-full object-cover object-right   overflow-visible" 
 
@@ -208,6 +209,7 @@ const ProductJourney: React.FC = () => {
             alt="aloe-plant"
             fill
             fetchPriority='high'
+            loading='eager'
             sizes='50vw'
             className="h-full w-full object-cover object-left  overflow-visible" 
    
@@ -500,11 +502,11 @@ const ProductJourney: React.FC = () => {
                 <p style={{ fontSize: '7.5px', letterSpacing: '0.36em', color: 'rgba(255,255,255,0.25)', textTransform: 'uppercase' }}>
                   Luvera Certified
                 </p>
-                <h3 className="m-0 font-serif" style={{ fontSize: isMobile ? '20px' : '26px', fontWeight: 100, color: '#f0ece6', lineHeight: 1.05 }}>
+                <h3 className="m-0 font-serif italic" style={{ fontSize: isMobile ? '20px' : '26px', fontWeight: 100, color: '#f0ece6', lineHeight: 1.05 }}>
                   {benefit.title}
                 </h3>
                 <div style={{ height: '0.5px', background: 'linear-gradient(to right, rgba(255,255,255,0.12), transparent)' }} />
-                <p className="m-0 font-serif" style={{ fontSize: isMobile ? '11px' : '13.5px', fontStyle: 'italic', fontWeight: 300, color: 'rgba(240,236,230,0.5)', lineHeight: 1.6 }}>
+                <p className="m-0 font-serif" style={{ fontSize: isMobile ? '11px' : '13.5px', fontStyle: '', fontWeight: 300, color: 'rgba(240,236,230,0.5)', lineHeight: 1.6 }}>
                   {benefit.desc}
                 </p>
               </div>
