@@ -353,7 +353,7 @@ const ProductJourney: React.FC = () => {
         </div>
 
         {/* Tub + Product Info wrapper — keeps them coupled for desktop layout */}
-        <div className="relative z-50 flex flex-col items-center">
+        <div className="relative z-55 flex flex-col items-center">
 
           {/* Product Info */}
           <div className={`
@@ -363,11 +363,6 @@ const ProductJourney: React.FC = () => {
               : 'left-5/6 top-1/2 -translate-y-1/2 -ml-8 mt-3 w-55 flex flex-col items-start '
             }
           `}>
-            {/* Full-container click target */}
-            <div
-              onClick={() => window.location.href = `/products/${PRODUCT.handle}`}
-              className="absolute inset-0 z-0 cursor-pointer"
-            />
 
             <a 
             href={`/products/${PRODUCT.handle}`}
@@ -394,13 +389,13 @@ const ProductJourney: React.FC = () => {
 
             <div className="h-px bg-white/10 mb-1 md:mb-6 w-full pointer-events-none relative z-10" />
 
-            <button
-              onClick={handleAddToCart}
-              className="relative z-20 w-full md:px-6 py-1 md:py-3 rounded-full bg-white text-black text-xs font-black uppercase tracking-widest hover:bg-violet-40 shadow-[0_20px_60px_rgba(139,92,246,0.3)] transition-all duration-300 flex items-center justify-center cursor-pointer"
+            <a
+              href={CHECKOUT_URL}
+              className="relative z-55 w-full md:px-6 py-1 md:py-3 rounded-full bg-white hover:bg-violet-400 text-black text-xs font-black uppercase tracking-widest hover:bg-violet-40 md:shadow-[0_20px_60px_rgba(139,92,246,0.3)] transition-all duration-300 flex items-center justify-center cursor-pointer"
             >
               <ShoppingCart />
               <span className="hidden md:ml-2 md:inline text-nowrap">Add to Cart</span>
-            </button>
+            </a>
           </div>
 
           {/* Tub Container */}
