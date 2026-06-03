@@ -53,21 +53,23 @@ const ProductJourney: React.FC = () => {
           scrub: 1.5,
           pin: true,
           anticipatePin: 1,
-          invalidateOnRefresh: true,  // recalculates only on resize, not every frame
-          fastScrollEnd: true, 
-        }
+          invalidateOnRefresh: true,
+          fastScrollEnd: true,
+          onLeave: () => {
+            gsap.set(['.tub-lid', '.tub-base'], { willChange: 'auto' });
+          },
+        },
       });
 
       gsap.set(".vegetation-left", { xPercent: 0, rotate: 0, scale: 1, opacity: 1 });
       gsap.set(".vegetation-right", { xPercent: 0, rotate: 0, scale: 1, opacity: 1 });
       gsap.set(".hero-bg-text", { opacity: 0.4, scale: 1 });
-      gsap.set(".tub-lid", { y: -800 });
-      gsap.set(".tub-base", { y: 1400 });
+      gsap.set(".tub-lid", { y: isMobile ? -500 : -800 });
+      gsap.set(".tub-base", { y: isMobile ? 700 : 1400 });
+      gsap.set(".product-info", { opacity: 0, y: isMobile ? -500 : -800 });
       gsap.set(".ingredient-card", { opacity: 0, scale: 0.3, x: 0, y: 0 });
       gsap.set(".benefits-overlay", { yPercent: 100 });
       gsap.set(".benefit-item", { opacity: 0, x: -50 });
-      gsap.set(".hand-reveal", { opacity: 0, y: 150 });
-      gsap.set(".product-info", { opacity: 0, y: -800 });
       gsap.set(swipePromptRef.current, { y: 0, opacity: 1 });
 
       const exitDistance = isMobile ? 0 : 0;
@@ -405,7 +407,7 @@ const ProductJourney: React.FC = () => {
           <div className="tub-container w-150 flex flex-col items-center">
             <div 
               className="tub-lid z-20 overflow-visible flex justify-center"
-              style={{ transform: 'translateY(-800px)', willChange: 'transform' }}
+              style={{ transform: isMobile ? 'translateY(-500px) translateZ(0)' : 'translateY(-800px) translateZ(0)', willChange: 'transform' }}
             >
               <Image
                 src={TUB_LID_URL}
@@ -420,12 +422,12 @@ const ProductJourney: React.FC = () => {
                   transform: `scale(${LID_SCALE}) translateY(50%)`,
                   transformOrigin: "center bottom",
                 }}
-                className="h-auto object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.8)]"
+                className={`h-auto object-contain ${!isMobile ? 'drop-shadow-[0_20px_40px_rgba(0,0,0,0.8)]' : ''}`}
               />
             </div>
             <div 
               className="tub-base z-10 relative flex justify-center"
-              style={{ transform: 'translateY(1400px)', willChange: 'transform' }}
+              style={{ transform: isMobile ? 'translateY(700px) translateZ(0)' : 'translateY(1400px) translateZ(0)', willChange: 'transform' }}
             >
               <Image
                 src={TUB_BASE_URL}
@@ -440,7 +442,7 @@ const ProductJourney: React.FC = () => {
                   transform: `scale(${BASE_SCALE}) translateY(-51%)`,
                   transformOrigin: "center top",
                 }}
-                className="h-auto object-contain drop-shadow-[0_40px_100px_rgba(0,0,0,1)]"
+                className={`h-auto object-contain ${!isMobile ? 'drop-shadow-[0_40px_100px_rgba(0,0,0,1)]' : ''}`}
               />
             </div>
           </div>
