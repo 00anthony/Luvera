@@ -448,7 +448,7 @@ const ProductJourney: React.FC = () => {
           </div>
         </div>
 
-        <div className={`absolute z-50 ${isMobile ? 'bottom-[5%] left-0 right-0 px-6 space-y-3' : 'left-[8%] top-1/2 -translate-y-1/2 max-w-xl space-y-3.5'}`}>
+        <div className={`absolute z-50 ${isMobile ? 'bottom-[2%] left-0 right-0 px-6 space-y-3' : 'left-[8%] top-1/2 -translate-y-1/2 max-w-xl space-y-3.5'}`}>
           {BENEFITS.map((benefit, i) => (
             <div
               key={i}
