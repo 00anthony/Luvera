@@ -45,8 +45,18 @@ export default function RootLayout({
     <html lang="en">
       <head>
         {/* Preload hero images — tells browser to fetch these before JS runs */}
-        <link rel="preload" as="image" href="/hero/aloe-plant-blackbg-left.webp" fetchPriority="high" />
-        <link rel="preload" as="image" href="/hero/aloe-plant-blackbg-right.webp" fetchPriority="high" />
+        <link 
+          rel="preload" 
+          as="image" 
+          href="/_next/image?url=%2Fhero%2Faloe-plant-blackbg-left.webp&w=828&q=75"
+          fetchPriority="high" 
+        />
+        <link 
+          rel="preload" 
+          as="image" 
+          href="/_next/image?url=%2Fhero%2Faloe-plant-blackbg-right.webp&w=828&q=75"
+          fetchPriority="high"
+        />
       </head>
       <body className={` antialiased`}>
         <Navbar />
