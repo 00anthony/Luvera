@@ -1,4 +1,5 @@
 import React from 'react';
+import Hero from '@/components/hero';
 import ProductJourney from '../components/ProductJourney';
 import LazyCreators from '@/components/LazyCreators'
 import LoadingScreen from '@/components/Loadingscreen';
@@ -16,8 +17,7 @@ const App: React.FC = () => {
       <LoadingScreen />
       <main>
         {/* The Core Experience */}
-        <ProductJourney />
-        
+        <Hero />
         <LazyCreators />
 
         <FAQ />
