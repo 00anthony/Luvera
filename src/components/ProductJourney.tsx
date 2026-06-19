@@ -24,6 +24,7 @@ const ProductJourney: React.FC = () => {
   const triggerRef = useRef<HTMLDivElement>(null);
   const swipePromptRef = useRef<HTMLDivElement>(null);
   const [isMobile, setIsMobile] = useState(false);
+
   const PRODUCT = {
     title: "Luvera Men's Daily Moisturizer",
     handle: "luvera-mens-daily-moisturizer",
@@ -40,11 +41,14 @@ const ProductJourney: React.FC = () => {
   
 
   useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 1024);
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 1024);
+    };
     checkMobile();
     window.addEventListener('resize', checkMobile);
 
     const ctx = gsap.context(() => {
+      const isLargeDesktop = window.innerWidth >= 1600;
       const timeline = gsap.timeline({
         scrollTrigger: {
           trigger: triggerRef.current,
@@ -66,7 +70,12 @@ const ProductJourney: React.FC = () => {
       gsap.set(".hero-bg-text", { opacity: 0.4, scale: 1 });
       gsap.set(".tub-lid", { y: isMobile ? -500 : -800 });
       gsap.set(".tub-base", { y: isMobile ? 700 : 1400 });
-      gsap.set(".product-info", { opacity: 0, y: isMobile ? -500 : -800 });
+      gsap.set(".product-info", { 
+        opacity: 0, 
+        y: isMobile ? -500 : -800, 
+        x: isMobile ? "0" : isLargeDesktop ? "-1vw" : "-4vw",  // push closer to tub on smaller desktop screens
+
+      });
       gsap.set(".ingredient-card", { opacity: 0, scale: 0.3, x: 0, y: 0 });
       gsap.set(".benefits-overlay", { yPercent: 100 });
       gsap.set(".benefit-item", { opacity: 0, x: -50 });
@@ -83,7 +92,13 @@ const ProductJourney: React.FC = () => {
 
         .to(".tub-lid", { y: isMobile ? -223 : 21, duration: 2, ease: "power2.out" }, 0)
         .to(".tub-base", { y: isMobile ? -220 : 28, duration: 2, ease: "power2.out" }, 0)
-        .to(".product-info", { opacity: 1, y: isMobile ? -142: 28, duration: 2, ease: "power2.out"}, 0)
+        .to(".product-info", { 
+          opacity: 1, 
+          y: isMobile ? -142: 28, 
+          x: isMobile ? "0vw" : isLargeDesktop ? "-1vw" : "-4vw",  // push further right on small desktop
+          duration: 2, 
+          ease: "power2.out"
+        }, 0)
         .to(".tub-lid", { x: isMobile ? 0 : -20, duration: 2, ease: "power2.out" }, 0)
         .to(".tub-base", { x: isMobile ? 0 : -20, duration: 2, ease: "power2.out" }, 0)
 
@@ -128,16 +143,16 @@ const ProductJourney: React.FC = () => {
       timeline
         .to(".product-info", {
           opacity: isMobile ? 1 : 1,
-          x: isMobile ? "-16vw" : "21vw",
-          y: isMobile ? "-29vh" : "19vh",
+          x: isMobile ? "-16vw" : isLargeDesktop ? "21vw" : "19vw",  // push further right on small desktop
+          y: isMobile ? "-29vh" : isLargeDesktop ? "19vh" : "12vh",  // nudge down slightly on small desktop
           scale: isMobile ? 0.45 : 0.85,
           duration: 2,
           ease: "power3.inOut"
         }, ">-0.1")
         .to(".benefits-overlay", { yPercent: 0, duration: 2, ease: "power3.inOut" }, "<")
         .to(".tub-container", {
-          x: isMobile ? 0 : "25vw",
-          y: isMobile ? "-26vh" : "17vh",
+          x: isMobile ? 0 : isLargeDesktop ? "25vw" : "26vw",        // shift right to match product-info
+          y: isMobile ? "-26vh" : isLargeDesktop ? "17vh" : "10vh",  // drop it slightly lower onto the pedestal
           scale: isMobile ? 0.45 : 0.85,
           duration: 2,
           ease: "power3.inOut"
