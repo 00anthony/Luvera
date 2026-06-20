@@ -163,6 +163,7 @@ export default function Hero() {
       `}</style>
 
       <section
+        id="hero"
         className="relative w-full overflow-hidden bg-[#0A0A0A]"
         style={{ height: "100svh", minHeight: 560 }}
         aria-label="Luvera hero carousel"
