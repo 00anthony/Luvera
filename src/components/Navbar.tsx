@@ -10,8 +10,8 @@ const CART_URL = 'https://checkout.useluvera.com/cart'
 const NAV_LINKS = [
   { href: '/',          label: 'Home'      },
   { href: '/products/luvera-mens-daily-moisturizer',          label: 'Shop'      },
-  { href: '/products/luvera-mens-daily-moisturizer#science',  label: 'Science'   },
-  { href: '/products/luvera-mens-daily-moisturizer#story',    label: 'Story'     },
+  { href: '/#science',  label: 'Science'   },
+  { href: '/products/luvera-mens-daily-moisturizer#story',    label: 'About Us'     },
 ]
 
 // ─── Mobile overlay ───────────────────────────────────────────────────────────
