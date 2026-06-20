@@ -11,7 +11,7 @@ export default function ProductCTA() {
   const variant = VARIANTS.find(v => v.id === activeVariant)!
 
   return (
-    <section id='product-cta' className="py-28 bg-black relative overflow-hidden">
+    <section id='product-cta' className="py-28 bg-black relative overflow-hidden border-b border-b-purple-300/40 before:absolute before:top-0 before:bottom-0 before:right-80 before:w-px before:bg-purple-300/40">
 
       {/* Background image */}
       <div className="absolute inset-0 z-0">

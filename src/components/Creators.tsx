@@ -298,7 +298,7 @@ const Creators: React.FC = () => {
 
   return (
     <>
-      <section id='creators' className="py-24 bg-black overflow-hidden">
+      <section id='creators' className="py-24 bg-black overflow-hidden border-b border-b-purple-300/40 relative before:absolute before:top-0 before:bottom-0 before:right-18 xl:before:right-20 2xl:before:right-76 before:w-px before:bg-purple-300/40">
         <div className="max-w-7xl mx-auto px-6">
 
           {/* Header */}

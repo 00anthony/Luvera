@@ -106,7 +106,7 @@ export default function Ingredients() {
   const [openIdx, setOpenIdx] = useState<number | null>(0)
 
   return (
-    <section id="science" className="py-24 bg-zinc-950">
+    <section id="science" className="py-24 bg-zinc-950 border-b border-b-purple-300/40 relative before:absolute before:top-0 before:bottom-0 before:left-4 xl:before:left-20 2xl:before:left-80 before:w-px before:bg-purple-300/40">
       <div className="max-w-7xl mx-auto px-6">
 
         {/* ── Header ─────────────────────────────────────────────────── */}
@@ -142,7 +142,7 @@ export default function Ingredients() {
         </motion.div>
 
         {/* ── Main grid: [accordion | image] on desktop ──────────────── */}
-        <div className="grid lg:grid-cols-2 gap-0 lg:gap-16 items-start">
+        <div className="grid lg:grid-cols-2 gap-0 lg:gap-16 items-start ">
 
           {/* Left: accordion */}
           <motion.div
@@ -185,7 +185,7 @@ export default function Ingredients() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, delay: 0.1 }}
-          className="mt-12 grid sm:grid-cols-2 gap-4"
+          className="mt-12 pt-8 grid sm:grid-cols-2 gap-4 relative before:absolute before:top-0 before:-left-2 xl:before:-left-7 2xl:before:-left-5 before:-right-4 xl:before:-right-24 2xl:before:-right-80 before:h-px before:bg-purple-300/40"
         >
           {/* What's in */}
           <div className="rounded-[1.5rem] border border-purple-500/15 bg-purple-500/5 p-6">

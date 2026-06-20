@@ -38,7 +38,7 @@ export default function ProductHero() {
   const next = () => setActiveMedia(i => (i + 1) % MEDIA.length)
 
   return (
-    <section id='product-hero' className="min-h-screen bg-black pt-24 pb-20">
+    <section id='product-hero' className="min-h-screen bg-black pt-24 pb-20 border-b border-b-purple-300/40 relative before:absolute before:top-0 before:bottom-0 before:left-2 xl:before:left-20 2xl:before:left-80 before:w-px before:bg-purple-300/40">
       <div className="max-w-7xl mx-auto px-2 md:px-6">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
 

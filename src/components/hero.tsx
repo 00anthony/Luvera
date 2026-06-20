@@ -164,7 +164,7 @@ export default function Hero() {
 
       <section
         id="hero"
-        className="relative w-full overflow-hidden bg-[#0A0A0A]"
+        className="relative w-full overflow-hidden bg-[#0A0A0A] border-b border-b-purple-300/40"
         style={{ height: "100svh", minHeight: 560 }}
         aria-label="Luvera hero carousel"
         onTouchStart={handleTouchStart}

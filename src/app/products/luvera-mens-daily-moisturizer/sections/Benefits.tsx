@@ -17,7 +17,7 @@ export default function Benefits() {
   }, []);
 
   return (
-    <section id='benefits' className="py-24 bg-black">
+    <section id='benefits' className="py-24 bg-black border-b border-b-purple-300/40 relative before:absolute before:top-0 before:bottom-0 before:right-10 xl:before:right-36 2xl:before:right-80 before:w-px before:bg-purple-300/40">
       <div className="max-w-7xl mx-auto px-6">
 
         {/* Header */}

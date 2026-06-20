@@ -158,7 +158,7 @@ const FAQ: React.FC = () => {
   const colRight = FAQS.slice(half);
 
   return (
-    <section id='faq' className="py-24 bg-black">
+    <section id='faq' className="py-24 bg-black border-b border-b-purple-300/40 relative before:absolute before:top-0 before:bottom-0 before:left-4 xl:before:left-20 2xl:before:left-80 before:w-px before:bg-purple-300/40">
       <div className="max-w-7xl mx-auto px-6">
 
         {/* Header */}
