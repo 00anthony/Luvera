@@ -3,6 +3,7 @@
 import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Plus, CheckCircle2, XCircle } from 'lucide-react'
+import Image from 'next/image'
 
 const KEY_INGREDIENTS = [
   {
@@ -37,8 +38,8 @@ const KEY_INGREDIENTS = [
   },
 ]
 
-const CLEAN_LIST  = ['Fragrance-free', 'Paraben-free', 'Silicone-free', 'Alcohol-free', 'Cruelty-free', 'Dermatologist tested']
-const NO_GO_LIST  = ['Synthetic fragrance', 'Parabens', 'Sulfates', 'Phthalates', 'Mineral oil', 'Artificial dyes']
+const CLEAN_LIST = ['Fragrance-free', 'Paraben-free', 'Silicone-free', 'Alcohol-free', 'Cruelty-free', 'Dermatologist tested']
+const NO_GO_LIST = ['Synthetic fragrance', 'Parabens', 'Sulfates', 'Phthalates', 'Mineral oil', 'Artificial dyes']
 
 function IngredientRow({ item, isOpen, onToggle }: {
   item: typeof KEY_INGREDIENTS[number]
@@ -67,8 +68,7 @@ function IngredientRow({ item, isOpen, onToggle }: {
           </div>
         </div>
         <span
-          className="shrink-0 w-7 h-7 rounded-full border flex items-center justify-center
-                     transition-all duration-300"
+          className="shrink-0 w-7 h-7 rounded-full border flex items-center justify-center transition-all duration-300"
           style={{
             borderColor:     isOpen ? 'rgb(168 85 247 / 0.5)' : 'rgba(255,255,255,0.1)',
             backgroundColor: isOpen ? 'rgb(168 85 247 / 0.08)' : 'transparent',
@@ -109,13 +109,13 @@ export default function Ingredients() {
     <section id="science" className="py-24 bg-zinc-950">
       <div className="max-w-7xl mx-auto px-6">
 
-        {/* Header */}
+        {/* ── Header ─────────────────────────────────────────────────── */}
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="mb-16"
+          className="mb-10 md:mb-16"
         >
           <span className="text-purple-500 text-sm font-bold tracking-[0.4em] uppercase">
             What's inside
@@ -125,9 +125,26 @@ export default function Ingredients() {
           </h2>
         </motion.div>
 
-        <div className="grid lg:grid-cols-[1fr_380px] gap-12 lg:gap-20">
+        {/* ── Mobile-only: hero image between header and accordion ──── */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          className="block lg:hidden mb-10 rounded-2xl overflow-hidden"
+          style={{ aspectRatio: '4 / 3' }}
+        >
+          <img
+            src="/ingredients/ingredients.png" // ← replace with your image
+            alt="Luvera ingredients"
+            className="w-full h-full object-cover"
+          />
+        </motion.div>
 
-          {/* Ingredient accordion */}
+        {/* ── Main grid: [accordion | image] on desktop ──────────────── */}
+        <div className="grid lg:grid-cols-2 gap-0 lg:gap-16 items-start">
+
+          {/* Left: accordion */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -144,45 +161,63 @@ export default function Ingredients() {
             ))}
           </motion.div>
 
-          {/* Clean / no-go sidebar */}
+          {/* Right: image — desktop only (hidden on mobile, shown above accordion instead) */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
+            initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            className="space-y-6"
+            transition={{ duration: 0.7, delay: 0.15 }}
+            className="hidden lg:block sticky top-16 rounded-2xl overflow-hidden"
           >
-            {/* What's in */}
-            <div className="rounded-[1.5rem] border border-purple-500/15 bg-purple-500/5 p-6">
-              <p className="text-purple-500 text-xs font-black tracking-[0.3em] uppercase mb-4">
-                What's in it
-              </p>
-              <ul className="space-y-3">
-                {CLEAN_LIST.map(item => (
-                  <li key={item} className="flex items-center gap-3 text-white/70 text-sm">
-                    <CheckCircle2 className="w-4 h-4 text-purple-500 shrink-0" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* What's not */}
-            <div className="rounded-[1.5rem] border border-white/[0.06] bg-white/[0.02] p-6">
-              <p className="text-white/30 text-xs font-black tracking-[0.3em] uppercase mb-4">
-                Never in our formula
-              </p>
-              <ul className="space-y-3">
-                {NO_GO_LIST.map(item => (
-                  <li key={item} className="flex items-center gap-3 text-white/30 text-sm">
-                    <XCircle className="w-4 h-4 text-white/20 shrink-0" />
-                    <span className="line-through decoration-white/20">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            <Image
+              src="/ingredients/ingredients.png" // ← replace with your image
+              alt="Luvera ingredients"
+              height={540}
+              width={584}
+              className="w-full object-cover"
+            />
           </motion.div>
         </div>
+
+        {/* ── Clean / no-go row — below accordion on desktop ─────────── */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, delay: 0.1 }}
+          className="mt-12 grid sm:grid-cols-2 gap-4"
+        >
+          {/* What's in */}
+          <div className="rounded-[1.5rem] border border-purple-500/15 bg-purple-500/5 p-6">
+            <p className="text-purple-500 text-xs font-black tracking-[0.3em] uppercase mb-4">
+              What's in it
+            </p>
+            <ul className="grid grid-cols-2 gap-x-6 gap-y-3">
+              {CLEAN_LIST.map(item => (
+                <li key={item} className="flex items-center gap-3 text-white/70 text-sm">
+                  <CheckCircle2 className="w-4 h-4 text-purple-500 shrink-0" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* What's not */}
+          <div className="rounded-[1.5rem] border border-white/[0.06] bg-white/[0.02] p-6">
+            <p className="text-white/30 text-xs font-black tracking-[0.3em] uppercase mb-4">
+              Never in our formula
+            </p>
+            <ul className="grid grid-cols-2 gap-x-6 gap-y-3">
+              {NO_GO_LIST.map(item => (
+                <li key={item} className="flex items-center gap-3 text-white/30 text-sm">
+                  <XCircle className="w-4 h-4 text-white/20 shrink-0" />
+                  <span className="line-through decoration-white/20">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </motion.div>
+
       </div>
     </section>
   )

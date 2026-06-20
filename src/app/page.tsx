@@ -5,6 +5,9 @@ import LazyCreators from '@/components/LazyCreators'
 import LoadingScreen from '@/components/Loadingscreen';
 import FAQ from '@/components/Faq';
 import ProductCTA from './products/luvera-mens-daily-moisturizer/sections/Productcta';
+import Ingredients from './products/luvera-mens-daily-moisturizer/sections/Ingredients';
+import ProductHero from './products/luvera-mens-daily-moisturizer/sections/ProductHero';
+import Benefits from './products/luvera-mens-daily-moisturizer/sections/Benefits';
 
 //import DiscountPopup from '../components/DiscountPopup';
 //import AIConcierge from '../components/AIConcierge';
@@ -18,7 +21,10 @@ const App: React.FC = () => {
       <main>
         {/* The Core Experience */}
         <Hero />
+        <ProductHero />
         <LazyCreators />
+        <Ingredients />
+        <Benefits />
 
         <FAQ />
 
