@@ -2,25 +2,39 @@
 
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 import { ChevronRight, Shield, Truck, RotateCcw, Star } from 'lucide-react'
 import { VARIANTS, type VariantId } from '../constants'
-import { useCheckout } from '../hooks/Usecheckout'
 
 export default function ProductCTA() {
   const [activeVariant, setActiveVariant] = useState<VariantId>('trio')
-  const { loading, error, checkout }      = useCheckout()
   const variant = VARIANTS.find(v => v.id === activeVariant)!
 
   return (
     <section className="py-28 bg-black relative overflow-hidden">
 
-      {/* Background glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px]
-                      bg-purple-500/5 blur-[120px] rounded-full pointer-events-none" />
-      <div className="absolute bottom-0 right-0 w-[400px] h-[400px]
-                      bg-purple-400/5 blur-[100px] rounded-full pointer-events-none" />
+      {/* Background image */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/cta/old-hero-bg.png" // ← replace with your image
+          alt="cta-background"
+          fill
+          sizes="100vw"
+          className="object-cover object-center"
+          priority
+        />
+        {/* Dark overlay — adjust opacity to taste */}
+        <div className="absolute inset-0 bg-black/70" />
+      </div>
 
-      <div className="relative max-w-3xl mx-auto px-6 text-center">
+      {/* Subtle purple glows — sit above image, below content */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px]
+                      bg-purple-500/10 blur-[120px] rounded-full pointer-events-none z-10" />
+      <div className="absolute bottom-0 right-0 w-[400px] h-[400px]
+                      bg-purple-400/8 blur-[100px] rounded-full pointer-events-none z-10" />
+
+      {/* All content sits above everything */}
+      <div className="relative z-20 max-w-3xl mx-auto px-6 text-center">
 
         {/* Rating */}
         <motion.div
@@ -68,8 +82,8 @@ export default function ProductCTA() {
               onClick={() => setActiveVariant(v.id)}
               className={`relative rounded-2xl border-2 p-5 transition-all duration-200 ${
                 activeVariant === v.id
-                  ? 'border-purple-500 bg-purple-500/5'
-                  : 'border-white/8 bg-white/[0.02] hover:border-white/20'
+                  ? 'border-purple-500 bg-purple-500/10 backdrop-blur-sm'
+                  : 'border-white/8 bg-black/40 backdrop-blur-sm hover:border-white/20'
               }`}
             >
               {v.badge && (
@@ -124,13 +138,13 @@ export default function ProductCTA() {
           <p className="text-white/25 text-xs tracking-wider text-center">
             Secure checkout via Shopify
           </p>
- 
+
           {/* Trust row */}
           <div className="flex items-center justify-center gap-6 pt-4">
             {[
-              { icon: Truck,      label: 'Free shipping'     },
-              { icon: RotateCcw,  label: '90-day guarantee'  },
-              { icon: Shield,     label: 'Secure checkout'   },
+              { icon: Truck,     label: 'Free shipping'    },
+              { icon: RotateCcw, label: '90-day guarantee' },
+              { icon: Shield,    label: 'Secure checkout'  },
             ].map(({ icon: Icon, label }) => (
               <div key={label} className="flex items-center gap-1.5 text-white/30">
                 <Icon className="w-3.5 h-3.5" />
