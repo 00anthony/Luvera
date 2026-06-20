@@ -19,7 +19,8 @@ const App: React.FC = () => {
     <div className="relative min-h-screen selection:bg-purple-500/30">
       <LoadingScreen />
       <main>
-        {/* The Core Experience */}
+        {/* <ProductJourney /> Old Hero */}
+        
         <Hero />
         <ProductHero />
         <LazyCreators />
